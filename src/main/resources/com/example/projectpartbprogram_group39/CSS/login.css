@@ -1,0 +1,50 @@
+#backgroundFrame {
+    -fx-background-color: black;
+    -fx-border-color: white;
+    -fx-background-radius: 30px;
+    -fx-border-radius:30px;
+}
+
+#usernameField{
+    -fx-background-color: transparent;
+    -fx-border-color:white;
+    -fx-text-fill: white;
+    -fx-border-width: 0px 0px 2px 0px
+}
+
+#passwordField{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color:white;
+    -fx-border-width: 0px 0px 2px 0px
+}
+
+#loginBtn {
+   -fx-background-color:grey;
+   -fx-background-radius: 40px;
+   -fx-transition: 0.5s ease-in-out;
+}
+
+#loginBtn:hover{
+    -fx-background-color:white;
+    -fx-cursor:hand;
+}
+
+
+#signupBtn{
+    -fx-background-color:transparent;
+    -fx-text-fill: white;
+    -fx-underline: true;
+    -fx-transition: 0.5s ease-in-out;
+
+}
+
+#signupBtn:hover{
+    -fx-cursor: hand;
+    -fx-opacity:0.7;
+}
+
+#signupBtn:pressed{
+    -fx-opacity:0.3;
+}
+

@@ -1,0 +1,38 @@
+#signupFrame{
+    -fx-background-color: black;
+    -fx-border-color: white;
+    -fx-background-radius: 30px;
+    -fx-border-radius:30px;
+    -fx-opacity:0.3;
+
+}
+
+#createBtn{
+    -fx-background-color: #161717;
+    -fx-border-color:white;
+    -fx-border-radius:40px;
+    -fx-background-radius: 40px;
+    -fx-cursor:hand;
+}
+
+#backBtn{
+    -fx-background-color: #161717;
+    -fx-border-color:white;
+    -fx-border-radius:40px;
+    -fx-background-radius: 40px;
+    -fx-cursor:hand;
+
+}
+
+#txtUsername,#txtAge,#txtEmail,
+#txtPhoneNo,#txtPassword,#txtPasswordConfirmed{
+    -fx-background-radius:40px;
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-text-fill: white;
+}
+
+#txtHeight,#txtWeight{
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-text-fill: white;
+}
+
