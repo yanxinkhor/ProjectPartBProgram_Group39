@@ -1,5 +1,6 @@
-package com.example.projectpartbprogram_group39.Controllers;
+package com.example.projectpartbprogram_group39.Controllers.Form;
 
+import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 
 public class signupController {
@@ -55,7 +62,7 @@ public class signupController {
         String passwordConfirmed = txtPasswordConfirmed.getText();
 
 
-        if (username.isEmpty() || ageString.isEmpty() ||phoneNoString.isEmpty() || email.isEmpty() || gender.isEmpty() ||
+        if (username.isEmpty() || ageString.isEmpty() || phoneNoString.isEmpty() || email.isEmpty() || gender.isEmpty() ||
                 heightString.isEmpty() || weightString.isEmpty() || password.isEmpty() || passwordConfirmed.isEmpty()) {
             showAlert.alert(Alert.AlertType.ERROR, "Please fill in all the credential");
         }
@@ -65,30 +72,42 @@ public class signupController {
             txtPasswordConfirmed.setText("");
         }
 
-        try{
+        try {
             int age = Integer.parseInt(ageString);
             int phoneNo = Integer.parseInt(phoneNoString);
             double height = Double.parseDouble(heightString);
             double weight = Double.parseDouble(weightString);
 
 
-        }catch(NumberFormatException event){
-            showAlert.alert(Alert.AlertType.ERROR,"please enter a valid credential");
+        } catch (NumberFormatException event) {
+            showAlert.alert(Alert.AlertType.ERROR, "please enter a valid credential");
         }
 
 
     }
 
-//    private boolean userExist(String username, String password){
-//
-//    }
+    private boolean userExist(String username, String email) throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get("userInfo.txt"));
+        for (String line : lines) {
+            Trainee trainee = Trainee.splitString(line);
+            if (trainee.getUsername().equals(username) && trainee.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-   /* private void storeTraineeInfo(Trainee trainee) throws IOException{
+    private void storeTraineeInfo(Trainee trainee) throws IOException {
+        File file = new File("userInfo.txt");
 
-    }*/
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+        writer.write(trainee.toString());
+        writer.newLine();
+        writer.close();
+    }
 
     public void back(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/FXML/login-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/login-view.fxml"));
         Scene loginScene = new Scene(loader.load());
         Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.setScene(loginScene);

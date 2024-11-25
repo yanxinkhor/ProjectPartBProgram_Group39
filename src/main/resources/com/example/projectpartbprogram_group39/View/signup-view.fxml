@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1080.0" stylesheets="@../CSS/signup.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.signupController">
+<AnchorPane prefHeight="700.0" prefWidth="1080.0" stylesheets="@../CSS/signup.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.signupController">
    <children>
-      <ImageView fitHeight="746.0" fitWidth="1104.0" layoutX="-12.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="747.0" fitWidth="1121.0" layoutX="-12.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true" translateX="1.0" translateY="1.0">
          <image>
             <Image url="@../Images/login_Background.jpg" />
          </image>
@@ -31,47 +31,47 @@
                   <Font name="System Bold" size="55.0" />
                </font>
             </Label>
-            <Label layoutX="5.0" layoutY="105.0" text="USERNAME                      :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="105.0">
+            <Label layoutX="5.0" layoutY="105.0" text="USERNAME                       :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="105.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="18.0" layoutY="157.0" text="AGE                                  :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="160.0">
+            <Label layoutX="18.0" layoutY="157.0" text="AGE                                   :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="160.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="222.0" text="GENDER                           :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="222.0">
+            <Label layoutX="20.0" layoutY="222.0" text="GENDER                            :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="222.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="23.0" layoutY="270.0" text="PHONE NO                      :" textFill="WHITE" AnchorPane.leftAnchor="5.333333333333333" AnchorPane.topAnchor="280.0">
+            <Label layoutX="23.0" layoutY="270.0" text="PHONE NO                       :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="280.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="44.0" layoutY="336.0" text="EMAIL                              :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="335.0">
+            <Label layoutX="44.0" layoutY="336.0" text="EMAIL                               :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="335.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="43.0" layoutY="402.0" text="HEIGHT                            :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="395.0">
+            <Label layoutX="43.0" layoutY="402.0" text="HEIGHT                             :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="395.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="461.0" text="WEIGHT                           :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="455.0">
+            <Label layoutX="50.0" layoutY="461.0" text="WEIGHT                            :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="455.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="51.0" layoutY="507.0" text="PASSWORD                     :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="515.0">
+            <Label layoutX="51.0" layoutY="507.0" text="PASSWORD                      :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="515.0">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="43.0" layoutY="550.0" text="CONFIRMED PASSWORD:" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="575.0">
+            <Label layoutX="43.0" layoutY="550.0" text="CONFIRMED PASSWORD :" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="575.0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -86,49 +86,57 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Button>
-            <TextField fx:id="txtUsername" layoutX="301.0" layoutY="104.0" minHeight="30.0" prefHeight="30.0" prefWidth="321.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="110.0">
+            <TextField fx:id="txtUsername" layoutX="300.0" layoutY="104.0" minHeight="30.0" prefHeight="30.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="110.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></TextField>
-            <TextField fx:id="txtAge" layoutX="299.0" layoutY="160.0" minHeight="30.0" prefHeight="30.0" prefWidth="321.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="165.0">
+               </font>
+            </TextField>
+            <TextField fx:id="txtAge" layoutX="300.0" layoutY="160.0" minHeight="30.0" prefHeight="30.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="165.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></TextField>
-            <TextField fx:id="txtPhoneNo" layoutX="319.0" layoutY="180.0" minHeight="30.0" prefHeight="30.0" prefWidth="321.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="285.0">
+               </font>
+            </TextField>
+            <TextField fx:id="txtPhoneNo" layoutX="300.0" layoutY="180.0" minHeight="30.0" prefHeight="30.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="285.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></TextField>
-            <TextField fx:id="txtEmail" layoutX="300.0" layoutY="342.0" minHeight="30.0" prefHeight="30.0" prefWidth="321.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="340.0">
+               </font>
+            </TextField>
+            <TextField fx:id="txtEmail" layoutX="300.0" layoutY="342.0" minHeight="30.0" prefHeight="30.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="340.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></TextField>
-            <TextField fx:id="txtHeight" layoutX="310.0" layoutY="352.0" minHeight="30.0" prefHeight="30.0" prefWidth="278.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="400.0">
+               </font>
+            </TextField>
+            <TextField fx:id="txtHeight" layoutX="301.3333333333333" layoutY="352.0" minHeight="30.0" prefHeight="30.0" prefWidth="290.0" AnchorPane.leftAnchor="301.0" AnchorPane.topAnchor="400.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></TextField>
-            <TextField fx:id="txtWeight" layoutX="320.0" layoutY="362.0" minHeight="30.0" prefHeight="30.0" prefWidth="280.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="460.0">
+               </font>
+            </TextField>
+            <TextField fx:id="txtWeight" layoutX="302.0" layoutY="362.0" minHeight="30.0" prefHeight="30.0" prefWidth="290.0" AnchorPane.leftAnchor="302.0" AnchorPane.topAnchor="460.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></TextField>
-            <PasswordField fx:id="txtPassword" layoutX="329.0" layoutY="521.0" prefHeight="30.0" prefWidth="321.0" AnchorPane.leftAnchor="290.0">
+               </font>
+            </TextField>
+            <PasswordField fx:id="txtPassword" layoutX="299.3333333333333" layoutY="521.0" prefHeight="32.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></PasswordField>
-            <PasswordField fx:id="txtPasswordConfirmed" layoutX="339.0" layoutY="531.0" prefHeight="30.0" prefWidth="321.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="580.0">
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="txtPasswordConfirmed" layoutX="304.0" layoutY="531.0" prefHeight="32.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="580.0">
                <font>
                   <Font name="System Bold" size="15.0" />
-               </font></PasswordField>
-            <TextField editable="false" layoutX="569.0" layoutY="400.0" prefHeight="30.0" prefWidth="40.0" text="CM">
+               </font>
+            </PasswordField>
+            <TextField editable="false" layoutX="594.0" layoutY="400.0" prefHeight="30.0" prefWidth="40.0" text="CM">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField editable="false" layoutX="572.0" layoutY="460.0" prefHeight="30.0" prefWidth="39.0" text="KG">
+            <TextField editable="false" layoutX="594.0" layoutY="459.0" prefHeight="30.0" prefWidth="39.0" text="KG">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <RadioButton fx:id="maleRadioBtn" layoutX="325.0" layoutY="232.0" mnemonicParsing="false" text="Male" textFill="WHITE">
+            <RadioButton fx:id="maleRadioBtn" layoutX="337.0" layoutY="232.0" mnemonicParsing="false" text="MALE" textFill="WHITE" AnchorPane.leftAnchor="337.0" AnchorPane.topAnchor="232.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -136,7 +144,7 @@
                   <ToggleGroup fx:id="Gender" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="femaleRadioBtn" layoutX="459.0" layoutY="231.0" mnemonicParsing="false" text="Female" textFill="WHITE" toggleGroup="$Gender">
+            <RadioButton fx:id="femaleRadioBtn" layoutX="337.0" layoutY="232.0" mnemonicParsing="false" text="FEMALE" textFill="WHITE" toggleGroup="$Gender" translateX="150.0" AnchorPane.topAnchor="232.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

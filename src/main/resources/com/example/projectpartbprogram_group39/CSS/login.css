@@ -3,6 +3,7 @@
     -fx-border-color: white;
     -fx-background-radius: 30px;
     -fx-border-radius:30px;
+    -fx-opacity:0.3;
 }
 
 #usernameField{
