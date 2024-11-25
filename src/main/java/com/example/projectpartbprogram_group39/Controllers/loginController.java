@@ -41,9 +41,6 @@ public class loginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        if(username.isEmpty() || password.isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.ERROR,"please enter your credential");
-        }
     }
 
 
