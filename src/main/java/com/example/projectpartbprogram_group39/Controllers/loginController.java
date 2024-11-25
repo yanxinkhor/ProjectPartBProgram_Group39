@@ -3,6 +3,7 @@ package com.example.projectpartbprogram_group39.Controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
@@ -39,6 +40,11 @@ public class loginController {
     public void login(ActionEvent e){
         String username = usernameField.getText();
         String password = passwordField.getText();
+
+        if(username.isEmpty() || password.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"please enter your credential");
+        }
     }
+
 
 }
