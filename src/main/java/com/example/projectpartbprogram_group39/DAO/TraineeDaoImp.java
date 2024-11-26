@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TraineeDaoImp implements daoInterface {
@@ -57,6 +58,28 @@ public class TraineeDaoImp implements daoInterface {
 
     @Override
     public List<Trainee> getAllTrainees() {
-        return List.of();
+        List<Trainee> trainees = new ArrayList<>();
+        File file = new File("userInfo.txt");
+
+        if (!file.exists()) {
+            return trainees;
+        }
+
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("userInfo.txt"));
+
+            for (String line : lines) {
+                try {
+                    Trainee trainee = Trainee.splitString(line);
+                    trainees.add(trainee);
+                } catch (IllegalArgumentException e) {
+
+                    System.out.println("Skipping malformed line: " + line);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+        return trainees;
     }
 }
