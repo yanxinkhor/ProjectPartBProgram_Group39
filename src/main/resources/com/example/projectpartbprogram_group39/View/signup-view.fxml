@@ -76,7 +76,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Button fx:id="createBtn" layoutX="105.0" layoutY="637.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="184.0" text="CREATE" textFill="WHITE" AnchorPane.bottomAnchor="20.33333333333337" AnchorPane.topAnchor="637.0">
+            <Button fx:id="createBtn" layoutX="105.0" layoutY="637.0" mnemonicParsing="false" onAction="#signup" prefHeight="52.0" prefWidth="184.0" text="CREATE" textFill="WHITE" AnchorPane.bottomAnchor="20.33333333333337" AnchorPane.topAnchor="637.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
