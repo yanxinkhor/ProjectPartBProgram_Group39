@@ -116,16 +116,26 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="txtPassword" layoutX="299.3333333333333" layoutY="521.0" prefHeight="32.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0">
+            <PasswordField fx:id="txtPassword" layoutX="300.0" layoutY="521.0" prefHeight="32.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </PasswordField>
+            <TextField fx:id="txtPasswordVisible" layoutX="300.0" layoutY="521.0" minHeight="30.0" prefHeight="32.0" prefWidth="340.0" visible="false">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
             <PasswordField fx:id="txtPasswordConfirmed" layoutX="304.0" layoutY="531.0" prefHeight="32.0" prefWidth="340.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="580.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </PasswordField>
+            <TextField fx:id="txtVisiblePasswordConfirmed" layoutX="300.0" layoutY="581.0" minHeight="30.0" prefHeight="32.0" prefWidth="340.0" translateY="-1.0" visible="false">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
             <TextField editable="false" layoutX="594.0" layoutY="400.0" prefHeight="30.0" prefWidth="40.0" text="CM">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -149,6 +159,24 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </RadioButton>
+            <Button fx:id="passwordBtn" layoutX="584.0" layoutY="518.0" mnemonicParsing="false" onAction="#displayPassword">
+               <graphic>
+                  <ImageView fx:id="visiblePassword" fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/password_invisible.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="passwordConfirmedBtn" layoutX="582.0" layoutY="578.0" mnemonicParsing="false" onAction="#displayPassword" translateX="1.0">
+               <graphic>
+                  <ImageView fx:id="visibleConfirmedPass" fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/password_invisible.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
       <ImageView fitHeight="358.0" fitWidth="337.0" layoutX="56.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">

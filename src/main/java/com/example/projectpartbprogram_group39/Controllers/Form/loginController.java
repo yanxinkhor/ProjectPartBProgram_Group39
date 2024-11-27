@@ -11,6 +11,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,8 +28,17 @@ public class loginController {
     private TextField passwordField;
 
     @FXML
-    private Button loginBtn;
+    private Button loginBtn, visibilityBtn;
 
+    @FXML
+    ImageView invisibleImg;
+
+    @FXML
+    private TextField passwordTxtField;
+
+
+    private final Image passVisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_visible.png"));
+    private final Image passInvisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_invisible.png"));
     private final TraineeDaoImp traineeDao = new TraineeDaoImp();
 
     public void goToSignup(ActionEvent e) throws IOException {
@@ -59,7 +70,6 @@ public class loginController {
         for (Trainee trainee : trainees) {
             if (trainee.getUsername().equals(username) && trainee.getPassword().equals(hashedPassword)) {
                 isValid = true;
-                System.out.println(trainee.getUsername() + " " + trainee.getPassword());
                 break;
             }
         }
@@ -75,6 +85,27 @@ public class loginController {
             passwordField.clear();
         }
 
+    }
+
+    boolean isVisible = false;
+    public void displayPassword(){
+
+        if(isVisible){
+            passwordField.setText(passwordTxtField.getText());
+            passwordField.setVisible(true);
+            passwordTxtField.setVisible(false);
+
+            invisibleImg.setImage(passInvisible);
+            isVisible = false;
+        }else{
+            passwordTxtField.setText(passwordField.getText());
+            passwordTxtField.setVisible(true);
+            passwordField.setVisible(false);
+
+            invisibleImg .setImage(passVisible);
+            isVisible = true;
+
+        }
     }
 
     public void directToMainPAge(ActionEvent e) throws IOException {

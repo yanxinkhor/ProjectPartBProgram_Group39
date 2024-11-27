@@ -9,22 +9,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class signupController {
     @FXML
-    private TextField txtUsername;
+    private TextField txtUsername, txtAge, txtPhoneNo, txtEmail, txtHeight, txtWeight;
 
-    @FXML
-    private TextField txtAge;
-
-    @FXML
-    private TextField txtPhoneNo;
-
-    @FXML
-    private TextField txtEmail;
 
     @FXML
     private RadioButton femaleRadioBtn, maleRadioBtn;
@@ -33,20 +28,20 @@ public class signupController {
     private ToggleGroup Gender;
 
     @FXML
-    private TextField txtHeight;
+    private PasswordField txtPassword, txtPasswordConfirmed;
 
     @FXML
-    private TextField txtWeight;
+    private Button createBtn, backBtn, passwordBtn, passwordConfirmedBtn;
 
     @FXML
-    private PasswordField txtPassword;
+    private ImageView visiblePassword, visibleConfirmedPass;
 
     @FXML
-    private PasswordField txtPasswordConfirmed;
+    private TextField txtPasswordVisible, txtVisiblePasswordConfirmed;
 
-    @FXML
-    private Button createBtn, backBtn;
 
+    private final Image passwordVisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_visible.png"));
+    private final Image passwordInvisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_invisible.png"));
     private final TraineeDaoImp traineeDao = new TraineeDaoImp();
 
 
@@ -107,10 +102,43 @@ public class signupController {
             showAlert.alert(Alert.AlertType.ERROR, "please enter a valid credential");
 
         } catch(IOException ex){
-            showAlert.alert(Alert.AlertType.ERROR, "An error occurred while processing the signup. Please try again.");
-            ex.printStackTrace();
+            showAlert.alert(Alert.AlertType.ERROR, "An error has occurred, Please try again.");
+
         }
 
+    }
+
+    boolean isVisible = false;
+
+    public void displayPassword(ActionEvent e){
+
+        Button sourceBtn = (Button)e.getSource();
+
+        if(sourceBtn == passwordBtn){
+            changeVisibilityIcon(txtPassword, txtPasswordVisible, visiblePassword);
+        }else if(sourceBtn == passwordConfirmedBtn){
+            changeVisibilityIcon(txtPasswordConfirmed, txtVisiblePasswordConfirmed, visibleConfirmedPass);
+        }
+
+    }
+
+    public void changeVisibilityIcon(PasswordField passwordField, TextField textField, ImageView imgView){
+        if(isVisible){
+            passwordField.setText(textField.getText());
+            textField.setVisible(false);
+            passwordField.setVisible(true);
+
+            imgView.setImage(passwordVisible);
+            isVisible = false;
+
+        }else{
+            textField.setText(passwordField.getText());
+            passwordField.setVisible(false);
+            textField.setVisible(true);
+
+            imgView.setImage(passwordInvisible);
+            isVisible = true;
+        }
     }
 
     public void back(ActionEvent e) throws IOException {

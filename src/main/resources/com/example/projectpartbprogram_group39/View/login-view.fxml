@@ -61,11 +61,25 @@
                   <Font size="20.0" />
                </font>
             </PasswordField>
+            <TextField fx:id="passwordTxtField" layoutX="50.0" layoutY="213.0" prefHeight="43.0" prefWidth="430.0" promptText="PASSWORD" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
             <ImageView fitHeight="45.0" fitWidth="57.0" layoutX="443.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/passwordIcon.png" />
                </image>
             </ImageView>
+            <Button fx:id="visibilityBtn" layoutX="386.0" layoutY="215.0" mnemonicParsing="false" onAction="#displayPassword" prefHeight="31.0" prefWidth="39.0">
+               <graphic>
+                  <ImageView fx:id="invisibleImg" fitHeight="31.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/password_invisible.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>
