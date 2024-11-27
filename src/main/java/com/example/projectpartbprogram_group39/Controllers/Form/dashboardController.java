@@ -4,7 +4,7 @@ import com.example.projectpartbprogram_group39.Models.Trainee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
+
 
 import java.io.IOException;
 
