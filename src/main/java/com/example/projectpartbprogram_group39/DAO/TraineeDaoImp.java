@@ -1,6 +1,8 @@
 package com.example.projectpartbprogram_group39.DAO;
 
 import com.example.projectpartbprogram_group39.Models.Trainee;
+import com.example.projectpartbprogram_group39.Utils.showAlert;
+import javafx.scene.control.Alert;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,21 +16,21 @@ import java.util.List;
 public class TraineeDaoImp implements daoInterface {
     @Override
     public void StoreTrainee(Trainee trainee) {
-
         File file = new File("userInfo.txt");
 
         if (!file.exists()) {
-            System.out.println("File does not exist. Creating a new file...");
+            System.out.println("File does not exist.");
         } else {
-            System.out.println("File already exists.");
+            System.out.println("File exists.");
         }
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             writer.write(trainee.toString());
             writer.newLine();
             writer.flush();
 
         } catch (IOException ex) {
-            System.err.println("Error writing to file: " + ex.getMessage());
+            showAlert.alert(Alert.AlertType.ERROR, "Error has occured");
         }
 
     }
@@ -38,26 +40,23 @@ public class TraineeDaoImp implements daoInterface {
         File file = new File("userInfo.txt");
 
         if (!file.exists()) {
-            System.out.println("userInfo.txt file does not exist.");
             return false;
         }
 
         List<String> lines = Files.readAllLines(Paths.get("userInfo.txt"));
         for (String line : lines) {
-            try {
-                Trainee trainee = Trainee.splitString(line);
-                if (trainee.getUsername().equals(username) && trainee.getEmail().equals(email)) {
-                    return true;
-                }
-            } catch (IllegalArgumentException e) {
-                System.out.println("Skipping malformed line: " + line);
+
+            Trainee trainee = Trainee.splitString(line);
+            if (trainee.getUsername().equals(username) && trainee.getEmail().equals(email)) {
+                return true;
             }
+
         }
         return false;
     }
 
     @Override
-    public List<Trainee> getAllTrainees() {
+    public List<Trainee> getAllTrainees() throws IOException {
         List<Trainee> trainees = new ArrayList<>();
         File file = new File("userInfo.txt");
 
@@ -65,21 +64,13 @@ public class TraineeDaoImp implements daoInterface {
             return trainees;
         }
 
-        try {
-            List<String> lines = Files.readAllLines(Paths.get("userInfo.txt"));
+        List<String> lines = Files.readAllLines(Paths.get("userInfo.txt"));
 
-            for (String line : lines) {
-                try {
-                    Trainee trainee = Trainee.splitString(line);
-                    trainees.add(trainee);
-                } catch (IllegalArgumentException e) {
-
-                    System.out.println("Skipping malformed line: " + line);
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
+        for (String line : lines) {
+            Trainee trainee = Trainee.splitString(line);
+            trainees.add(trainee);
         }
+
         return trainees;
     }
 }

@@ -13,7 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.Objects;
+
 
 
 public class signupController {
@@ -31,7 +31,7 @@ public class signupController {
     private PasswordField txtPassword, txtPasswordConfirmed;
 
     @FXML
-    private Button createBtn, backBtn, passwordBtn, passwordConfirmedBtn;
+    private Button passwordBtn, passwordConfirmedBtn;
 
     @FXML
     private ImageView visiblePassword, visibleConfirmedPass;
@@ -45,7 +45,7 @@ public class signupController {
     private final TraineeDaoImp traineeDao = new TraineeDaoImp();
 
 
-    public void signup(ActionEvent e) {
+    public void signup(ActionEvent e) throws IOException{
         String username = txtUsername.getText();
         String ageString = txtAge.getText();
         String phoneNoString = txtPhoneNo.getText();
@@ -97,17 +97,12 @@ public class signupController {
                 back(e);
             }
 
-
         } catch (NumberFormatException event) {
             showAlert.alert(Alert.AlertType.ERROR, "please enter a valid credential");
-
-        } catch(IOException ex){
-            showAlert.alert(Alert.AlertType.ERROR, "An error has occurred, Please try again.");
 
         }
 
     }
-
     boolean isVisible = false;
 
     public void displayPassword(ActionEvent e){

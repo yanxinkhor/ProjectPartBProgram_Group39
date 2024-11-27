@@ -1,8 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.dashboardController">
-
+<AnchorPane id="main" fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" stylesheets="@../CSS/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.dashboardController">
+   <children>
+      <Pane id="navbar" prefHeight="700.0" prefWidth="172.0" stylesheets="@../CSS/dashboard.css">
+         <children>
+            <ImageView id="applogo" fitHeight="59.0" fitWidth="59.0" layoutX="63.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/app%20logo.png" />
+               </image>
+            </ImageView>
+            <Button id="dashbtn" fx:id="dashbtn" layoutX="22.0" layoutY="105.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Dashboard" textFill="WHITE">
+               <graphic>
+                  <ImageView id="dashImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/home%20icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="logoutBtn" fx:id="logoutBtn" layoutX="9.0" layoutY="651.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="83.0" text="Logout" textFill="WHITE">
+               <graphic>
+                  <ImageView id="logoutImg" fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/logout%20icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="exbtn" fx:id="exbtn" layoutX="22.0" layoutY="147.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Exercises" textFill="WHITE">
+               <graphic>
+                  <ImageView id="exImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/exercise%20logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="statbtn" fx:id="statbtn" layoutX="22.0" layoutY="189.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Statistics" textFill="WHITE">
+               <graphic>
+                  <ImageView id="statImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/statistics%20icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="nubtn" fx:id="nubtn" layoutX="22.0" layoutY="231.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Nutrition" textFill="WHITE">
+               <graphic>
+                  <ImageView id="nuImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/nutrition%20icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="cobtn" fx:id="cobtn" layoutX="22.0" layoutY="273.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Coach" textFill="WHITE">
+               <graphic>
+                  <ImageView id="dashImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/coach%20icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="probtn" fx:id="probtn" layoutX="22.0" layoutY="315.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Profile" textFill="WHITE">
+               <graphic>
+                  <ImageView id="proImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/profileIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="setbtn" fx:id="setbtn" layoutX="22.0" layoutY="357.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Settings" textFill="WHITE">
+               <graphic>
+                  <ImageView id="setImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/settings%20icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView id="bluetooth_img" fx:id="device_img" fitHeight="150.0" fitWidth="127.0" layoutX="46.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/apple%20watch.png" />
+               </image>
+            </ImageView>
+            <Text id="device_name" fx:id="device_name" fill="#fcfcfc" layoutX="41.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apple Watch SE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text id="bluetooth_status" fx:id="bluetooth_status" fill="#a2cf73" layoutX="64.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="connected">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Text>
+            <ImageView id="bluetooth_logo" fx:id="status_img" fitHeight="16.0" fitWidth="13.0" layoutX="46.0" layoutY="609.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/bluetooth%20logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane id="topBar" fx:id="topBar" layoutX="172.0" prefHeight="59.0" prefWidth="908.0">
+         <children>
+            <Label fx:id="welcomeLabel" layoutX="11.0" layoutY="18.0" text="Welcome">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="displayUsername" layoutX="160.0" layoutY="22.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
