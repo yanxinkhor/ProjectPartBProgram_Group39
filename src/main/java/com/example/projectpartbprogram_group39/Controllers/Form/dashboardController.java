@@ -14,11 +14,13 @@ public class dashboardController {
     @FXML
     private Label displayUsername;
 
-    Trainee trainee;
+    private Trainee trainee;
 
     public void displayWelcomeMessage(){
         displayUsername.setText(trainee.getUsername() + "!");
     }
+
+
 
 
 }
