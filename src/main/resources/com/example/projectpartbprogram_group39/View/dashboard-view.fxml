@@ -15,14 +15,14 @@
          <children>
             <ImageView id="applogo" fitHeight="59.0" fitWidth="59.0" layoutX="63.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/app%20logo.png" />
+                  <Image url="@../Images/appLogo.png" />
                </image>
             </ImageView>
             <Button id="dashbtn" fx:id="dashbtn" layoutX="22.0" layoutY="105.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="127.0" stylesheets="@../CSS/dashboard.css" text="Dashboard" textFill="WHITE">
                <graphic>
                   <ImageView id="dashImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/home%20icon.png" />
+                        <Image url="@../Images/homeIcon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -31,7 +31,7 @@
                <graphic>
                   <ImageView id="logoutImg" fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/logout%20icon.png" />
+                        <Image url="@../Images/logoutIcon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -40,7 +40,7 @@
                <graphic>
                   <ImageView id="exImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/exercise%20logo.png" />
+                        <Image url="@../Images/exerciseLogo.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -49,7 +49,7 @@
                <graphic>
                   <ImageView id="statImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/statistics%20icon.png" />
+                        <Image url="@../Images/statisticsIcon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -58,7 +58,7 @@
                <graphic>
                   <ImageView id="nuImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/nutrition%20icon.png" />
+                        <Image url="@../Images/nutritionIcon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -67,7 +67,7 @@
                <graphic>
                   <ImageView id="dashImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/coach%20icon.png" />
+                        <Image url="@../Images/coachIcon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -85,14 +85,14 @@
                <graphic>
                   <ImageView id="setImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/settings%20icon.png" />
+                        <Image url="@../Images/settingIcon.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
             <ImageView id="bluetooth_img" fx:id="device_img" fitHeight="150.0" fitWidth="127.0" layoutX="46.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/apple%20watch.png" />
+                  <Image url="@../Images/appleWatch.png" />
                </image>
             </ImageView>
             <Text id="device_name" fx:id="device_name" fill="#fcfcfc" layoutX="41.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apple Watch SE">
@@ -107,7 +107,7 @@
             </Text>
             <ImageView id="bluetooth_logo" fx:id="status_img" fitHeight="16.0" fitWidth="13.0" layoutX="46.0" layoutY="609.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/bluetooth%20logo.png" />
+                  <Image url="@../Images/bluetoothLogo.png" />
                </image>
             </ImageView>
          </children>

@@ -14,8 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
-
 import java.io.IOException;
 import java.util.List;
 
@@ -77,7 +75,7 @@ public class loginController {
 
         if (isValid) {
             showAlert.alert(Alert.AlertType.INFORMATION, "Login successful!");
-            directToMainPAge(e);
+            directToMainPage(e);
 
 
         } else {
@@ -110,7 +108,7 @@ public class loginController {
     }
 
 
-    public void directToMainPAge(ActionEvent e) throws IOException {
+    public void directToMainPage(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/dashboard-view.fxml"));
         Scene mainScene = new Scene(loader.load());
         Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
