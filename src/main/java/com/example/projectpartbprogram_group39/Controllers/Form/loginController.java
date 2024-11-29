@@ -109,7 +109,7 @@ public class loginController {
 
 
     public void directToMainPage(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/dashboard-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/navigation-view.fxml"));
         Scene mainScene = new Scene(loader.load());
         Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.setScene(mainScene);

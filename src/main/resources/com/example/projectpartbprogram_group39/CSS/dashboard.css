@@ -10,7 +10,7 @@
  ;
  }
 
- #dashbtn, #exbtn, #statbtn, #nubtn, #cobtn, #probtn, #setbtn, #logoutBtn{
+ #dashbtn, #exbtn, #statbtn, #nubtn, #cobtn, #probtn, #setbtn, #logoutBtn, #notif_btn{
      -fx-padding: 0;
      -fx-border-color: none;
      -fx-background-color: none;
