@@ -2,14 +2,14 @@
      -fx-background-color: #ffffff;
  }
 
-
-
  #navbar{
      -fx-background-color: #231f20;
      -fx-background-radius: 0px 20px 20px 0px;
  ;
  }
-
+#navbtns{
+    -fx-alignment: center;
+}
  #dashbtn, #exbtn, #statbtn, #nubtn, #cobtn, #probtn, #setbtn, #logoutBtn, #notif_btn{
      -fx-padding: 0;
      -fx-border-color: none;
@@ -28,3 +28,4 @@
      -fx-border-style: hidden hidden solid hidden;
      -fx-border-width: 2px;
  }
+
