@@ -1,5 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
+import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
 import com.example.projectpartbprogram_group39.DAO.TraineeDaoImp;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.Encryption;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
@@ -109,13 +111,35 @@ public class loginController {
 
 
     public void directToMainPage(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/navigation-view.fxml"));
-        Scene mainScene = new Scene(loader.load());
-        Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
-        stage.setScene(mainScene);
-        stage.show();
+        Trainee loggedInTrainee = null;
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String hashedPassword = Encryption.hashPassword(password);
 
+        List<Trainee> trainees = traineeDao.getAllTrainees();
+        for (Trainee trainee : trainees) {
+            if (trainee.getUsername().equals(username) && trainee.getPassword().equals(hashedPassword)) {
+                loggedInTrainee = trainee;  // Get the logged-in trainee object
+                break;
+            }
+        }
+
+        if (loggedInTrainee != null) {
+            // Load the main page (navigation-view.fxml)
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/navigation-view.fxml"));
+            BorderPane root = loader.load();
+
+            // Get the NavigationController and pass the Trainee object
+            NavigationController navigationController = loader.getController();
+            navigationController.displayUserDetails(loggedInTrainee);  // Pass the trainee details
+
+            // Set the scene to the main page
+            Scene mainScene = new Scene(root);
+            Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
+            stage.setScene(mainScene);
+            stage.show();
+
+        }
     }
-
 
 }
