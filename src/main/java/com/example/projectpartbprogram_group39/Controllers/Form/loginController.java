@@ -125,15 +125,12 @@ public class loginController {
         }
 
         if (loggedInTrainee != null) {
-            // Load the main page (navigation-view.fxml)
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/navigation-view.fxml"));
             BorderPane root = loader.load();
 
-            // Get the NavigationController and pass the Trainee object
             NavigationController navigationController = loader.getController();
-            navigationController.displayUserDetails(loggedInTrainee);  // Pass the trainee details
+            navigationController.displayUserDetails(loggedInTrainee);
 
-            // Set the scene to the main page
             Scene mainScene = new Scene(root);
             Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
             stage.setScene(mainScene);
