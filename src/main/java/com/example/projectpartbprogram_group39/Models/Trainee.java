@@ -8,9 +8,9 @@ public class Trainee {
     private String email;
     private double height;
     private double weight;
-    private int password;
+    private String password;
 
-    public Trainee(String username, int age, String gender, int phoneNo, String email, double height, double weight, int password) {
+    public Trainee(String username, int age, String gender, int phoneNo, String email, double height, double weight, String password) {
         this.username = username;
         this.age = age;
         this.gender = gender;
@@ -77,17 +77,17 @@ public class Trainee {
         this.weight = weight;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
     @Override
     public String toString() {
-        return username + "/"  + age + "/" + gender + "/" + phoneNo + "," + email + "/" + height
+        return username + "/"  + age + "/" + gender + "/" + phoneNo + "/" + email + "/" + height
                 + "/" + weight + "/" + password;
     }
 
@@ -95,7 +95,7 @@ public class Trainee {
         String[] parts = line.split("/");
 
         if(parts.length != 8){
-            throw new IllegalArgumentException("Invalid input");
+            throw new IllegalArgumentException("Invalid number of input");
         }
 
         String username = parts[0];
@@ -105,7 +105,7 @@ public class Trainee {
         String email = parts[4];
         double height = Double.parseDouble(parts[5]);
         double weight = Double.parseDouble(parts[6]);
-        int password = Integer.parseInt(parts[7]);
+        String password = parts[7];
 
         return new Trainee(username, age, gender, phoneNo, email, height, weight, password);
     }

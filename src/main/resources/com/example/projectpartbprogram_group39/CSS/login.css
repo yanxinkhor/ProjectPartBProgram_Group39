@@ -3,6 +3,7 @@
     -fx-border-color: white;
     -fx-background-radius: 30px;
     -fx-border-radius:30px;
+    -fx-opacity:0.3;
 }
 
 #usernameField{
@@ -12,7 +13,7 @@
     -fx-border-width: 0px 0px 2px 0px
 }
 
-#passwordField{
+#passwordField, #passwordTxtField{
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-border-color:white;
@@ -22,11 +23,12 @@
 #loginBtn {
    -fx-background-color:grey;
    -fx-background-radius: 40px;
-   -fx-transition: 0.5s ease-in-out;
+
 }
 
 #loginBtn:hover{
     -fx-background-color:white;
+    -fx-translate-y: -4px;
     -fx-cursor:hand;
 }
 
@@ -46,5 +48,13 @@
 
 #signupBtn:pressed{
     -fx-opacity:0.3;
+}
+
+#visibilityBtn{
+    -fx-background-color: transparent;
+}
+
+#invisibleImg{
+    -fx-cursor:hand;
 }
 
