@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TraineeDaoImp implements daoInterface {
+public class TraineeDaoImp implements TraineeDaoInterface {
     @Override
     public void StoreTrainee(Trainee trainee) {
         File file = new File("userInfo.txt");
