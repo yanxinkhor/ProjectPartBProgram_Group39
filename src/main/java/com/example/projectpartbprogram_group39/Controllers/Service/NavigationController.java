@@ -1,19 +1,26 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
 import com.example.projectpartbprogram_group39.Models.Trainee;
+import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -125,6 +132,17 @@ public class NavigationController implements Initializable {
         welcomeText.setVisible(false);
     }
 
+    @FXML
+    public void logOut(ActionEvent e) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to logout?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Logout Confirmation");
+
+        if (alert.showAndWait().filter(ButtonType.YES::equals).isPresent()) {
+            Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/com/example/projectpartbprogram_group39/View/login-view.fxml"))));
+            stage.show();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/dashboard-view.fxml"));
