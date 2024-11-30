@@ -22,7 +22,7 @@
                         <Image url="@../Images/appLogo.png" />
                      </image>
                   </ImageView>
-                  <Button id="logoutBtn" fx:id="logoutBtn" layoutX="9.0" layoutY="651.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="83.0" text="Logout" textFill="WHITE">
+                  <Button id="logoutBtn" fx:id="logoutBtn" layoutX="9.0" layoutY="651.0" mnemonicParsing="false" onAction="#logOut" prefHeight="35.0" prefWidth="83.0" text="Logout" textFill="WHITE">
                      <graphic>
                         <ImageView id="logoutImg" fitHeight="43.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
