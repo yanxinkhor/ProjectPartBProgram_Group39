@@ -53,7 +53,7 @@
             </Button>
             <ImageView fitHeight="39.0" fitWidth="38.0" layoutX="440.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/profile%20icon.png" />
+                  <Image url="@../Images/profile icon.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="passwordField" layoutX="50.0" layoutY="213.0" prefHeight="43.0" prefWidth="430.0" promptText="PASSWORD">
