@@ -1,0 +1,86 @@
+#dailyGoal,#weeklyGoal{
+    -fx-background-color:#f0e6ff;
+    -fx-background-radius:30px;
+}
+
+#seeAllBtn1,#seeAllBtn2,#viewAllPlanBtn{
+    -fx-background-color:transparent;
+    -fx-text-fill:#8150b8;
+}
+
+#seeAllBtn1:hover{
+    -fx-text-fill:#8975a7;
+    -fx-cursor:hand;
+}
+
+#seeAllBtn2:hover{
+    -fx-text-fill:#8975a7;
+    -fx-cursor:hand;
+}
+
+#viewAllPlanBtn:hover{
+    -fx-text-fill:#8975a7;
+    -fx-cursor:hand;
+}
+
+#workoutCtn, #calBurnedCtn, #distRunCtn, #weeklyGoalCtn1,#weeklyGoalCtn2,#weeklyGoalCtn3{
+    -fx-background-color:#001ba2;
+    -fx-background-radius:45px;
+}
+
+#addGoalBtn, #editBtn, #deleteBtn{
+    -fx-pref-width: 35;
+    -fx-background-color:#D6E5E7;
+    -fx-background-radius:30px;
+    -fx-cursor:hand;
+}
+
+
+#planCtn1, #planCtn2, #planCtn3{
+    -fx-background-color:#c3d5d8;
+    -fx-background-radius:30px;
+}
+
+#AddPlanCtn{
+    -fx-border-color:black;
+    -fx-border-radius:15px;
+}
+
+#editBtnPlan1,#deleteBtnPlan1,#editBtnPlan2,#deleteBtnPlan2,#editBtnPlan3,#deleteBtnPlan3{
+    -fx-pref-width:35;
+    -fx-background-color:#D6E5E7;
+    -fx-background-radius:50px;
+    -fx-cursor:hand;
+}
+
+#editBtnPlan1:hover,#deleteBtnPlan1:hover,#editBtnPlan2:hover,#deleteBtnPlan2:hover,#editBtnPlan3:hover,
+#deleteBtnPlan3:hover{
+    -fx-opacity:0.7;
+}
+
+#editBtnPlan1:pressed,#deleteBtnPlan1:pressed,#editBtnPlan2:pressed,#deleteBtnPlan2:pressed,#editBtnPlan3:pressed,
+#deleteBtnPlan3:pressed{
+    -fx-opacity:0.3;
+}
+
+#importImgBtn{
+    -fx-border-color:black;
+    -fx-border-radius:8px;;
+    -fx-background-radius:8px;
+    -fx-background-color:#f0e6ff;
+}
+
+#importImgBtn:hover, #addPlanBtn:hover, #clearBtn:hover{
+    -fx-cursor:hand;
+    -fx-opacity:0.7;
+}
+
+#importImgBtn:pressed, #addPlanBtn:pressed, #clearBtn:pressed{
+    -fx-opacity:0.4;
+}
+
+#addPlanBtn, #clearBtn{
+    -fx-background-radius:30px;
+    -fx-background-color:#D6E5E7;
+}
+

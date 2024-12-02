@@ -1,6 +1,7 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
-import com.example.projectpartbprogram_group39.DAO.TraineeDaoImp;
+import com.example.projectpartbprogram_group39.Controllers.Service.signupController;
+import com.example.projectpartbprogram_group39.DAO.TraineeDao.TraineeDaoImp;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.Encryption;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
@@ -16,7 +17,7 @@ import java.io.IOException;
 
 
 
-public class signupController {
+public class signupControllerForm {
     @FXML
     private TextField txtUsername, txtAge, txtPhoneNo, txtEmail, txtHeight, txtWeight;
 
@@ -39,11 +40,9 @@ public class signupController {
     @FXML
     private TextField txtPasswordVisible, txtVisiblePasswordConfirmed;
 
-
     private final Image passwordVisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_visible.png"));
     private final Image passwordInvisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_invisible.png"));
-    private final TraineeDaoImp traineeDao = new TraineeDaoImp();
-
+    private final signupController signupService = new signupController();
 
     public void signup(ActionEvent e) throws IOException{
         String username = txtUsername.getText();
@@ -56,50 +55,10 @@ public class signupController {
         String password = txtPassword.getText();
         String passwordConfirmed = txtPasswordConfirmed.getText();
 
-
-        if (username.isEmpty() || ageString.isEmpty() || phoneNoString.isEmpty() || email.isEmpty() || gender.isEmpty() ||
-                heightString.isEmpty() || weightString.isEmpty() || password.isEmpty() || passwordConfirmed.isEmpty()) {
-            showAlert.alert(Alert.AlertType.ERROR, "Please fill in all the credential");
-            return;
-        }
-
-        if (!password.equals(passwordConfirmed)) {
-            showAlert.alert(Alert.AlertType.ERROR, "The password do not match!");
-            txtPasswordConfirmed.setText("");
-            return;
-        }
-
-        try {
-            int age = Integer.parseInt(ageString);
-            int phoneNo = Integer.parseInt(phoneNoString);
-            double height = Double.parseDouble(heightString);
-            double weight = Double.parseDouble(weightString);
-
-            String encryptedPassword = Encryption.hashPassword(password);
-
-            if (traineeDao.userExists(username,email)) {
-                showAlert.alert(Alert.AlertType.ERROR, "User already exists!");
-                txtUsername.setText("");
-                txtAge.setText("");
-                txtPhoneNo.setText("");
-                txtEmail.setText("");
-                Gender.selectToggle(null);
-                txtHeight.setText("");
-                txtWeight.setText("");
-                txtPassword.setText("");
-                txtPasswordConfirmed.setText("");
-
-            }else {
-
-                Trainee trainee = new Trainee(username, age, gender, phoneNo, email, height, weight, encryptedPassword);
-                traineeDao.StoreTrainee(trainee);
-                showAlert.alert(Alert.AlertType.INFORMATION, "Signup successful!");
-                back(e);
-            }
-
-        } catch (NumberFormatException event) {
-            showAlert.alert(Alert.AlertType.ERROR, "please enter a valid credential");
-
+        if(signupService.validateSignupInfo(username,ageString,phoneNoString,email,gender,heightString,
+                weightString,password,passwordConfirmed)){
+            showAlert.alert(Alert.AlertType.INFORMATION, "Signup successful!");
+            back(e);
         }
 
     }

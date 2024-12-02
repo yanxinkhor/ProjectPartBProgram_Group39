@@ -1,9 +1,8 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
 import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
-import com.example.projectpartbprogram_group39.DAO.TraineeDaoImp;
+import com.example.projectpartbprogram_group39.Controllers.Service.loginController;
 import com.example.projectpartbprogram_group39.Models.Trainee;
-import com.example.projectpartbprogram_group39.Utils.Encryption;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,19 +16,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.List;
 
 
-public class loginController {
+
+public class loginControllerForm {
 
     @FXML
     private TextField usernameField;
 
     @FXML
     private TextField passwordField;
-
-    @FXML
-    private Button loginBtn, visibilityBtn;
 
     @FXML
     ImageView invisibleImg;
@@ -40,7 +36,7 @@ public class loginController {
 
     private final Image passVisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_visible.png"));
     private final Image passInvisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_invisible.png"));
-    private final TraineeDaoImp traineeDao = new TraineeDaoImp();
+    private final loginController loginService = new loginController();
 
     public void goToSignup(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/signup-view.fxml"));
@@ -55,35 +51,9 @@ public class loginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        String hashedPassword = Encryption.hashPassword(password);
-
-
-        if (username.isEmpty() || password.isEmpty()) {
-            showAlert.alert(Alert.AlertType.ERROR, "Please fill in all information");
-            return;
-        }
-
-        List<Trainee> trainees = traineeDao.getAllTrainees();
-
-
-        boolean isValid = false;
-
-        for (Trainee trainee : trainees) {
-            if (trainee.getUsername().equals(username) && trainee.getPassword().equals(hashedPassword)) {
-                isValid = true;
-                break;
-            }
-        }
-
-        if (isValid) {
+        if (loginService.validateUser(username, password)) {
             showAlert.alert(Alert.AlertType.INFORMATION, "Login successful!");
-            directToMainPage(e);
-
-
-        } else {
-            showAlert.alert(Alert.AlertType.ERROR, "Invalid username or password.");
-            usernameField.clear();
-            passwordField.clear();
+            directToMainPage(e, username, password);
         }
 
     }
@@ -110,19 +80,8 @@ public class loginController {
     }
 
 
-    public void directToMainPage(ActionEvent e) throws IOException {
-        Trainee loggedInTrainee = null;
-        String username = usernameField.getText();
-        String password = passwordField.getText();
-        String hashedPassword = Encryption.hashPassword(password);
-
-        List<Trainee> trainees = traineeDao.getAllTrainees();
-        for (Trainee trainee : trainees) {
-            if (trainee.getUsername().equals(username) && trainee.getPassword().equals(hashedPassword)) {
-                loggedInTrainee = trainee;  // Get the logged-in trainee object
-                break;
-            }
-        }
+    public void directToMainPage(ActionEvent e, String username, String password) throws IOException {
+        Trainee loggedInTrainee = loginController.getLoggedInTrainee(username, password);
 
         if (loggedInTrainee != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/navigation-view.fxml"));
@@ -135,7 +94,6 @@ public class loginController {
             Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
             stage.setScene(mainScene);
             stage.show();
-
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.projectpartbprogram_group39.DAO;
+package com.example.projectpartbprogram_group39.DAO.TraineeDao;
 
 import com.example.projectpartbprogram_group39.Models.Trainee;
 
