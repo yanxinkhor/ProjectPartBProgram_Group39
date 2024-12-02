@@ -6,13 +6,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -69,10 +73,13 @@ public class exercisesController implements Initializable {
         handleTransition(deleteBtn, "Delete", 100, 35);
     }
 
-    public void goalActionButton(ActionEvent e) {
+    public void goalActionButton(ActionEvent e) throws IOException {
         Button sourceBtn = (Button) e.getSource();
 
         if(sourceBtn == addGoalBtn){
+            openAddGoalPage();
+
+        }else if(sourceBtn == editBtn){
 
         }
     }
@@ -110,6 +117,14 @@ public class exercisesController implements Initializable {
 
     }
 
+    private void openAddGoalPage() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/goal-view.fxml"));
+        Scene Goalscene = new Scene(loader.load());
+        Stage goalWindow = new Stage();
+        goalWindow.setScene(Goalscene);
+
+        goalWindow.show();
+    }
 
 
 }

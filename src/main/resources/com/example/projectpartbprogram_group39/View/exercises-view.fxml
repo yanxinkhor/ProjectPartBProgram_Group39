@@ -29,7 +29,7 @@
             <Button fx:id="seeAllBtn1" layoutX="374.0" layoutY="1.0" mnemonicParsing="false" text="See All &gt;" />
             <VBox fx:id="workoutCtn" layoutX="12.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER;">
                <children>
-                  <Label fx:id="dailyworkoutType" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label fx:id="dailyGoalType" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -48,7 +48,7 @@
             </VBox>
             <VBox fx:id="calBurnedCtn" layoutX="152.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER;">
                <children>
-                  <Label fx:id="dailyworkoutType2" text="NO GOAL" textFill="WHITE" wrapText="true">
+                  <Label fx:id="dailyGoalType2" text="NO GOAL" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -64,7 +64,7 @@
                </children></VBox>
             <VBox fx:id="distRunCtn" layoutX="292.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER;">
                <children>
-                  <Label fx:id="dailyworkoutType3" text="NO GOAL" textFill="WHITE" wrapText="true">
+                  <Label fx:id="dailyGoalType3" text="NO GOAL" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -92,7 +92,7 @@
             <Button fx:id="seeAllBtn2" layoutX="375.0" layoutY="1.0" mnemonicParsing="false" text="See All &gt;" />
             <VBox fx:id="weeklyGoalCtn1" alignment="CENTER" layoutX="14.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0">
                <children>
-                  <Label fx:id="weeklyWorkType1" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label fx:id="weeklyGoalType1" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -110,7 +110,7 @@
                </children></VBox>
             <VBox fx:id="weeklyGoalCtn2" alignment="CENTER" layoutX="154.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0">
                <children>
-                  <Label fx:id="weeklyWorkType2" alignment="CENTER" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label fx:id="weeklyGoalType2" alignment="CENTER" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -128,7 +128,7 @@
                </children></VBox>
             <VBox fx:id="weeklyGoalCtn3" alignment="CENTER" layoutX="295.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0">
                <children>
-                  <Label fx:id="weeklyWorkType3" alignment="CENTER" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label fx:id="weeklyGoalType3" alignment="CENTER" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -177,7 +177,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="addGoalBtn" mnemonicParsing="false" prefHeight="0.0" prefWidth="36.0" textAlignment="RIGHT">
+            <Button fx:id="addGoalBtn" mnemonicParsing="false" onAction="#goalActionButton" prefHeight="0.0" prefWidth="36.0" textAlignment="RIGHT">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

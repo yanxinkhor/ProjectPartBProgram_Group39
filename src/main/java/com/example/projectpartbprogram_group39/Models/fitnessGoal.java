@@ -8,16 +8,14 @@ public class fitnessGoal {
     private int goaID;
     private String goalType;
     private int goalValue;
-    private double goalProgress;
     private String timeFrame;
     private Date startDate;
     private String priority;
 
-    public fitnessGoal(int goaID, String goalType, int goalValue, double goalProgress, String timeFrame, Date startDate, String priority) {
+    public fitnessGoal(int goaID, String goalType, int goalValue, String timeFrame, Date startDate, String priority) {
         this.goaID = goaID;
         this.goalType = goalType;
         this.goalValue = goalValue;
-        this.goalProgress = goalProgress;
         this.timeFrame = timeFrame;
         this.startDate = startDate;
         this.priority = priority;
@@ -47,14 +45,6 @@ public class fitnessGoal {
         this.goalValue = goalValue;
     }
 
-    public double getGoalProgress() {
-        return goalProgress;
-    }
-
-    public void setGoalProgress(double goalProgress) {
-        this.goalProgress = goalProgress;
-    }
-
     public String getTimeFrame() {
         return timeFrame;
     }
@@ -71,6 +61,7 @@ public class fitnessGoal {
         this.startDate = startDate;
     }
 
+
     public String getPriority() {
         return priority;
     }
@@ -81,7 +72,7 @@ public class fitnessGoal {
 
     @Override
     public String toString() {
-        return goaID + "/" + goalType + "/" + goalValue + "/" + goalProgress +"/" + timeFrame + "/"
+        return goaID + "/" + goalType + "/" + goalValue + "/" + timeFrame + "/"
                 +startDate + "/" + priority;
 
     }
@@ -89,26 +80,25 @@ public class fitnessGoal {
     public static fitnessGoal splitGoalString(String line){
         String[] parts = line.split("/");
 
-        if (parts.length == 7) {
+        if (parts.length == 6) {
 
             int goalID = Integer.parseInt(parts[0]);
             String goalType = parts[1];
             int goalValue = Integer.parseInt(parts[2]);
-            double goalProgress = Double.parseDouble(parts[3]);
-            String timeFrame = parts[4];
+            String timeFrame = parts[3];
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Assuming the format is "yyyy-MM-dd"
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date startDate = null;
 
             try {
-                startDate = dateFormat.parse(parts[5]);
+                startDate = dateFormat.parse(parts[4]);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
 
-            String priority = parts[6];
+            String priority = parts[5];
 
-            return new fitnessGoal(goalID, goalType, goalValue, goalProgress, timeFrame, startDate, priority);
+            return new fitnessGoal(goalID, goalType, goalValue, timeFrame, startDate, priority);
         } else {
             throw new IllegalArgumentException("Invalid number of input");
         }
