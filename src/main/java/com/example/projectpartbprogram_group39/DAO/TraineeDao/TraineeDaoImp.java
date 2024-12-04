@@ -1,4 +1,4 @@
-package com.example.projectpartbprogram_group39.DAO;
+package com.example.projectpartbprogram_group39.DAO.TraineeDao;
 
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
@@ -20,8 +20,6 @@ public class TraineeDaoImp implements TraineeDaoInterface {
 
         if (!file.exists()) {
             System.out.println("File does not exist.");
-        } else {
-            System.out.println("File exists.");
         }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {

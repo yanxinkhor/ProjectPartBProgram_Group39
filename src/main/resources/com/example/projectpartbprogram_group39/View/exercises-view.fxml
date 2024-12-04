@@ -1,11 +1,449 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="641.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.exercisesController">
+<AnchorPane fx:id="weeklyValue" prefHeight="641.0" prefWidth="908.0" stylesheets="@../CSS/exercises.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.exercisesController">
    <children>
-      <Text layoutX="443.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exercises" />
+      <Label layoutX="13.0" layoutY="14.0" text="Fitness Goals">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="dailyGoal" layoutX="9.0" layoutY="48.0" prefHeight="183.0" prefWidth="439.0">
+         <children>
+            <Label layoutX="18.0" layoutY="6.0" text="Daily Goals">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="seeAllBtn1" layoutX="374.0" layoutY="1.0" mnemonicParsing="false" text="See All &gt;" />
+            <VBox fx:id="workoutCtn" layoutX="12.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER;">
+               <children>
+                  <Label fx:id="dailyGoalType" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="value" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="unit" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="calBurnedCtn" layoutX="152.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER;">
+               <children>
+                  <Label fx:id="dailyGoalType2" text="NO GOAL" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="value2" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font></Label>
+                  <Label fx:id="unit2" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+               </children></VBox>
+            <VBox fx:id="distRunCtn" layoutX="292.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER;">
+               <children>
+                  <Label fx:id="dailyGoalType3" text="NO GOAL" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="value3" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="weeklyGoal" layoutX="456.0" layoutY="48.0" prefHeight="183.0" prefWidth="439.0">
+         <children>
+            <Label layoutX="39.0" layoutY="6.0" text="Weekly Goals">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="seeAllBtn2" layoutX="375.0" layoutY="1.0" mnemonicParsing="false" text="See All &gt;" />
+            <VBox fx:id="weeklyGoalCtn1" alignment="CENTER" layoutX="14.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0">
+               <children>
+                  <Label fx:id="weeklyGoalType1" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="weeklyValue1" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="weeklyUnit1" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></VBox>
+            <VBox fx:id="weeklyGoalCtn2" alignment="CENTER" layoutX="154.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0">
+               <children>
+                  <Label fx:id="weeklyGoalType2" alignment="CENTER" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="weeklyValue2" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="weeklyUnit2" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></VBox>
+            <VBox fx:id="weeklyGoalCtn3" alignment="CENTER" layoutX="295.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0">
+               <children>
+                  <Label fx:id="weeklyGoalType3" alignment="CENTER" text="NO GOAL" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="weeklyValue3" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="weeklyUnit3" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></VBox>
+         </children>
+      </AnchorPane>
+      <Label layoutX="24.0" layoutY="236.0" text="View Workout Plan">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <HBox alignment="TOP_RIGHT" layoutX="583.0" layoutY="12.0" prefHeight="36.0" prefWidth="291.0" spacing="5.0">
+         <children>
+            <Button fx:id="deleteBtn" mnemonicParsing="false" prefHeight="29.0" prefWidth="91.0">
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/deleteIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="editBtn" mnemonicParsing="false" prefHeight="29.0" prefWidth="91.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/editIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="addGoalBtn" mnemonicParsing="false" onAction="#goalActionButton" prefHeight="0.0" prefWidth="36.0" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/addIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="planCtn1" layoutX="16.0" layoutY="271.0" prefHeight="120.0" prefWidth="475.0">
+         <children>
+            <ImageView fx:id="workoutImg1" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/workoutDefault.jpg" />
+               </image></ImageView>
+            <Label fx:id="planType1" layoutX="186.0" layoutY="10.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="startDateLbl1" layoutX="186.0" layoutY="90.0" text="Begin at :" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="timesPerweekLbl1" layoutX="213.0" layoutY="50.0" text="times per week" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="frequency1" layoutX="186.0" layoutY="45.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="priorityLbl1" layoutX="340.0" layoutY="90.0" text="Priority :" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="startDate1" editable="false" layoutX="243.0" layoutY="87.0" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="priority1" editable="false" layoutX="390.0" layoutY="87.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </TextField>
+            <Label fx:id="noPlanMsg1" alignment="CENTER" layoutX="183.0" layoutY="44.0" prefHeight="37.0" prefWidth="263.0" text="NO WORKOUT PLAN" textFill="#4d5c5e">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane fx:id="planCtn2" layoutX="16.0" layoutY="394.0" prefHeight="120.0" prefWidth="475.0">
+         <children>
+            <ImageView fx:id="workoutImg2" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/workoutDefault.jpg" />
+               </image></ImageView>
+            <Label fx:id="planType2" layoutX="186.0" layoutY="10.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="frequency2" layoutX="186.0" layoutY="46.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="timesPerweekLbl2" layoutX="213.0" layoutY="52.0" text="times per week" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="startDateLbl2" layoutX="186.0" layoutY="90.0" text="Begin at :" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="priorityLbl2" layoutX="339.0" layoutY="90.0" text="Priority :" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="startDate2" editable="false" layoutX="243.0" layoutY="87.0" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="priority2" editable="false" layoutX="390.0" layoutY="87.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </TextField>
+            <Label fx:id="noPlanMsg2" alignment="CENTER" layoutX="183.0" layoutY="44.0" prefHeight="37.0" prefWidth="263.0" text="NO WORKOUT PLAN" textFill="#4d5c5e">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane fx:id="planCtn3" layoutX="16.0" layoutY="518.0" prefHeight="120.0" prefWidth="475.0">
+         <children>
+            <ImageView fx:id="workoutImg3" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/workoutDefault.jpg" />
+               </image></ImageView>
+            <Label fx:id="planType3" layoutX="186.0" layoutY="10.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="frequency3" layoutX="186.0" layoutY="46.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="timesPerweekLbl3" layoutX="213.0" layoutY="52.0" text="times per week" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="startDateLbl3" layoutX="186.0" layoutY="89.0" text="Begin at :" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="priorityLbl3" layoutX="339.0" layoutY="90.0" text="Priority :" textFill="#696660" visible="false">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="startDate3" editable="false" layoutX="243.0" layoutY="87.0" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="priority3" editable="false" layoutX="390.0" layoutY="87.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </TextField>
+            <Label fx:id="noPlanMsg3" alignment="CENTER" layoutX="183.0" layoutY="44.0" prefHeight="37.0" prefWidth="263.0" text="NO WORKOUT PLAN" textFill="#4d5c5e">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <Button fx:id="viewAllPlanBtn" layoutX="394.0" layoutY="235.0" mnemonicParsing="false" text="See All &gt;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="AddPlanCtn" layoutX="536.0" layoutY="239.0" prefHeight="400.0" prefWidth="341.0">
+         <children>
+            <ImageView fx:id="workoutPlanImg" fitHeight="155.0" fitWidth="258.0" layoutX="56.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/workoutDefault.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="importImgBtn" layoutX="106.0" layoutY="167.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="119.0" text="Import">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="18.0" layoutY="220.0" text="Type">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="250.0" text="Start Date">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="280.0" text="Duration">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="340.0" text="Priority">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="310.0" text="Frequency">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="addPlanBtn" layoutX="65.0" layoutY="370.0" mnemonicParsing="false" prefWidth="100.0" text="+ Add Plan">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="clearBtn" layoutX="180.0" layoutY="370.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="100.0" text="Clear">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="workoutTypeField" layoutX="95.0" layoutY="218.0" prefHeight="25.0" prefWidth="238.0" />
+            <TextField fx:id="durationField" layoutX="95.0" layoutY="280.0" prefHeight="25.0" prefWidth="129.0" />
+            <TextField fx:id="workoutFrequencyField" layoutX="95.0" layoutY="310.0" prefHeight="25.0" prefWidth="238.0" />
+            <DatePicker fx:id="startDatePicker" layoutX="95.0" layoutY="248.0" prefHeight="25.0" prefWidth="238.0" />
+            <ComboBox fx:id="timeValue" layoutX="224.0" layoutY="280.0" prefHeight="25.0" prefWidth="109.0" promptText="hour/minute" visibleRowCount="2" />
+            <ComboBox fx:id="priorityCombo" layoutX="95.0" layoutY="338.0" prefHeight="25.0" prefWidth="238.0" />
+         </children></AnchorPane>
+      <Button fx:id="editBtnPlan1" layoutX="475.0" layoutY="298.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="23.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/feedbackIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="deleteBtnPlan1" layoutX="475.0" layoutY="333.0" mnemonicParsing="false" prefHeight="31.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/deleteIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="editBtnPlan3" layoutX="474.0" layoutY="542.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="23.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/feedbackIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="deleteBtnPlan2" layoutX="474.0" layoutY="456.0" mnemonicParsing="false" prefHeight="33.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/deleteIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="editBtnPlan2" layoutX="475.0" layoutY="418.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="23.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/feedbackIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="deleteBtnPlan3" layoutX="474.0" layoutY="578.0" mnemonicParsing="false" prefHeight="33.0">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/deleteIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

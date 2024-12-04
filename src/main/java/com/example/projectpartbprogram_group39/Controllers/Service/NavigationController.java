@@ -39,7 +39,6 @@ public class NavigationController implements Initializable {
     @FXML
     private Pane contentPane;
 
-    private final FXMlLoader loader = new FXMlLoader();
 
     private final Image femaleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/girl_profile.png"));
     private final Image maleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/guy_profile.png"));
