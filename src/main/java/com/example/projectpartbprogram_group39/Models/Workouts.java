@@ -5,20 +5,22 @@ import java.util.Date;
 public class Workouts {
     private int workoutID;
     private String type;
-    private Date startDate;
+    private final Date beginDate;
     private String duration;
     private int value;
     private int frequency;
-    private String priority;
+    private double caloriesBurned;
 
-    public Workouts(int workoutID, String type, Date startDate, String duration, int value, int frequency, String priority) {
+
+    public Workouts(int workoutID, String type, Date startDate, String duration, int value, int frequency, double caloriesBurned) {
         this.workoutID = workoutID;
         this.type = type;
-        this.startDate = startDate;
+        this.beginDate = startDate;
         this.duration = duration;
         this.value = value;
         this.frequency = frequency;
-        this.priority = priority;
+        this.caloriesBurned = caloriesBurned;
+
     }
 
     public int getWorkoutID() {
@@ -35,14 +37,6 @@ public class Workouts {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
     }
 
     public String getDuration() {
@@ -69,23 +63,28 @@ public class Workouts {
         this.frequency = frequency;
     }
 
-    public String getPriority() {
-        return priority;
+    public Date getBeginDate() {
+        return beginDate;
     }
 
-    public void setPriority(String priority) {
-        this.priority = priority;
+    public double getCaloriesBurned() {
+        return caloriesBurned;
+    }
+
+    public void setCaloriesBurned(double caloriesBurned) {
+        this.caloriesBurned = caloriesBurned;
     }
 
     @Override
     public String toString() {
         return "Workouts{" +
-                "type='" + type + '\'' +
-                ", startDate=" + startDate +
+                "workoutID=" + workoutID +
+                ", type='" + type + '\'' +
+                ", beginDate=" + beginDate +
                 ", duration='" + duration + '\'' +
                 ", value=" + value +
                 ", frequency=" + frequency +
-                ", priority='" + priority + '\'' +
+                ", caloriesBurned=" + caloriesBurned +
                 '}';
     }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="790.0" stylesheets="@../CSS/allGoals.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.viewAllGoalsController">
+   <children>
+      <TextField fx:id="searchField" layoutX="445.0" layoutY="18.0" prefHeight="25.0" prefWidth="297.0" promptText="Search by name" />
+      <TableView fx:id="goalTable" editable="true" layoutX="8.0" layoutY="55.0" prefHeight="501.0" prefWidth="775.0">
+        <columns>
+          <TableColumn fx:id="typeCol" editable="false" prefWidth="222.05036067962646" text="Type" />
+            <TableColumn fx:id="targetCol" editable="false" prefWidth="99.94961547851562" text="Target" />
+            <TableColumn fx:id="unitCol" editable="false" prefWidth="50.528778076171875" text="Unit" />
+            <TableColumn fx:id="startDateCol" editable="false" prefWidth="126.08084106445312" text="Start Date" />
+            <TableColumn fx:id="priorityCol" editable="false" minWidth="0.0" prefWidth="101.582275390625" text="Priority" />
+            <TableColumn fx:id="actionCol" editable="false" prefWidth="171.7066650390625" text="Action" />
+        </columns>
+      </TableView>
+      <Button fx:id="searchBtn" layoutX="742.0" layoutY="18.0" mnemonicParsing="false">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/searchIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="goalLabel" layoutX="30.0" layoutY="12.0">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

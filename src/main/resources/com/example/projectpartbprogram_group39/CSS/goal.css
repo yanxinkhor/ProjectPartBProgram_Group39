@@ -1,15 +1,7 @@
-.root{
-    -fx-background-color: linear-gradient(#780078, #e0b3e6);
-}
-
-.TextField{
-    -fx-background-color:linear-gradient(#780078, #e0b3e6);
-
-}
 
 #goalFrame{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
     -fx-background-color:white;
-    -fx-opacity:0.6;
 }
 
 #titleContainer{
@@ -17,24 +9,22 @@
     -fx-border-width: 0px 0px 1px 0px
 }
 
-#goalTypeField,#goalPriorityField,#timeFrame{
-    -fx-background-color:#ffe9ff;
+#goalTypeField,#goalPriorityField,#timeFrame,#goalStartDateField{
+    -fx-background-color:white;
     -fx-border-color:#580058;
     -fx-border-radius:15px;
     -fx-background-radius:15px;
 }
 
 #targetField{
-    -fx-background-radius: 10 0 0 10;
-    -fx-border-radius:10 0 0 10;
-    -fx-background-color:#ffe9ff;
+    -fx-background-radius: 15 0 0 15;
+    -fx-border-radius:15 0 0 15;
     -fx-border-color:#580058;
 }
 
 #targetUnit{
-     -fx-background-radius: 0 10 10 0;
-     -fx-border-radius:0 10 10 0;
-     -fx-background-color:#ffe9ff;
+     -fx-background-radius: 0 15 15 0;
+     -fx-border-radius:0 15 15 0;
      -fx-border-color:#580058;
 }
 

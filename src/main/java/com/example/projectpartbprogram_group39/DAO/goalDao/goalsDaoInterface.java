@@ -8,8 +8,7 @@ import java.util.List;
 public interface goalsDaoInterface {
 
     void addGoal(fitnessGoal goal);
-    void editGoal(fitnessGoal goal);
-    void updateGoal(fitnessGoal goal);
-    void deleteGoal(fitnessGoal goal);
-    List<fitnessGoal> getGoalList() throws IOException;
+    void updateGoal(fitnessGoal oldGoal, fitnessGoal newGoal);
+    void deleteGoal(fitnessGoal goal) throws IOException;
+    List<fitnessGoal> getGoalList(String period) throws IOException;
 }
