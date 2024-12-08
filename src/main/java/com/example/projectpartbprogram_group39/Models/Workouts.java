@@ -3,32 +3,23 @@ package com.example.projectpartbprogram_group39.Models;
 import java.util.Date;
 
 public class Workouts {
-    private int workoutID;
     private String type;
-    private final Date beginDate;
+    private String caloriesBurned;
+    private double value;
     private String duration;
-    private int value;
     private int frequency;
-    private double caloriesBurned;
+    private String beginDate;
+    private String imgUrl;
 
 
-    public Workouts(int workoutID, String type, Date startDate, String duration, int value, int frequency, double caloriesBurned) {
-        this.workoutID = workoutID;
+    public Workouts(String type, String caloriesBurned,double value, String duration, int frequency, String startDate, String imgUrl) {
         this.type = type;
-        this.beginDate = startDate;
-        this.duration = duration;
-        this.value = value;
-        this.frequency = frequency;
         this.caloriesBurned = caloriesBurned;
-
-    }
-
-    public int getWorkoutID() {
-        return workoutID;
-    }
-
-    public void setWorkoutID(int workoutID) {
-        this.workoutID = workoutID;
+        this.value = value;
+        this.duration = duration;
+        this.frequency = frequency;
+        this.beginDate = startDate;
+        this.imgUrl = imgUrl;
     }
 
     public String getType() {
@@ -47,11 +38,11 @@ public class Workouts {
         this.duration = duration;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
@@ -63,28 +54,53 @@ public class Workouts {
         this.frequency = frequency;
     }
 
-    public Date getBeginDate() {
+    public String getBeginDate() {
         return beginDate;
     }
 
-    public double getCaloriesBurned() {
+    public void setBeginDate(String beginDate) {
+        this.beginDate = beginDate;
+    }
+
+    public String getCaloriesBurned() {
         return caloriesBurned;
     }
 
-    public void setCaloriesBurned(double caloriesBurned) {
+    public void setCaloriesBurned(String caloriesBurned) {
         this.caloriesBurned = caloriesBurned;
+
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override
     public String toString() {
-        return "Workouts{" +
-                "workoutID=" + workoutID +
-                ", type='" + type + '\'' +
-                ", beginDate=" + beginDate +
-                ", duration='" + duration + '\'' +
-                ", value=" + value +
-                ", frequency=" + frequency +
-                ", caloriesBurned=" + caloriesBurned +
-                '}';
+        return type + "," + caloriesBurned + "," + value + "," + duration + ","
+                + frequency + "," + beginDate + "," + imgUrl;
+    }
+
+    public static Workouts splitWorkoutString(String line){
+        String[] parts = line.split(",");
+
+        if(parts.length == 7){
+            String workoutType = parts[0];
+            String caloriesBurned = parts[1];
+            double value = Double.parseDouble(parts[2]);
+            String duration = parts[3];
+            int frequency = Integer.parseInt(parts[4]);
+            String beginDate = parts[5];
+            String imgUrl = parts[6].trim();
+
+            return new Workouts(workoutType,caloriesBurned,value,duration,frequency,beginDate,imgUrl);
+
+        }else{
+            throw new IllegalArgumentException("Invalid input format. Expected 7 parts but got: " + parts.length);
+        }
     }
 }

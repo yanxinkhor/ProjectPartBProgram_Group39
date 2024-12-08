@@ -1,0 +1,51 @@
+.plan-container{
+    -fx-background-color:white;
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
+}
+
+.bg-button{
+    -fx-background-color:#231f20;
+    -fx-text-fill:white;
+    -fx-background-radius:15px;
+}
+
+.table-view{
+    -fx-background-radius:15px;
+    -fx-border-radius:15px;
+    -fx-border-color:black;
+ }
+
+.table-view .column-header{
+    -fx-background-color:#231f20;
+    -fx-background-insets: 0 0 0 0;
+}
+
+.table-view .column-header, .table-view .filler{
+    -fx-size:30px;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill:white;
+}
+
+#workoutTypeCol{
+    -fx-background-radius:10 0 0 10;
+}
+
+#workoutDateCol{
+    -fx-background-radius:0 30 30 0;
+
+}
+
+#searchBar{
+    -fx-background-radius:15 0 0 15;
+    -fx-border-color:#231f20;
+    -fx-border-radius:15 0 0 15;
+}
+
+#searchBtn{
+    -fx-background-color:white;
+    -fx-border-color:#231f20;
+    -fx-border-radius:0 15 15 0;;
+     -fx-background-radius:0 15 15 0;
+}

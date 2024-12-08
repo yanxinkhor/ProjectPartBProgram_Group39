@@ -33,7 +33,6 @@ public class loginControllerForm {
     @FXML
     private TextField passwordTxtField;
 
-
     private final Image passVisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_visible.png"));
     private final Image passInvisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_invisible.png"));
     private final loginController loginService = new loginController();

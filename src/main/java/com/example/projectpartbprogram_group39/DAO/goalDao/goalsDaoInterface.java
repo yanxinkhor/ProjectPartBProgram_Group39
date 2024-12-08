@@ -10,5 +10,6 @@ public interface goalsDaoInterface {
     void addGoal(fitnessGoal goal);
     void updateGoal(fitnessGoal oldGoal, fitnessGoal newGoal);
     void deleteGoal(fitnessGoal goal) throws IOException;
+    boolean goalExists(String goalType) throws IOException;
     List<fitnessGoal> getGoalList(String period) throws IOException;
 }

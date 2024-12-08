@@ -28,7 +28,7 @@
      -fx-border-color:#580058;
 }
 
-#addButton, #clearButton{
+#addButton, #clearButton,#backButton{
     -fx-background-color:#ffe9ff;
     -fx-border-color:#580058;
     -fx-border-radius:20px;

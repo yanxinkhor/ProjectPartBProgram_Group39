@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -55,7 +57,7 @@ public class editGoalController implements Initializable {
         updatedPriority.setValue(goal.getPriority());
     }
 
-    public void reservedChanged(ActionEvent e){
+    public void reservedChanged(ActionEvent e) throws IOException {
 
         if(goal != null){
             if (updatedType.getText().isEmpty() || updatedTarget.getText().isEmpty() || updatedUnit.getValue() == null
@@ -64,15 +66,18 @@ public class editGoalController implements Initializable {
                 return;
             }
 
+            if(goalDao.goalExists(updatedType.getText())){
+                showAlert.alert(Alert.AlertType.ERROR, "The goal already exists");
+                return;
+            }
+
             fitnessGoal original = new fitnessGoal(goal.getGoalType(),goal.getGoalValue(),goal.getUnit(),goal.getTimeFrame(),goal.getStartDate(),goal.getPriority());
-
-
             goal.setGoalType(updatedType.getText());
 
             try{
                 goal.setGoalValue(Double.parseDouble(updatedTarget.getText()));
             }catch(NumberFormatException event){
-                showAlert.alert(Alert.AlertType.ERROR, "Please enter a valid target.");
+                showAlert.alert(Alert.AlertType.ERROR, "Please enter a valid target value.");
                 updatedTarget.setText("");
                 return;
             }

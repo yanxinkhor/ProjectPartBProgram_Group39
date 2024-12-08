@@ -56,7 +56,6 @@ public class goalDaoImp implements goalsDaoInterface {
             lines = Files.readAllLines(file.toPath());
 
             for (String line : lines) {
-
                 fitnessGoal currentGoal;
                 try {
                     currentGoal = fitnessGoal.splitGoalString(line);
@@ -142,6 +141,38 @@ public class goalDaoImp implements goalsDaoInterface {
             }
 
 
+    }
+
+    @Override
+    public boolean goalExists(String goalType) throws IOException {
+        String[] fileNames = {"dailyGoal.txt", "weeklyGoal.txt"};
+
+        for (String fileName : fileNames) {
+            File goalFile = new File(fileName);
+
+            if (!goalFile.exists()) {
+                continue;
+            }
+
+            List<String> lines = Files.readAllLines(goalFile.toPath());
+            for (String line : lines) {
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+
+                try {
+                    fitnessGoal goal = fitnessGoal.splitGoalString(line);
+
+                    if (goal.getGoalType().equalsIgnoreCase(goalType.trim())) {
+                        return true;
+                    }
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return false;
     }
 
     @Override
