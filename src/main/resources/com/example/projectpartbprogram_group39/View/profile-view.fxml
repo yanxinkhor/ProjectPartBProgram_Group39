@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="908.0" style="-fx-background-color: white;" stylesheets="@../CSS/profile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.profileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="908.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.profileController">
    <children>
       <TextField layoutX="27.0" layoutY="7.0" prefHeight="29.0" prefWidth="138.0" style="-fx-background-color: white;" text="Username's">
          <font>
@@ -266,7 +266,7 @@
                         <Insets left="25.0" top="6.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@../Images/guyCoach_4.png" />
+                        <Image url="@../Images/guy coach 4.png" />
                      </image>
                   </ImageView>
                </children>

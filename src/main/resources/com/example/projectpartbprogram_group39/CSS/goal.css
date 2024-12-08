@@ -1,0 +1,51 @@
+
+#goalFrame{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
+    -fx-background-color:white;
+}
+
+#titleContainer{
+    -fx-border-color:#858585;
+    -fx-border-width: 0px 0px 1px 0px
+}
+
+#goalTypeField,#goalPriorityField,#timeFrame,#goalStartDateField{
+    -fx-background-color:white;
+    -fx-border-color:#580058;
+    -fx-border-radius:15px;
+    -fx-background-radius:15px;
+}
+
+#targetField{
+    -fx-background-radius: 15 0 0 15;
+    -fx-border-radius:15 0 0 15;
+    -fx-border-color:#580058;
+}
+
+#targetUnit{
+     -fx-background-radius: 0 15 15 0;
+     -fx-border-radius:0 15 15 0;
+     -fx-border-color:#580058;
+}
+
+#addButton, #clearButton{
+    -fx-background-color:#ffe9ff;
+    -fx-border-color:#580058;
+    -fx-border-radius:20px;
+    -fx-background-radius:20px;
+    -fx-cursor:hand;
+}
+
+#addButton:hover, #clearButton:hover{
+    -fx-opacity:0.8;
+
+}
+
+#addButton:pressed, #clearButton:pressed{
+     -fx-opacity:0.5;
+     -fx-background-color:#580058;
+     -fx-text-fill:white;
+
+ }
+
+

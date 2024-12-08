@@ -1,4 +1,4 @@
-package com.example.projectpartbprogram_group39.DAO;
+package com.example.projectpartbprogram_group39.DAO.TraineeDao;
 
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
@@ -13,15 +13,13 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TraineeDaoImp implements daoInterface {
+public class TraineeDaoImp implements TraineeDaoInterface {
     @Override
     public void StoreTrainee(Trainee trainee) {
         File file = new File("userInfo.txt");
 
         if (!file.exists()) {
             System.out.println("File does not exist.");
-        } else {
-            System.out.println("File exists.");
         }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {

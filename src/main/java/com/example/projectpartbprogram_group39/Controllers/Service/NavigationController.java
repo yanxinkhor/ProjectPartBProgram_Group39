@@ -1,7 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
 import com.example.projectpartbprogram_group39.Models.Trainee;
-import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +19,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -39,7 +37,6 @@ public class NavigationController implements Initializable {
     @FXML
     private Pane contentPane;
 
-    private final FXMlLoader loader = new FXMlLoader();
 
     private final Image femaleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/girl_profile.png"));
     private final Image maleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/guy_profile.png"));
