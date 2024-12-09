@@ -1,5 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
+import com.example.projectpartbprogram_group39.Controllers.Form.profileController;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -115,6 +116,7 @@ public class NavigationController implements Initializable {
     public void goToProfile(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/profile-view.fxml"));
         Parent profileView = loader.load();
+
         contentPane.getChildren().clear();
         contentPane.getChildren().add(profileView);
         welcomeText.setVisible(false);

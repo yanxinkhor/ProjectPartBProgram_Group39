@@ -1,0 +1,4 @@
+#editBtn1:hover {
+    -fx-background-color: #005fa3; /* Background color on hover */
+    -fx-text-fill: white;          /* Text color on hover */
+}
