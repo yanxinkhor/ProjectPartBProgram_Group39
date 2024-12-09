@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="908.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.profileController">
    <children>
-      <TextField layoutX="27.0" layoutY="7.0" prefHeight="29.0" prefWidth="138.0" style="-fx-background-color: white;" text="Username's">
+      <TextField fx:id="profileUsernameMain" layoutX="27.0" layoutY="7.0" prefHeight="29.0" prefWidth="138.0" style="-fx-background-color: transparent;" text="Username's">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -22,7 +22,7 @@
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </padding>
       </TextField>
-      <Label layoutX="168.0" layoutY="5.0" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: white;" text="Profile">
+      <Label layoutX="168.0" layoutY="8.0" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="Profile">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -45,15 +45,19 @@
                   <Insets />
                </HBox.margin>
                <children>
-                  <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/editIcon.png" />
-                     </image>
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#handleEditButtonClick" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/editIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <VBox.margin>
-                        <Insets left="680.0" top="13.0" />
+                        <Insets left="668.0" top="11.0" />
                      </VBox.margin>
-                  </ImageView>
-                  <TextField prefHeight="29.0" prefWidth="300.0" style="-fx-background-color: f5f5f5;" text="Username">
+                  </Button>
+                  <TextField fx:id="profileUsername" editable="false" prefHeight="29.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Username">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -61,7 +65,7 @@
                         <Insets left="22.0" />
                      </padding>
                   </TextField>
-                  <TextField style="-fx-background-color: f5f5f5;" text="userid">
+                  <TextField fx:id="profileUserid" editable="false" style="-fx-background-color: transparent;" text="userid">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -69,7 +73,7 @@
                         <Insets left="22.0" />
                      </padding>
                   </TextField>
-                  <TextField prefHeight="27.0" prefWidth="692.0" style="-fx-background-color: f5f5f5;" text="email@gmail.com">
+                  <TextField fx:id="profileEmail" editable="false" prefHeight="27.0" prefWidth="692.0" style="-fx-background-color: transparent;" text="email@gmail.com">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -77,7 +81,7 @@
                         <Insets left="22.0" />
                      </padding>
                   </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-background-radius: 25;" text="SAVE" textFill="WHITE">
+                  <Button fx:id="saveBtn1" mnemonicParsing="false" onAction="#handleSaveButtonClick" style="-fx-background-color: black; -fx-background-radius: 25;" text="SAVE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -101,14 +105,18 @@
                         <Insets left="20.0" top="14.0" />
                      </HBox.margin>
                   </Label>
-                  <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/editIcon.png" />
-                     </image>
+                  <Button fx:id="editBtn2" mnemonicParsing="false" onAction="#handleEditButton2Click" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/editIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <HBox.margin>
-                        <Insets left="625.0" top="14.0" />
+                        <Insets left="610.0" top="14.0" />
                      </HBox.margin>
-                  </ImageView>
+                  </Button>
                </children>
             </HBox>
             <Line endX="731.0" startX="-100.0" stroke="#857d7d58" strokeWidth="2.0">
@@ -154,7 +162,7 @@
             </HBox>
             <HBox prefHeight="23.0" prefWidth="873.0">
                <children>
-                  <TextField prefHeight="17.0" prefWidth="144.0" style="-fx-background-color: f5f5f5;" text="Username">
+                  <TextField fx:id="profileUsername2" editable="false" prefHeight="17.0" prefWidth="144.0" style="-fx-background-color: f5f5f5;" text="Username">
                      <padding>
                         <Insets left="21.0" />
                      </padding>
@@ -162,12 +170,12 @@
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: F5F5F5;" text="23">
+                  <TextField fx:id="profileAge" editable="false" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: F5F5F5;" text="23">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: F5F5F5;" text="Female">
+                  <TextField fx:id="profileGender" editable="false" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: F5F5F5;" text="Female">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
@@ -175,7 +183,7 @@
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: f5f5f5;" text="email@gmail.com">
+                  <TextField fx:id="profileEmail2" prefHeight="25.0" prefWidth="351.0" style="-fx-background-color: f5f5f5;" text="email@gmail.com">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
@@ -218,23 +226,26 @@
             </HBox>
             <HBox prefHeight="27.0" prefWidth="829.0">
                <children>
-                  <TextField prefHeight="27.0" prefWidth="153.0" style="-fx-background-color: f5f5f5;" text="0140394928">
+                  <TextField fx:id="profilePhoneNo" editable="false" prefHeight="27.0" prefWidth="148.0" style="-fx-background-color: f5f5f5;" text="0140394928">
                      <padding>
-                        <Insets left="21.0" />
+                        <Insets left="19.0" />
                      </padding>
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: f5f5f5;" text="66kg">
+                  <TextField fx:id="profileWeight" editable="false" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: f5f5f5;" text="66kg">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: f5f5f5;" text="160cm" />
+                  <TextField fx:id="profileHeight" editable="false" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: f5f5f5;" text="160cm">
+                     <padding>
+                        <Insets left="11.0" />
+                     </padding></TextField>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-background-radius: 25;" text="SAVE" textFill="WHITE">
+            <Button fx:id="saveBtn2" mnemonicParsing="false" onAction="#handleSaveButton2Click" style="-fx-background-color: black; -fx-background-radius: 25;" text="SAVE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
