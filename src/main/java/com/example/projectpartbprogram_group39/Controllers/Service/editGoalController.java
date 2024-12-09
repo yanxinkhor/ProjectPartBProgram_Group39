@@ -88,9 +88,6 @@ public class editGoalController implements Initializable {
 
             goalDao.updateGoal(original,goal);
 
-            System.out.println("Goal Type: " + updatedType.getText());
-            System.out.println("Goal Value: " + updatedTarget.getText());
-
             Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
             stage.close();
         }

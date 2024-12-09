@@ -43,11 +43,13 @@ public class exercisesControllerForm implements Initializable {
     private Label weeklyGoalType1, weeklyValue1, weeklyUnit1, weeklyGoalType2, weeklyValue2, weeklyUnit2, weeklyGoalType3, weeklyValue3, weeklyUnit3;
 
     @FXML
+    private Label calBurnedLbl1,startDateLbl1,startDateLbl2,calBurnedLbl2,startDateLbl3,calBurnedLbl3;
+
+    @FXML
     private Label logType1, logType2, logType3, frequency1, frequency2, frequency3, noPlanMsg1, noPlanMsg2, noPlanMsg3;
 
     @FXML
     private TextField calBurnedLog1, calBurnedLog2, calBurnedLog3, date1, date2, date3, durationFld, durationFld2, durationFld3;
-
 
     @FXML
     private ComboBox<String> timeValue;
@@ -59,7 +61,7 @@ public class exercisesControllerForm implements Initializable {
     private DatePicker dateFld;
 
     @FXML
-    private ImageView workoutPlanImg;
+    private ImageView workoutPlanImg,workoutImg1,workoutImg2,workoutImg3;
 
     private final String[] time = {"Minutes", "Hours", "Seconds"};
 
@@ -251,8 +253,77 @@ public class exercisesControllerForm implements Initializable {
     public void refreshPage() {
         displayGoalUI("daily");
         displayGoalUI("weekly");
+        displayLogUI();
     }
 
+    public void displayLogUI() {
+        try {
+            List<Workouts> workoutLists = workoutDao.getAllWorkouts();
+            if (workoutLists == null || workoutLists.isEmpty()) {
+                displayNoPlanMessages();
+                return;
+            }
+
+            ImageView[] workoutImgs = {workoutImg1, workoutImg2, workoutImg3};
+            Label[] logTypes = {logType1, logType2, logType3};
+            Label[] frequencies = {frequency1, frequency2, frequency3};
+            TextField[] calBurnedLogs = {calBurnedLog1, calBurnedLog2, calBurnedLog3};
+            TextField[] dates = {date1, date2, date3};
+            TextField[] durations = {durationFld, durationFld2, durationFld3};
+            Label[] noPlanMsgs = {noPlanMsg1, noPlanMsg2, noPlanMsg3};
+            Label[] calBurnedLbls = {calBurnedLbl1, calBurnedLbl2, calBurnedLbl3};
+            Label[] startDateLbls = {startDateLbl1, startDateLbl2, startDateLbl3};
+
+            for (int i = 0; i < Math.min(workoutLists.size(), 3); i++) {
+                Workouts workout = workoutLists.get(i);
+
+                noPlanMsgs[i].setText("");
+                calBurnedLbls[i].setVisible(true);
+                startDateLbls[i].setVisible(true);
+
+                logUI(workoutImgs[i], logTypes[i], frequencies[i], calBurnedLogs[i], dates[i], durations[i], workout);
+            }
+
+            for (int i = workoutLists.size(); i < 3; i++) {
+                noPlanMsgs[i].setText("No plan available");
+                calBurnedLbls[i].setVisible(false);
+                startDateLbls[i].setVisible(false);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+
+        }
+    }
+
+    private void logUI(ImageView workoutImg, Label logType, Label frequency, TextField calBurnedLog, TextField date, TextField duration, Workouts workout) {
+        logType.setText(workout.getType());
+        frequency.setText(workout.getFrequency() + " times per week");
+        calBurnedLog.setText(String.valueOf(workout.getCaloriesBurned()));
+        date.setText(workout.getBeginDate());
+        duration.setText(workout.getValue() + " " + workout.getDuration());
+
+        if(workout.getImgUrl().equals(url)){
+            workoutImg.setImage(defaultImg);
+        }else{
+            workoutImg.setImage(new Image(workout.getImgUrl()));
+        }
+
+
+    }
+
+    private void displayNoPlanMessages() {
+        noPlanMsg1.setText("No plan available");
+        noPlanMsg2.setText("No plan available");
+        noPlanMsg3.setText("No plan available");
+
+        calBurnedLbl1.setVisible(false);
+        calBurnedLbl2.setVisible(false);
+        calBurnedLbl3.setVisible(false);
+
+        startDateLbl1.setVisible(false);
+        startDateLbl2.setVisible(false);
+        startDateLbl3.setVisible(false);
+    }
     public void handleTransition(Button button, String text, double width, double originWidth) {
 
         button.setOnMouseEntered(event -> {

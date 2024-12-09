@@ -50,10 +50,40 @@ public class workoutsDaoImp implements workoutsDaoInterface {
     }
 
     @Override
-    public void editWorkouts(Workouts workout) {
+    public void editWorkouts(Workouts oldLog, Workouts newLog) {
         File file = new File("workoutLog.txt");
         if(!file.exists()){
             System.out.println("file does not exists");
+        }
+
+        List<String> lines;
+        List<String> updatedLines = new ArrayList<>();
+
+        try{
+            lines = Files.readAllLines(file.toPath());
+            for(String line : lines){
+                Workouts currentWorkout;
+
+                currentWorkout = Workouts.splitWorkoutString(line);
+
+                if(currentWorkout.getType().equals(oldLog.getType()) && currentWorkout.getCaloriesBurned().equals(oldLog.getCaloriesBurned())
+                        && currentWorkout.getBeginDate().equals(oldLog.getBeginDate())){
+                    updatedLines.add(newLog.toString());
+                }else{
+                    updatedLines.add(line);
+                }
+            }
+
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter("workoutLog.txt"))){
+                for(String updatedLine : updatedLines){
+                    writer.write(updatedLine);
+                    writer.newLine();
+                }
+            }
+
+
+        }catch(IOException e){
+
         }
     }
 

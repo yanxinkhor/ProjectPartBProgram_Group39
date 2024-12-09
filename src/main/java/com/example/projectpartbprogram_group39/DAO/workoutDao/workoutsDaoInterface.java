@@ -8,7 +8,7 @@ import java.util.List;
 public interface workoutsDaoInterface {
     void addWorkout(Workouts workout);  // Add a new workout
     List<Workouts> getAllWorkouts() throws IOException;
-    void editWorkouts(Workouts workout);
+    void editWorkouts(Workouts oldLog, Workouts newLog);
     boolean logExists(String workoutType ) throws IOException;
     void deleteWorkout(Workouts workout);
 }

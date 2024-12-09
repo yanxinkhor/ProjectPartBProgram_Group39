@@ -169,10 +169,7 @@
       </HBox>
       <AnchorPane fx:id="planCtn1" layoutX="16.0" layoutY="271.0" prefHeight="120.0" prefWidth="475.0" styleClass="background-shadow">
          <children>
-            <ImageView fx:id="workoutImg1" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/workoutDefault.jpg" />
-               </image></ImageView>
+            <ImageView fx:id="workoutImg1" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="logType1" layoutX="183.0" layoutY="10.0">
                <font>
                   <Font name="System Bold" size="22.0" />
@@ -216,10 +213,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="planCtn2" layoutX="16.0" layoutY="394.0" prefHeight="120.0" prefWidth="475.0" styleClass="background-shadow">
          <children>
-            <ImageView fx:id="workoutImg2" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/workoutDefault.jpg" />
-               </image></ImageView>
+            <ImageView fx:id="workoutImg2" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="logType2" layoutX="183.0" layoutY="10.0">
                <font>
                   <Font name="System Bold" size="22.0" />
@@ -263,10 +257,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="planCtn3" layoutX="16.0" layoutY="518.0" prefHeight="120.0" prefWidth="475.0" styleClass="background-shadow">
          <children>
-            <ImageView fx:id="workoutImg3" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/workoutDefault.jpg" />
-               </image></ImageView>
+            <ImageView fx:id="workoutImg3" fitHeight="112.0" fitWidth="155.0" layoutX="21.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="logType3" layoutX="183.0" layoutY="10.0">
                <font>
                   <Font name="System Bold" size="22.0" />
@@ -280,11 +271,6 @@
             <Label fx:id="startDateLbl3" layoutX="183.0" layoutY="74.0" text="Begin at :" textFill="#696660" visible="false">
                <font>
                   <Font name="Roboto" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="priorityLbl3" layoutX="339.0" layoutY="90.0" text="Priority :" textFill="#696660" visible="false">
-               <font>
-                  <Font name="Roboto" size="14.0" />
                </font>
             </Label>
             <TextField fx:id="date3" editable="false" layoutX="230.0" layoutY="69.0" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: transparent;">
