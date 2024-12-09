@@ -71,4 +71,9 @@ public class TraineeDaoImp implements TraineeDaoInterface {
 
         return trainees;
     }
+
+    @Override
+    public void updateTrainee(Trainee trainee) {
+
+    }
 }
