@@ -1,0 +1,28 @@
+#feedbackPU, #generalFeedback, #reportPane{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px 20px 20px 20px;
+
+}
+
+#feedback, #report{
+    -fx-border-color: none;
+    -fx-background-color: #dfdfdf;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#btn{
+    -fx-border-color: none;
+    -fx-background-color: none;
+}
+
+#sendBtn, #reportBtn{
+    -fx-background-color:#2c4215 ;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#rate{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+}
