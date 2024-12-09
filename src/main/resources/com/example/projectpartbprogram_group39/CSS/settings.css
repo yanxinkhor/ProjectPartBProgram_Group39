@@ -1,0 +1,15 @@
+#settingsPane{
+    -fx-background-color: #f6f6f6;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#settingPanes{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#CDbtn{
+    -fx-padding: 0;
+    -fx-border-color: none;
+    -fx-background-color: none;
+}

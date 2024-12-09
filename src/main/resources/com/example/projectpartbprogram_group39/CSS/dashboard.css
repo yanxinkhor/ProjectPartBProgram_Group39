@@ -1,0 +1,39 @@
+#dashboardPane{
+    -fx-background-color: #ffffff;
+}
+
+
+#steps{
+    -fx-background-color: #e9e2ee;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#calories{
+    -fx-background-color: #e2ece9;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#heartrate{
+    -fx-background-color: #fadee9;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#profile{
+    -fx-background-color: #f6f6f6;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#goalPer{
+    -fx-background-color: #dfebeb;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#statBar, #coachBar{
+    -fx-background-color: #231f20;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
+
+#nutBar{
+    -fx-background-color: #ebe7e7;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
