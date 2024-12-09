@@ -51,8 +51,13 @@ public class loginControllerForm {
         String password = passwordField.getText();
 
         if (loginService.validateUser(username, password)) {
-            showAlert.alert(Alert.AlertType.INFORMATION, "Login successful!");
-            directToMainPage(e, username, password);
+            if(username.equals("Admin")){
+                showAlert.alert(Alert.AlertType.INFORMATION,"Login successful! Welcome Admin");
+                directToMainPage(e, username, password);
+            }else {
+                showAlert.alert(Alert.AlertType.INFORMATION, "Login successful! Welcome user: " + username);
+                directToMainPage(e, username, password);
+            }
         }
 
     }

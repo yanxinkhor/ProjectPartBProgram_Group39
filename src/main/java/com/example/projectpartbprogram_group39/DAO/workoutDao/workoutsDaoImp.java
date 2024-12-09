@@ -105,7 +105,15 @@ public class workoutsDaoImp implements workoutsDaoInterface {
     }
 
     @Override
-    public void deleteWorkout(Workouts workout) {
+    public void deleteWorkout(Workouts workout) throws IOException {
+        File file = new File("workoutLog.txt");
 
+        List<String> lines;
+        List<String> updatedLines = new ArrayList<>();
+
+        lines = Files.readAllLines(file.toPath());
+        for(String line : lines){
+
+        }
     }
 }

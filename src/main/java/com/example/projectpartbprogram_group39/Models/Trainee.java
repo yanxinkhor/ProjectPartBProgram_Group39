@@ -4,13 +4,14 @@ public class Trainee {
     private String username;
     private int age;
     private String gender;
-    private int phoneNo;
+    private String phoneNo;
     private String email;
     private double height;
     private double weight;
     private String password;
 
-    public Trainee(String username, int age, String gender, int phoneNo, String email, double height, double weight, String password) {
+
+    public Trainee(String username, int age, String gender, String phoneNo, String email, double height, double weight, String password) {
         this.username = username;
         this.age = age;
         this.gender = gender;
@@ -45,11 +46,11 @@ public class Trainee {
         this.gender = gender;
     }
 
-    public int getPhoneNo() {
+    public String getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
 
@@ -101,7 +102,7 @@ public class Trainee {
         String username = parts[0];
         int age = Integer.parseInt(parts[1]);
         String gender = parts[2];
-        int phoneNo = Integer.parseInt(parts[3]);
+        String phoneNo = parts[3];
         String email = parts[4];
         double height = Double.parseDouble(parts[5]);
         double weight = Double.parseDouble(parts[6]);

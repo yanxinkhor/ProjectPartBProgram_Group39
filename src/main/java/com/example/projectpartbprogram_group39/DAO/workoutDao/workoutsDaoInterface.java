@@ -10,5 +10,5 @@ public interface workoutsDaoInterface {
     List<Workouts> getAllWorkouts() throws IOException;
     void editWorkouts(Workouts oldLog, Workouts newLog);
     boolean logExists(String workoutType ) throws IOException;
-    void deleteWorkout(Workouts workout);
+    void deleteWorkout(Workouts workout) throws IOException;
 }

@@ -9,5 +9,4 @@ public interface TraineeDaoInterface {
     void StoreTrainee(Trainee trainee);
     boolean userExists(String username, String email)throws IOException;
     List<Trainee> getAllTrainees()throws IOException;
-
 }

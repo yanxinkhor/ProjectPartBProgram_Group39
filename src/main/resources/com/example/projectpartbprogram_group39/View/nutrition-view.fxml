@@ -4,7 +4,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="641.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.nutritionController">
+<AnchorPane prefHeight="641.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.nutritionControllerForm">
    <children>
       <Text layoutX="443.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nutrition" />
    </children>

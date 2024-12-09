@@ -11,10 +11,10 @@ public class signupController {
 
     private final TraineeDaoImp traineeDao = new TraineeDaoImp();
 
-    public boolean validateSignupInfo(String username, String ageString, String phoneNoString, String email, String gender,
+    public boolean validateSignupInfo(String username, String ageString, String phoneNo, String email, String gender,
                                       String heightString, String weightString, String password, String passwordConfirmed) throws IOException {
 
-        if (username.isEmpty() || ageString.isEmpty() || phoneNoString.isEmpty() || email.isEmpty() || gender.isEmpty() ||
+        if (username.isEmpty() || ageString.isEmpty() || phoneNo.isEmpty() || email.isEmpty() || gender.isEmpty() ||
                 heightString.isEmpty() || weightString.isEmpty() || password.isEmpty() || passwordConfirmed.isEmpty()) {
             showAlert.alert(Alert.AlertType.ERROR, "Please fill in all the credentials");
             return false;
@@ -27,7 +27,6 @@ public class signupController {
 
         try {
             int age = Integer.parseInt(ageString);
-            int phoneNo = Integer.parseInt(phoneNoString);
             double height = Double.parseDouble(heightString);
             double weight = Double.parseDouble(weightString);
 

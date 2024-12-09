@@ -12,6 +12,8 @@ import java.util.List;
 public class loginController {
 
     private static final TraineeDaoImp traineeDao = new TraineeDaoImp();
+    private static final String ADMIN_USERNAME = "Admin";
+    private static final String ADMIN_PASSWORD = "admin1234";
 
     public boolean validateUser(String username, String password) throws IOException {
         String hashedPassword = Encryption.hashPassword(password);
@@ -19,6 +21,10 @@ public class loginController {
         if (username.isEmpty() || password.isEmpty()) {
             showAlert.alert(Alert.AlertType.ERROR, "Please fill in all information");
             return false;
+        }
+
+        if(username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)){
+            return true;
         }
 
         List<Trainee> trainees = traineeDao.getAllTrainees();
@@ -36,6 +42,10 @@ public class loginController {
     public static Trainee getLoggedInTrainee(String username, String password) throws IOException {
         String hashedPassword = Encryption.hashPassword(password);
         List<Trainee> trainees = traineeDao.getAllTrainees();
+
+        if(username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)){
+            return new Trainee(ADMIN_USERNAME,25,"male","012345678","admin@gmail.com",175.5,50.5,ADMIN_PASSWORD);
+        }
 
         for (Trainee trainee : trainees) {
             if (trainee.getUsername().equals(username) && trainee.getPassword().equals(hashedPassword)) {

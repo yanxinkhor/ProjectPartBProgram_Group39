@@ -71,4 +71,5 @@ public class TraineeDaoImp implements TraineeDaoInterface {
 
         return trainees;
     }
+
 }

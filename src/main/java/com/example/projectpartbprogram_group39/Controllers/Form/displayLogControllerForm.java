@@ -199,6 +199,10 @@ public class displayLogControllerForm implements Initializable {
 
     }
 
+    public void deleteLog(ActionEvent e){
+
+    }
+
     public void clear(ActionEvent e){
         updatedType.clear();
         updatedCalBurned.clear();
