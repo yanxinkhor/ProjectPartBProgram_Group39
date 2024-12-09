@@ -1,9 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
 import com.example.projectpartbprogram_group39.Controllers.Service.signupController;
-import com.example.projectpartbprogram_group39.DAO.TraineeDao.TraineeDaoImp;
-import com.example.projectpartbprogram_group39.Models.Trainee;
-import com.example.projectpartbprogram_group39.Utils.Encryption;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,8 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
-
-
 
 public class signupControllerForm {
     @FXML

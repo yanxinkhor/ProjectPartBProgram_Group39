@@ -5,16 +5,14 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@../CSS/goal.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.goalControllerForm">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" stylesheets="@../CSS/goal.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.addGoalControllerForm">
    <children>
       <AnchorPane fx:id="goalFrame" layoutX="34.0" layoutY="28.0" prefHeight="443.0" prefWidth="531.0" />
-      <AnchorPane fx:id="goalFrame1" layoutX="34.0" layoutY="28.0" prefHeight="443.0" prefWidth="499.0">
+      <AnchorPane fx:id="goalFrame1" layoutX="34.0" layoutY="28.0" prefHeight="443.0" prefWidth="531.0">
          <children>
             <Label layoutX="45.0" layoutY="67.0" text="Goal Type :">
                <font>
@@ -42,35 +40,35 @@
                   <Font name="Roboto" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="targetUnit" layoutX="383.0" layoutY="161.0" prefHeight="25.0" prefWidth="97.0" />
-            <DatePicker fx:id="goalStartDateField" editable="false" layoutX="46.0" layoutY="228.0" prefHeight="25.0" prefWidth="195.0" />
             <Label layoutX="266.0" layoutY="202.0" text="Priority :">
                <font>
                   <Font name="Roboto" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="addButton" layoutX="90.0" layoutY="349.0" mnemonicParsing="false" onAction="#addGoal" prefHeight="42.0" prefWidth="155.0" text="ADD">
+            <Button fx:id="addButton" layoutX="38.0" layoutY="349.0" mnemonicParsing="false" onAction="#addGoal" prefHeight="42.0" prefWidth="135.0" text="ADD">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="clearButton" layoutX="254.0" layoutY="349.0" mnemonicParsing="false" onAction="#clear" prefHeight="42.0" prefWidth="155.0" text="CLEAR">
+            <Button fx:id="clearButton" layoutX="191.0" layoutY="349.0" mnemonicParsing="false" onAction="#clear" prefHeight="42.0" prefWidth="135.0" text="CLEAR">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <ComboBox fx:id="goalPriorityField" layoutX="264.0" layoutY="227.0" prefHeight="28.0" prefWidth="216.0" promptText="HIgh, Medium or Low" />
-            <ImageView fitHeight="101.0" fitWidth="122.0" layoutX="427.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/targetIcon.png" />
-               </image>
-            </ImageView>
+            <ComboBox fx:id="goalPriorityField" layoutX="266.0" layoutY="227.0" prefHeight="28.0" prefWidth="210.0" promptText="High, Medium or Low" />
             <ComboBox fx:id="timeFrame" layoutX="42.0" layoutY="295.0" prefWidth="434.0" promptText="daily or weekly" />
             <Label layoutX="43.0" layoutY="272.0" text="Time Frame :">
                <font>
                   <Font name="Roboto" size="18.0" />
                </font>
             </Label>
+            <ComboBox fx:id="targetUnit" layoutX="383.0" layoutY="161.0" prefHeight="28.0" prefWidth="97.0" promptText="unit" style="-fx-background-color: white;" />
+            <DatePicker fx:id="goalStartDateField" layoutX="47.0" layoutY="229.0" prefHeight="25.0" prefWidth="210.0" promptText="yyyy-mm-dd" />
+            <Button fx:id="backButton" layoutX="340.0" layoutY="349.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="135.0" text="BACK">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

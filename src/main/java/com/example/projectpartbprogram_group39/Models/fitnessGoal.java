@@ -5,28 +5,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class fitnessGoal {
-    private int goaID;
     private String goalType;
-    private int goalValue;
+    private double goalValue;
+    private String unit;
     private String timeFrame;
-    private Date startDate;
+    private String startDate;
     private String priority;
 
-    public fitnessGoal(int goaID, String goalType, int goalValue, String timeFrame, Date startDate, String priority) {
-        this.goaID = goaID;
+    public fitnessGoal(String goalType, double goalValue,String unit, String timeFrame, String startDate, String priority) {
         this.goalType = goalType;
         this.goalValue = goalValue;
+        this.unit = unit;
         this.timeFrame = timeFrame;
         this.startDate = startDate;
         this.priority = priority;
-    }
-
-    public int getGoaID() {
-        return goaID;
-    }
-
-    public void setGoaID(int goaID) {
-        this.goaID = goaID;
     }
 
     public String getGoalType() {
@@ -37,12 +29,20 @@ public class fitnessGoal {
         this.goalType = goalType;
     }
 
-    public int getGoalValue() {
+    public double getGoalValue() {
         return goalValue;
     }
 
-    public void setGoalValue(int goalValue) {
+    public void setGoalValue(double goalValue) {
         this.goalValue = goalValue;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getTimeFrame() {
@@ -53,11 +53,11 @@ public class fitnessGoal {
         this.timeFrame = timeFrame;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
@@ -72,8 +72,8 @@ public class fitnessGoal {
 
     @Override
     public String toString() {
-        return goaID + "/" + goalType + "/" + goalValue + "/" + timeFrame + "/"
-                +startDate + "/" + priority;
+        return goalType + "/" + goalValue + "/" + unit + "/" + timeFrame + "/"
+                + startDate + "/" + priority;
 
     }
 
@@ -82,25 +82,16 @@ public class fitnessGoal {
 
         if (parts.length == 6) {
 
-            int goalID = Integer.parseInt(parts[0]);
-            String goalType = parts[1];
-            int goalValue = Integer.parseInt(parts[2]);
+            String goalType = parts[0];
+            double goalValue = Double.parseDouble(parts[1]);
+            String goalUnit = parts[2];
             String timeFrame = parts[3];
-
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date startDate = null;
-
-            try {
-                startDate = dateFormat.parse(parts[4]);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
+            String startDate = parts[4];
             String priority = parts[5];
 
-            return new fitnessGoal(goalID, goalType, goalValue, timeFrame, startDate, priority);
+            return new fitnessGoal(goalType, goalValue, goalUnit, timeFrame, startDate, priority);
         } else {
-            throw new IllegalArgumentException("Invalid number of input");
+            throw new IllegalArgumentException("Invalid input format. Expected 6 parts but got: " + parts.length);
         }
     }
 
