@@ -1,7 +1,8 @@
 module com.example.projectpartbprogram_group39 {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
+    requires java.logging;
+    requires java.desktop;
 
 
     opens com.example.projectpartbprogram_group39 to javafx.fxml;

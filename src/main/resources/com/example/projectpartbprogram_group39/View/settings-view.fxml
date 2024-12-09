@@ -1,11 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="641.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.settingsController">
+<AnchorPane id="settingsPage" prefHeight="641.0" prefWidth="908.0" style="-fx-background-color: #ffffff;" stylesheets="@../CSS/settings.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.settingsController">
    <children>
-      <Text layoutX="431.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="settings" />
+      <Text layoutX="27.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Pane id="settingsPane" layoutX="27.0" layoutY="70.0" prefHeight="534.0" prefWidth="856.0">
+         <children>
+            <Pane id="settingPanes" layoutX="20.0" layoutY="22.0" prefHeight="51.0" prefWidth="815.0">
+               <children>
+                  <Text layoutX="15.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connect Device">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button id="CDbtn" layoutX="769.0" layoutY="15.0" mnemonicParsing="false" onAction="#connectDevicePU">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/settingsArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane id="settingPanes" layoutX="20.0" layoutY="88.0" prefHeight="51.0" prefWidth="815.0">
+               <children>
+                  <Text layoutX="15.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="App Language">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#37363b" layoutX="17.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="English US">
+                     <font>
+                        <Font name="Arial" size="8.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane id="settingPanes" layoutX="20.0" layoutY="154.0" prefHeight="51.0" prefWidth="815.0">
+               <children>
+                  <Text layoutX="15.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appearance">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#37363b" layoutX="17.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dark &amp; Light">
+                     <font>
+                        <Font name="Arial" size="8.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane id="settingPanes" layoutX="20.0" layoutY="220.0" prefHeight="51.0" prefWidth="815.0">
+               <children>
+                  <Text layoutX="15.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Account">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button id="CDbtn" layoutX="769.0" layoutY="14.0" mnemonicParsing="false" onAction="#deleteAccountPU">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/settingsArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Line endX="710.800048828125" layoutX="120.0" layoutY="321.0" startX="-100.0" stroke="#e4e0e0" strokeWidth="2.0" />
+            <Text layoutX="26.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help &amp; Feedback">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Pane id="settingPanes" layoutX="20.0" layoutY="337.0" prefHeight="51.0" prefWidth="815.0">
+               <children>
+                  <Text layoutX="15.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send Feedback">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button id="CDbtn" layoutX="769.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendFeedbackPU">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/settingsArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane id="settingPanes" layoutX="20.0" layoutY="400.0" prefHeight="51.0" prefWidth="815.0">
+               <children>
+                  <Text layoutX="15.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button id="CDbtn" layoutX="769.0" layoutY="14.0" mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/settingsArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane id="settingPanes" layoutX="20.0" layoutY="463.0" prefHeight="51.0" prefWidth="815.0">
+               <children>
+                  <Text layoutX="15.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button id="CDbtn" layoutX="769.0" layoutY="14.0" mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/settingsArrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="opacityPane" layoutX="-172.0" layoutY="-59.0" opacity="0.5" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #000000;" />
    </children>
 </AnchorPane>
