@@ -1,7 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
-import com.example.projectpartbprogram_group39.DAO.goalDao.goalDaoImp;
-import com.example.projectpartbprogram_group39.DAO.workoutDao.workoutsDaoImp;
+import com.example.projectpartbprogram_group39.Controllers.Service.exercisesController;
 import com.example.projectpartbprogram_group39.Models.Workouts;
 import com.example.projectpartbprogram_group39.Models.fitnessGoal;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
@@ -17,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -31,10 +29,7 @@ public class exercisesControllerForm implements Initializable {
     private Button addGoalBtn, seeAllBtn1, seeAllBtn2;
 
     @FXML
-    private Button editBtnPlan1, deleteBtnPlan1, editBtnPlan2, deleteBtnPlan2, editBtnPlan3, deleteBtnPlan3;
-
-    @FXML
-    private Button addPlanBtn, clearBtn, viewAllPlanBtn;
+    private Button viewAllLogBtn;
 
     @FXML
     private Label dailyGoalType, value, unit, dailyGoalType2, value2, unit2, dailyGoalType3, value3, unit3;
@@ -63,14 +58,9 @@ public class exercisesControllerForm implements Initializable {
     @FXML
     private ImageView workoutPlanImg,workoutImg1,workoutImg2,workoutImg3;
 
+    private String url;
     private final String[] time = {"Minutes", "Hours", "Seconds"};
-
-    private goalDaoImp goalDao = new goalDaoImp();
-    private workoutsDaoImp workoutDao = new workoutsDaoImp();
-
-
-    private final Image defaultImg = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/workoutDefault.jpg"));
-    private final Image updateImg = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/updateIcon.png"));
+    private final exercisesController exerciseService = new exercisesController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -79,27 +69,23 @@ public class exercisesControllerForm implements Initializable {
         refreshPage();
     }
 
-    public void goalActionButton(ActionEvent e) throws IOException {
+    public void ActionButton(ActionEvent e) throws IOException {
         Button sourceBtn = (Button) e.getSource();
 
         if (sourceBtn == addGoalBtn) {
-            openAddGoalPage();
+            openPage("goal-view.fxml","viewAllGoalsController","",false);
             refreshPage();
         } else if (sourceBtn == seeAllBtn1) {
-            openViewAllPage("displayGoals-view.fxml", "daily");
+            openPage("displayGoals-view.fxml","viewAllGoalsController","daily",false);
+
         } else if (sourceBtn == seeAllBtn2) {
-            openViewAllPage("displayGoals-view.fxml", "weekly");
+            openPage("displayGoals-view.fxml","viewAllGoalsController","weekly",false);
+
+        }else if(sourceBtn == viewAllLogBtn){
+            openPage("displayLog-view.fxml","displayLogControllerForm","",true);
         }
     }
 
-    public void logActionButton(ActionEvent e) throws IOException {
-        Button sourceBtn = (Button) e.getSource();
-
-        if (sourceBtn == viewAllPlanBtn) {
-            openViewLogPage();
-        }
-    }
-    private String url ="/com/example/projectpartbprogram_group39/Images/workoutDefault.jpg";
     public void importImage(ActionEvent e) {
         FileChooser fileChooser = new FileChooser();
 
@@ -116,18 +102,13 @@ public class exercisesControllerForm implements Initializable {
                 workoutPlanImg.setImage(importedImage);
                 url = selectedFile.getAbsolutePath();
 
-
             } catch (Exception ex) {
                 showAlert.alert(Alert.AlertType.ERROR, "Failed to load the image. Please try again.");
             }
-        } else {
-            workoutPlanImg.setImage(defaultImg);
         }
-
-
     }
 
-    public void addLogs(ActionEvent e) throws IOException {
+    public void addLogs(ActionEvent e){
         String workoutType = workoutTypeField.getText();
         String caloriesLogStr = calBurnedFld.getText();
         String durationStr = durationField.getText();
@@ -136,37 +117,25 @@ public class exercisesControllerForm implements Initializable {
         LocalDate startDate = dateFld.getValue();
         String urlImg = url;
 
+        if (urlImg == null || urlImg.isEmpty()) {
+            showAlert.alert(Alert.AlertType.WARNING, "You must import an image before saving the log.");
+            return;
+        }
+
         if (workoutType.isEmpty() || caloriesLogStr.isEmpty() || durationStr.isEmpty() || timeStr == null
                 || frequencyStr.isEmpty() || dateFld == null || startDate == null) {
             showAlert.alert(Alert.AlertType.ERROR, "Please enter all of the fields");
             return;
         }
 
-        if (workoutDao.logExists(workoutType)) {
-            showAlert.alert(Alert.AlertType.ERROR, "Log already exists, please enter a new log");
-            clear(e);
-            return;
-        }
-
-        try {
-            String caloriesLog = caloriesLogStr + " kcal";
-            int duration = Integer.parseInt(durationStr);
-            int frequency = Integer.parseInt(frequencyStr);
-            String startDateStr = startDate.toString();
-
-            Workouts newLogs = new Workouts(workoutType, caloriesLog, duration, timeStr, frequency, startDateStr,urlImg);
-            workoutDao.addWorkout(newLogs);
-            showAlert.alert(Alert.AlertType.INFORMATION, "Log added successfully!");
-            clear(e);
-        } catch (NumberFormatException ex) {
-            showAlert.alert(Alert.AlertType.ERROR, "Invalid Input, value must be a number.");
-        }
+        exerciseService.addWorkoutLog(workoutType, caloriesLogStr, durationStr, timeStr, frequencyStr, startDate, urlImg);
+        clear(e);
     }
 
     private void displayGoalUI(String period) {
 
         try {
-            List<fitnessGoal> goalLists = goalDao.getGoalList(period);
+            List<fitnessGoal> goalLists = exerciseService.getGoalsByPeriod(period);
 
             for (int i = 0; i < Math.min(goalLists.size(), 3); i++) {
                 fitnessGoal goal = goalLists.get(i);
@@ -183,7 +152,6 @@ public class exercisesControllerForm implements Initializable {
                         case 2:
                             goalUI(dailyGoalType3, value3, unit3, goal);
                             break;
-
                     }
 
                 } else if (period.equals("weekly")) {
@@ -207,7 +175,6 @@ public class exercisesControllerForm implements Initializable {
 
                 } else if (period.equals("weekly")) {
                     clearWeeklyGoalsUI();
-
                 }
             }
 
@@ -258,11 +225,7 @@ public class exercisesControllerForm implements Initializable {
 
     public void displayLogUI() {
         try {
-            List<Workouts> workoutLists = workoutDao.getAllWorkouts();
-            if (workoutLists == null || workoutLists.isEmpty()) {
-                displayNoPlanMessages();
-                return;
-            }
+            List<Workouts> workoutLists = exerciseService.getAllWorkouts();
 
             ImageView[] workoutImgs = {workoutImg1, workoutImg2, workoutImg3};
             Label[] logTypes = {logType1, logType2, logType3};
@@ -285,7 +248,7 @@ public class exercisesControllerForm implements Initializable {
             }
 
             for (int i = workoutLists.size(); i < 3; i++) {
-                noPlanMsgs[i].setText("No plan available");
+                noPlanMsgs[i].setText("No Workout Log");
                 calBurnedLbls[i].setVisible(false);
                 startDateLbls[i].setVisible(false);
             }
@@ -302,28 +265,11 @@ public class exercisesControllerForm implements Initializable {
         date.setText(workout.getBeginDate());
         duration.setText(workout.getValue() + " " + workout.getDuration());
 
-        if(workout.getImgUrl().equals(url)){
-            workoutImg.setImage(defaultImg);
-        }else{
             workoutImg.setImage(new Image(workout.getImgUrl()));
-        }
 
 
     }
 
-    private void displayNoPlanMessages() {
-        noPlanMsg1.setText("No plan available");
-        noPlanMsg2.setText("No plan available");
-        noPlanMsg3.setText("No plan available");
-
-        calBurnedLbl1.setVisible(false);
-        calBurnedLbl2.setVisible(false);
-        calBurnedLbl3.setVisible(false);
-
-        startDateLbl1.setVisible(false);
-        startDateLbl2.setVisible(false);
-        startDateLbl3.setVisible(false);
-    }
     public void handleTransition(Button button, String text, double width, double originWidth) {
 
         button.setOnMouseEntered(event -> {
@@ -358,37 +304,25 @@ public class exercisesControllerForm implements Initializable {
 
     }
 
-    private void openAddGoalPage() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/goal-view.fxml"));
-        Scene Goalscene = new Scene(loader.load());
-        Stage goalWindow = new Stage();
-        goalWindow.setScene(Goalscene);
-        goalWindow.setResizable(false);
-        goalWindow.showAndWait();
-    }
-
-    private void openViewAllPage(String fileName, String period) throws IOException {
+    private void openPage(String fileName, String controllerClassName, String period, boolean isLogPage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/" + fileName));
-        Scene Goalscene = new Scene(loader.load());
+        Scene scene = new Scene(loader.load());
 
-        viewAllGoalsController controller = loader.getController();
-        controller.setPeriod(period);
-        controller.loadGoals();
+        Object controller = loader.getController();
 
-        Stage goalWindow = new Stage();
-        goalWindow.setScene(Goalscene);
-        goalWindow.showAndWait();
-    }
+        if (controller instanceof viewAllGoalsController) {
+            viewAllGoalsController goalController = (viewAllGoalsController) controller;
+            goalController.setPeriod(period);
+            goalController.loadGoals();
+        } else if (controller instanceof displayLogControllerForm) {
+            displayLogControllerForm logController = (displayLogControllerForm) controller;
+            logController.loadLogs();
+        }
 
-    private void openViewLogPage() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/displayLog-view.fxml"));
-        Scene LogScene = new Scene(loader.load());
-
-        displayLogControllerForm logController = loader.getController();
-        logController.loadLogs();
-        Stage logWindow = new Stage();
-        logWindow.setScene(LogScene);
-        logWindow.showAndWait();
+        Stage newWindow = new Stage();
+        newWindow.setScene(scene);
+        newWindow.setResizable(false);
+        newWindow.showAndWait();
     }
 
 }

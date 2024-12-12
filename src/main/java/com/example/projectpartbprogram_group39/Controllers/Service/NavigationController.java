@@ -1,6 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
-import com.example.projectpartbprogram_group39.Controllers.Form.profileController;
+import com.example.projectpartbprogram_group39.Controllers.Form.progressControllerForm;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,8 +87,16 @@ public class NavigationController implements Initializable {
 
     @FXML
     public void goToStatistics(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/statistics-view.fxml"));
+        double height = trainee.getHeight();
+        double weight = trainee.getWeight();
+        int age = trainee.getAge();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/progress-view.fxml"));
         Parent statisticsView = loader.load();
+
+        progressControllerForm progressCon = loader.getController();
+        progressCon.traineeInfo(height,weight,age);
+
         contentPane.getChildren().clear();
         contentPane.getChildren().add(statisticsView);
         welcomeText.setVisible(false);

@@ -81,9 +81,8 @@ public class workoutsDaoImp implements workoutsDaoInterface {
                 }
             }
 
-
         }catch(IOException e){
-
+            throw new RuntimeException(e);
         }
     }
 
@@ -108,12 +107,20 @@ public class workoutsDaoImp implements workoutsDaoInterface {
     public void deleteWorkout(Workouts workout) throws IOException {
         File file = new File("workoutLog.txt");
 
-        List<String> lines;
+        List<String> lines =  Files.readAllLines(file.toPath());
         List<String> updatedLines = new ArrayList<>();
 
-        lines = Files.readAllLines(file.toPath());
-        for(String line : lines){
-
+        for (String line : lines) {
+            if(!line.contains(workout.getType())){
+                updatedLines.add(line);
+            }
         }
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        for(String updateLine : updatedLines){
+            writer.write(updateLine);
+            writer.newLine();
+        }
+        writer.close();
     }
 }

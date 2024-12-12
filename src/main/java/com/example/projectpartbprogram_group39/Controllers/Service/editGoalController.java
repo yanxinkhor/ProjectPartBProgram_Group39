@@ -29,7 +29,7 @@ public class editGoalController implements Initializable {
     private ComboBox<String> updatedPriority, updatedUnit;
 
     private final String[] intensity = {"High", "Medium", "Low"};
-    private final String[] units = {"km", "m", "kcal", "steps","g","l","hour","minute","seconds"};
+    private final String[] units = {"km", "m", "kcal", "steps","g","kg","l","hour","minute","seconds"};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -75,11 +75,20 @@ public class editGoalController implements Initializable {
             goal.setGoalType(updatedType.getText());
 
             try{
-                goal.setGoalValue(Double.parseDouble(updatedTarget.getText()));
+                double parseUpdatedTarget = Double.parseDouble(updatedTarget.getText());
+
+                if(parseUpdatedTarget <= 0){
+                    throw new IllegalArgumentException("Enter value cannot be zero or negative");
+                }
+
+                goal.setGoalValue(parseUpdatedTarget);
+
             }catch(NumberFormatException event){
                 showAlert.alert(Alert.AlertType.ERROR, "Please enter a valid target value.");
                 updatedTarget.setText("");
                 return;
+            }catch(IllegalArgumentException ex){
+                showAlert.alert(Alert.AlertType.ERROR,ex.getMessage());
             }
 
             goal.setUnit(updatedUnit.getValue());

@@ -9,7 +9,7 @@
     -fx-border-width: 0px 0px 1px 0px
 }
 
-#goalTypeField,#goalPriorityField,#timeFrame,#goalStartDateField{
+#goalTypeField,#goalPriorityField,#timeFrame,#goalStartDateField,#goalTypeCombo{
     -fx-background-color:white;
     -fx-border-color:#580058;
     -fx-border-radius:15px;

@@ -1,0 +1,36 @@
+.coaches-ctn{
+    -fx-background-color:#dfdfdf;
+    -fx-background-radius:15px;
+}
+
+.join-btn{
+    -fx-background-color:#4a642f;
+    -fx-text-fill:white;
+    -fx-background-radius:30px;
+    -fx-cursor:hand;
+}
+
+.leave-btn{
+    -fx-background-color:red;
+    -fx-text-fill:white;
+    -fx-background-radius:30px;
+    -fx-cursor:hand;
+}
+
+.join-btn:hover,.leave-btn:hover{
+    -fx-opacity:0.7;
+}
+
+.join-btn:pressed,.leave-btn:pressed{
+    -fx-opacity:0.3;
+}
+
+.views{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+
+}
+
+.views:hover{
+    -fx-text-fill:red;
+}

@@ -20,7 +20,7 @@ public class addGoalController {
     public void addGoal(String goalType, String targetValueStr, String unit, String priority,
                         String timeFrame, LocalDate startDate) throws IOException {
 
-        if (goalType.isEmpty() || targetValueStr.isEmpty() || unit == null || priority == null ||
+        if (goalType == null || goalType.isEmpty() || targetValueStr.isEmpty() || unit == null || priority == null ||
                 timeFrame == null || startDate == null) {
             showAlert.alert(Alert.AlertType.WARNING, "Please fill in all fields.");
             return;
@@ -33,6 +33,11 @@ public class addGoalController {
 
         try {
             int targetValue = Integer.parseInt(targetValueStr);
+
+            if(targetValue <= 0){
+                throw new IllegalArgumentException("Target value cannot be zero or negative.");
+            }
+
             String startDateStr = startDate.toString();
 
             fitnessGoal newGoal = new fitnessGoal(goalType, targetValue, unit, timeFrame, startDateStr, priority);
@@ -41,6 +46,8 @@ public class addGoalController {
             showAlert.alert(Alert.AlertType.INFORMATION, "Goal added successfully!");
         } catch (NumberFormatException ex) {
             showAlert.alert(Alert.AlertType.ERROR, "Invalid input, value must be a number.");
+        }catch(IllegalArgumentException ex){
+            showAlert.alert(Alert.AlertType.ERROR, ex.getMessage());
         }
     }
 }

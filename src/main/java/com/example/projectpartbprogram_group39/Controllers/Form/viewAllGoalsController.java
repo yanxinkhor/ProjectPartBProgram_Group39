@@ -117,7 +117,6 @@ public class viewAllGoalsController {
                                         ioException.printStackTrace();
                                     }
                                 }
-
                             });
 
                             editButton.setGraphic(editImageView);

@@ -9,3 +9,7 @@
     -fx-border-radius:5px;
     -fx-background-radius:5px;
 }
+
+.pieChart{
+    -fx-stroke-width: 0;
+}

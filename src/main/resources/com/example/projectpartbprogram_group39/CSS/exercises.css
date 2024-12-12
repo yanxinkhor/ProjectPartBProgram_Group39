@@ -3,22 +3,12 @@
     -fx-background-radius:30px;
 }
 
-#seeAllBtn1,#seeAllBtn2,#viewAllPlanBtn{
+#seeAllBtn1,#seeAllBtn2,#viewAllLogBtn{
     -fx-background-color:transparent;
     -fx-text-fill:#8150b8;
 }
 
-#seeAllBtn1:hover{
-    -fx-text-fill:#8975a7;
-    -fx-cursor:hand;
-}
-
-#seeAllBtn2:hover{
-    -fx-text-fill:#8975a7;
-    -fx-cursor:hand;
-}
-
-#viewAllPlanBtn:hover{
+#seeAllBtn1:hover,#seeAllBtn2:hover,#viewAllLogBtn:hover{
     -fx-text-fill:#8975a7;
     -fx-cursor:hand;
 }
@@ -39,23 +29,6 @@
 #planCtn1, #planCtn2, #planCtn3{
     -fx-background-color:#c3d5d8;
     -fx-background-radius:30px;
-}
-
-#editBtnPlan1,#deleteBtnPlan1,#editBtnPlan2,#deleteBtnPlan2,#editBtnPlan3,#deleteBtnPlan3{
-    -fx-pref-width:35;
-    -fx-background-color:#D6E5E7;
-    -fx-background-radius:50px;
-    -fx-cursor:hand;
-}
-
-#editBtnPlan1:hover,#deleteBtnPlan1:hover,#editBtnPlan2:hover,#deleteBtnPlan2:hover,#editBtnPlan3:hover,
-#deleteBtnPlan3:hover{
-    -fx-opacity:0.7;
-}
-
-#editBtnPlan1:pressed,#deleteBtnPlan1:pressed,#editBtnPlan2:pressed,#deleteBtnPlan2:pressed,#editBtnPlan3:pressed,
-#deleteBtnPlan3:pressed{
-    -fx-opacity:0.3;
 }
 
 #importImgBtn{
@@ -81,6 +54,11 @@
 
 .background-shadow{
     -fx-background-color:white;
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
+}
+
+.log-background{
+    -fx-background-color:#c3d5d8;
     -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
 }
 

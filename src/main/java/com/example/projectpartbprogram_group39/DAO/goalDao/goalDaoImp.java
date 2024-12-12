@@ -140,7 +140,6 @@ public class goalDaoImp implements goalsDaoInterface {
                 showAlert.alert(Alert.AlertType.ERROR, "Goal not found");
             }
 
-
     }
 
     @Override
