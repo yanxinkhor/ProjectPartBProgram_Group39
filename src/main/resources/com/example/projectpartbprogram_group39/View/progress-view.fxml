@@ -16,7 +16,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="641.0" prefWidth="908.0" stylesheets="@../CSS/progress.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.progressControllerForm">
@@ -68,7 +67,7 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <Label fx:id="targetGoal" layoutX="63.0" layoutY="196.0" prefHeight="20.0" prefWidth="49.0" text="Goal :" textFill="#23255d">
+            <Label fx:id="targetGoal" alignment="CENTER" layoutX="-1.0" layoutY="196.0" prefHeight="20.0" prefWidth="234.0" text="Goal :" textFill="#23255d">
                <font>
                   <Font name="Arial Black" size="13.0" />
                </font>
@@ -189,7 +188,7 @@
                </fill>
             </Arc>
             <Arc fill="WHITE" layoutX="113.0" layoutY="190.0" length="180.0" radiusX="85.0" radiusY="86.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Label fx:id="classLabel" alignment="CENTER" layoutX="-1.0" layoutY="197.0" prefHeight="17.0" prefWidth="237.0" textFill="#23255d">
+            <Label fx:id="classLabel" alignment="CENTER" layoutX="44.0" layoutY="137.0" prefHeight="32.0" prefWidth="140.0" textFill="#23255d" wrapText="true">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -283,7 +282,6 @@
          </children></AnchorPane>
       <AnchorPane layoutX="428.0" layoutY="392.0" prefHeight="246.0" prefWidth="475.0" styleClass="background-shadow">
          <children>
-            <Line fx:id="needleBMI" endX="97.3333740234375" endY="-293.00006103515625" fill="BLACK" layoutX="195.0" layoutY="94.0" startX="158.0" startY="-293.00006103515625" stroke="#0900ff" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="2.0" />
             <PieChart fx:id="pieChart" labelLineLength="5.0" layoutX="10.0" layoutY="30.0" legendSide="RIGHT" prefHeight="217.0" prefWidth="437.0" />
             <Label alignment="CENTER" layoutX="2.0" layoutY="8.0" prefHeight="24.0" prefWidth="469.0" text="Activity (Weekly)" textFill="#23255d">
                <font>

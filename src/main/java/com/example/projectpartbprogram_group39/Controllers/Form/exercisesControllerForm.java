@@ -129,6 +129,7 @@ public class exercisesControllerForm implements Initializable {
         }
 
         exerciseService.addWorkoutLog(workoutType, caloriesLogStr, durationStr, timeStr, frequencyStr, startDate, urlImg);
+        displayLogUI();
         clear(e);
     }
 

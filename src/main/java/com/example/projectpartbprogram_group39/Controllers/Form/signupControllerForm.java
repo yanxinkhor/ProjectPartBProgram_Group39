@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class signupControllerForm {
     @FXML
@@ -38,6 +40,7 @@ public class signupControllerForm {
     private final Image passwordVisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_visible.png"));
     private final Image passwordInvisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_invisible.png"));
     private final signupController signupService = new signupController();
+    private final Map<String, Boolean> visibleMapping = new HashMap<>();
 
     public void signup(ActionEvent e) throws IOException{
         String username = txtUsername.getText();
@@ -57,7 +60,7 @@ public class signupControllerForm {
         }
 
     }
-    boolean isVisible = false;
+
 
     public void displayPassword(ActionEvent e){
 
@@ -72,22 +75,23 @@ public class signupControllerForm {
     }
 
     public void changeVisibilityIcon(PasswordField passwordField, TextField textField, ImageView imgView){
+        String keyField = "passwordField";
+        boolean isVisible = visibleMapping.getOrDefault(keyField,false);
+
+
         if(isVisible){
             passwordField.setText(textField.getText());
             textField.setVisible(false);
             passwordField.setVisible(true);
-
-            imgView.setImage(passwordVisible);
-            isVisible = false;
+            imgView.setImage(passwordInvisible);
 
         }else{
             textField.setText(passwordField.getText());
             passwordField.setVisible(false);
             textField.setVisible(true);
-
-            imgView.setImage(passwordInvisible);
-            isVisible = true;
+            imgView.setImage(passwordVisible);
         }
+        visibleMapping.put(keyField,!isVisible);
     }
 
     public void back(ActionEvent e) throws IOException {

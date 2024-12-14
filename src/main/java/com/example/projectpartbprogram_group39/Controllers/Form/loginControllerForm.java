@@ -16,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 
@@ -36,6 +38,7 @@ public class loginControllerForm {
     private final Image passVisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_visible.png"));
     private final Image passInvisible = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/password_invisible.png"));
     private final loginController loginService = new loginController();
+    private final Map<String, Boolean> visibleMapping = new HashMap<>();
 
     public void goToSignup(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/signup-view.fxml"));
@@ -62,25 +65,26 @@ public class loginControllerForm {
 
     }
 
-    boolean isVisible = false;
+
     public void displayPassword(){
+        String fieldkey = "asswordTxtField";
+        boolean isVisible = visibleMapping.getOrDefault(fieldkey,false);
 
         if(isVisible){
             passwordField.setText(passwordTxtField.getText());
             passwordField.setVisible(true);
             passwordTxtField.setVisible(false);
-
             invisibleImg.setImage(passInvisible);
-            isVisible = false;
+
         }else{
             passwordTxtField.setText(passwordField.getText());
             passwordTxtField.setVisible(true);
             passwordField.setVisible(false);
-
             invisibleImg .setImage(passVisible);
-            isVisible = true;
 
         }
+
+        visibleMapping.put(fieldkey, !isVisible);
     }
 
 

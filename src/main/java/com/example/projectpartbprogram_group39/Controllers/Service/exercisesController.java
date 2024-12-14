@@ -1,5 +1,8 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
+import com.example.projectpartbprogram_group39.DAO.genericDao.WorkoutMapper;
 import com.example.projectpartbprogram_group39.DAO.goalDao.goalDaoImp;
 import com.example.projectpartbprogram_group39.DAO.workoutDao.workoutsDaoImp;
 import com.example.projectpartbprogram_group39.Models.Workouts;
@@ -12,7 +15,7 @@ import java.util.List;
 
 public class exercisesController {
     private goalDaoImp goalDao = new goalDaoImp();
-    private workoutsDaoImp workoutDao = new workoutsDaoImp();
+    DaoInterface<Workouts> workoutDao = new DaoImplement<>("workoutLog.txt", new WorkoutMapper());
 
     public List<fitnessGoal> getGoalsByPeriod(String period) throws IOException {
         return goalDao.getGoalList(period);
@@ -20,8 +23,10 @@ public class exercisesController {
 
     public void addWorkoutLog(String workoutType, String caloriesLogStr, String durationStr, String timeStr,
                               String frequencyStr, LocalDate startDate, String urlImg) {
+
         try {
-            if (workoutDao.logExists(workoutType)) {
+            Workouts tempWorkout = new Workouts(workoutType);
+            if (workoutDao.exists(tempWorkout)) {
                 showAlert.alert(Alert.AlertType.ERROR, "Log already exists, please enter a new log");
                 return;
             }
@@ -32,7 +37,7 @@ public class exercisesController {
             String startDateStr = startDate.toString();
 
             Workouts newLogs = new Workouts(workoutType, caloriesLog, duration, timeStr, frequency, startDateStr, urlImg);
-            workoutDao.addWorkout(newLogs);
+            workoutDao.add(newLogs);
             showAlert.alert(Alert.AlertType.INFORMATION, "Log added successfully!");
 
         } catch (NumberFormatException ex) {
@@ -43,6 +48,6 @@ public class exercisesController {
     }
 
     public List<Workouts> getAllWorkouts() throws IOException {
-        return workoutDao.getAllWorkouts();
+        return workoutDao.getAll();
     }
 }

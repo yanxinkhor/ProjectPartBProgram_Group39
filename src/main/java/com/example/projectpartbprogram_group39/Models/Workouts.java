@@ -1,7 +1,5 @@
 package com.example.projectpartbprogram_group39.Models;
 
-import java.util.Date;
-
 public class Workouts {
     private String type;
     private String caloriesBurned;
@@ -11,6 +9,9 @@ public class Workouts {
     private String beginDate;
     private String imgUrl;
 
+    public Workouts(String type) {
+        this.type = type;
+    }
 
     public Workouts(String type, String caloriesBurned,double value, String duration, int frequency, String startDate, String imgUrl) {
         this.type = type;

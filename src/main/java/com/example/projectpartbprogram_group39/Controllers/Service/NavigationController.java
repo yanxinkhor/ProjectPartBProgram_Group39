@@ -27,16 +27,21 @@ public class NavigationController implements Initializable {
 
     @FXML
     public ImageView profile_img;
+
     @FXML
     private Label welcomeText;
-    private Trainee trainee;
-    private String gender;
+
     @FXML
     public Text displayUsername;
+
     @FXML
     public Text displayEmail;
+
     @FXML
     private Pane contentPane;
+
+    private Trainee trainee;
+    private String gender;
 
 
     private final Image femaleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/girl_profile.png"));

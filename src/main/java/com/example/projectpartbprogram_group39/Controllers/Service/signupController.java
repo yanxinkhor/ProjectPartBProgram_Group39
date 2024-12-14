@@ -1,5 +1,8 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 import com.example.projectpartbprogram_group39.DAO.TraineeDao.TraineeDaoImp;
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
+import com.example.projectpartbprogram_group39.DAO.genericDao.TraineeMapper;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.Encryption;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
@@ -9,7 +12,7 @@ import java.io.IOException;
 
 public class signupController {
 
-    private final TraineeDaoImp traineeDao = new TraineeDaoImp();
+    private static DaoInterface<Trainee> traineeDao = new DaoImplement<>("userInfo.txt", new TraineeMapper());
 
     public boolean validateSignupInfo(String username, String ageString, String phoneNo, String email, String gender,
                                       String heightString, String weightString, String password, String passwordConfirmed) throws IOException {
@@ -21,6 +24,7 @@ public class signupController {
         }
 
         if (!password.equals(passwordConfirmed)) {
+            System.out.println(password + "," + passwordConfirmed);
             showAlert.alert(Alert.AlertType.ERROR, "The passwords do not match!");
             return false;
         }
@@ -32,12 +36,13 @@ public class signupController {
 
             String encryptedPassword = Encryption.hashPassword(password);
 
-            if (traineeDao.userExists(username, email)) {
+            Trainee trainee = new Trainee(username, age, gender, phoneNo, email, height, weight, encryptedPassword);
+
+            if (traineeDao.exists(trainee)) {
                 showAlert.alert(Alert.AlertType.ERROR, "User already exists!");
                 return false;
             } else {
-                Trainee trainee = new Trainee(username, age, gender, phoneNo, email, height, weight, encryptedPassword);
-                traineeDao.StoreTrainee(trainee);
+                traineeDao.add(trainee);
                 return true;
             }
 
