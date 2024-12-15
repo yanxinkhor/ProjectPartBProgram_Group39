@@ -2,9 +2,8 @@ package com.example.projectpartbprogram_group39.Controllers.Service;
 
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
-import com.example.projectpartbprogram_group39.DAO.genericDao.WorkoutMapper;
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.WorkoutMapper;
 import com.example.projectpartbprogram_group39.DAO.goalDao.goalDaoImp;
-import com.example.projectpartbprogram_group39.DAO.workoutDao.workoutsDaoImp;
 import com.example.projectpartbprogram_group39.Models.Workouts;
 import com.example.projectpartbprogram_group39.Models.fitnessGoal;
 import com.example.projectpartbprogram_group39.Utils.showAlert;

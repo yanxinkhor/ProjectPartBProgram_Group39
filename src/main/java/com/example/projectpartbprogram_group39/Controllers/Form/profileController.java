@@ -25,7 +25,6 @@ public class profileController {
     @FXML
     private Button saveBtn1;
 
-    // Fields for the second box
     @FXML
     private Button editBtn2;
 
@@ -57,12 +56,10 @@ public class profileController {
 
     @FXML
     public void initialize() {
-        // Disable editing for all fields on page load
         disableEditingFirstBox();
         disableEditingSecondBox();
     }
 
-    // First box methods
     @FXML
     private void handleEditButtonClick() {
         isEditing = true;

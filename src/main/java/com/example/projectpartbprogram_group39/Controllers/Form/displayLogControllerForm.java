@@ -1,6 +1,8 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
-import com.example.projectpartbprogram_group39.DAO.workoutDao.workoutsDaoImp;
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.WorkoutMapper;
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.Workouts;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.collections.FXCollections;
@@ -61,7 +63,7 @@ public class displayLogControllerForm implements Initializable {
 
     private String[] timeContainer = {"Hours", "Minutes", "Seconds"};
     private final ObservableList<Workouts> workoutList = FXCollections.observableArrayList();
-    private workoutsDaoImp workoutsDao = new workoutsDaoImp();
+    DaoInterface<Workouts> workoutDao = new DaoImplement<>("workoutLog.txt", new WorkoutMapper());
 
     Workouts selectedLog;
 
@@ -85,7 +87,7 @@ public class displayLogControllerForm implements Initializable {
 
     public void loadLogs() throws IOException {
 
-        List<Workouts> workouts = workoutsDao.getAllWorkouts();
+        List<Workouts> workouts = workoutDao.getAll();
         workoutList.clear();
         workoutList.addAll(workouts);
         workoutsTable.setItems(workoutList);
@@ -178,12 +180,14 @@ public class displayLogControllerForm implements Initializable {
 
             Workouts updatedLog = new Workouts(updatedType, formattedCalBurned, newDuration, updatedTime, newFreq, newUpdatedDate, url);
             showAlert.alert(Alert.AlertType.INFORMATION, "Log updated successfully");
-            workoutsDao.editWorkouts(selectedLog, updatedLog);
+            workoutDao.update(selectedLog,updatedLog);
             controlEditable(false);
             clear(e);
 
         } catch (NumberFormatException ex) {
             showAlert.alert(Alert.AlertType.ERROR, "Please enter a valid value");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
 
         try {
@@ -202,7 +206,7 @@ public class displayLogControllerForm implements Initializable {
             confirmationAlert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.YES) {
                     try {
-                        workoutsDao.deleteWorkout(selectedLog);
+                        workoutDao.delete(selectedLog);
                         workoutList.remove(selectedLog);
                         showAlert.alert(Alert.AlertType.INFORMATION, "Workout log deleted successfully.");
                         controlEditable(false);

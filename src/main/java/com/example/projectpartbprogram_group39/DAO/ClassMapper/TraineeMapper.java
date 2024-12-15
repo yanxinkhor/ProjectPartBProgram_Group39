@@ -1,8 +1,8 @@
-package com.example.projectpartbprogram_group39.DAO.genericDao;
+package com.example.projectpartbprogram_group39.DAO.ClassMapper;
 
 import com.example.projectpartbprogram_group39.Models.Trainee;
 
-public class TraineeMapper implements EntityMapper<Trainee>{
+public class TraineeMapper implements EntityMapper<Trainee> {
     @Override
     public Trainee fromString(String string) {
         return Trainee.splitString(string);

@@ -7,4 +7,6 @@ public class Coach {
     String availableTime;
     int duration;
     boolean isJoined;
+
+
 }

@@ -1,8 +1,8 @@
-package com.example.projectpartbprogram_group39.DAO.genericDao;
+package com.example.projectpartbprogram_group39.DAO.ClassMapper;
 
 import com.example.projectpartbprogram_group39.Models.Workouts;
 
-public class WorkoutMapper implements EntityMapper<Workouts>{
+public class WorkoutMapper implements EntityMapper<Workouts> {
     @Override
     public Workouts fromString(String string) {
         return Workouts.splitWorkoutString(string);

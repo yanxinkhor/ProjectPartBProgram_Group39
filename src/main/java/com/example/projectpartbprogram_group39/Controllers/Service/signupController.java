@@ -1,8 +1,7 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
-import com.example.projectpartbprogram_group39.DAO.TraineeDao.TraineeDaoImp;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
-import com.example.projectpartbprogram_group39.DAO.genericDao.TraineeMapper;
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.TraineeMapper;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.Encryption;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
@@ -24,7 +23,6 @@ public class signupController {
         }
 
         if (!password.equals(passwordConfirmed)) {
-            System.out.println(password + "," + passwordConfirmed);
             showAlert.alert(Alert.AlertType.ERROR, "The passwords do not match!");
             return false;
         }

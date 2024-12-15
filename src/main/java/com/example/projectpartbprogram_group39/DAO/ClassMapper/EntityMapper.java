@@ -1,4 +1,4 @@
-package com.example.projectpartbprogram_group39.DAO.genericDao;
+package com.example.projectpartbprogram_group39.DAO.ClassMapper;
 
 public interface EntityMapper<T> {
     T fromString(String string);

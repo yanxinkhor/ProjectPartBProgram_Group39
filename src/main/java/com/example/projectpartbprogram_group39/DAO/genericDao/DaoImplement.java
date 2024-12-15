@@ -1,5 +1,6 @@
 package com.example.projectpartbprogram_group39.DAO.genericDao;
 
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.EntityMapper;
 import com.example.projectpartbprogram_group39.Models.Workouts;
 
 import java.io.BufferedWriter;
@@ -118,5 +119,12 @@ public class DaoImplement<T> implements DaoInterface<T>{
             }
         }
 
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (String updatedLine : updatedLines) {
+                writer.write(updatedLine);
+                writer.newLine();
+            }
+        }
     }
 }
