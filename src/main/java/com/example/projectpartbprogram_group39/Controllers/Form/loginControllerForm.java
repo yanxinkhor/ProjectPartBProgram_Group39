@@ -3,6 +3,7 @@ package com.example.projectpartbprogram_group39.Controllers.Form;
 import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
 import com.example.projectpartbprogram_group39.Controllers.Service.loginController;
 import com.example.projectpartbprogram_group39.Models.Trainee;
+import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,10 +29,10 @@ public class loginControllerForm {
     private TextField usernameField;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
 
     @FXML
-    ImageView invisibleImg;
+    private ImageView invisibleImg;
 
     @FXML
     private TextField passwordTxtField;
@@ -49,7 +51,7 @@ public class loginControllerForm {
 
     }
 
-    public void login(ActionEvent e) throws IOException {
+    public void login(ActionEvent e) throws Exception {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -88,15 +90,18 @@ public class loginControllerForm {
     }
 
 
-    public void directToMainPage(ActionEvent e, String username, String password) throws IOException {
+    public void directToMainPage(ActionEvent e, String username, String password) throws Exception {
         Trainee loggedInTrainee = loginController.getLoggedInTrainee(username, password);
 
         if (loggedInTrainee != null) {
+            TraineeSession.getInstance().setCurrentTrainee(loggedInTrainee);
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/navigation-view.fxml"));
             BorderPane root = loader.load();
 
             NavigationController navigationController = loader.getController();
-            navigationController.displayUserDetails(loggedInTrainee);
+
+            navigationController.displayUserDetails(TraineeSession.getInstance().getCurrentTrainee());
 
             Scene mainScene = new Scene(root);
             Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
@@ -104,5 +109,4 @@ public class loginControllerForm {
             stage.show();
         }
     }
-
 }

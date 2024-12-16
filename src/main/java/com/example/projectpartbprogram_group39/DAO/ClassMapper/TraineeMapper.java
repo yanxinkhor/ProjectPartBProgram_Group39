@@ -15,6 +15,9 @@ public class TraineeMapper implements EntityMapper<Trainee> {
 
     @Override
     public boolean equals(Trainee obj1, Trainee obj2) {
+        if (obj1 == null || obj2 == null) {
+            return false;
+        }
         return obj1.getUsername().equals(obj2.getUsername()) && obj1.getEmail().equals(obj2.getEmail());
     }
 }

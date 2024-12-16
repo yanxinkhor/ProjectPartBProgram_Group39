@@ -12,7 +12,7 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("View/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("FTA Application");
-        stage.setScene(scene);
+         stage.setScene(scene);
         stage.show();
     }
 

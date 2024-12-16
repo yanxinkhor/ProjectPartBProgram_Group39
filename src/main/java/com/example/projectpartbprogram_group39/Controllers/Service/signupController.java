@@ -3,7 +3,7 @@ import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.TraineeMapper;
 import com.example.projectpartbprogram_group39.Models.Trainee;
-import com.example.projectpartbprogram_group39.Utils.Encryption;
+import com.example.projectpartbprogram_group39.Utils.AESEncryption;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.scene.control.Alert;
 
@@ -12,6 +12,8 @@ import java.io.IOException;
 public class signupController {
 
     private static DaoInterface<Trainee> traineeDao = new DaoImplement<>("userInfo.txt", new TraineeMapper());
+    private static final String ENCRYPTION_KEY = "1234567890123456";
+    private static final AESEncryption aesEncryption = new AESEncryption(ENCRYPTION_KEY);
 
     public boolean validateSignupInfo(String username, String ageString, String phoneNo, String email, String gender,
                                       String heightString, String weightString, String password, String passwordConfirmed) throws IOException {
@@ -32,7 +34,7 @@ public class signupController {
             double height = Double.parseDouble(heightString);
             double weight = Double.parseDouble(weightString);
 
-            String encryptedPassword = Encryption.hashPassword(password);
+            String encryptedPassword = aesEncryption.encrypt(password);
 
             Trainee trainee = new Trainee(username, age, gender, phoneNo, email, height, weight, encryptedPassword);
 
@@ -47,6 +49,8 @@ public class signupController {
         } catch (NumberFormatException event) {
             showAlert.alert(Alert.AlertType.ERROR, "Please enter valid credentials");
             return false;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
     }

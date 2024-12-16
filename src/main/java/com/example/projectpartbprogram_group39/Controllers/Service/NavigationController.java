@@ -1,7 +1,9 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
+import com.example.projectpartbprogram_group39.Controllers.Form.profileController;
 import com.example.projectpartbprogram_group39.Controllers.Form.progressControllerForm;
 import com.example.projectpartbprogram_group39.Models.Trainee;
+import com.example.projectpartbprogram_group39.Utils.AESEncryption;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -92,15 +94,8 @@ public class NavigationController implements Initializable {
 
     @FXML
     public void goToStatistics(ActionEvent e) throws IOException {
-        double height = trainee.getHeight();
-        double weight = trainee.getWeight();
-        int age = trainee.getAge();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/progress-view.fxml"));
         Parent statisticsView = loader.load();
-
-        progressControllerForm progressCon = loader.getController();
-        progressCon.traineeInfo(height,weight,age);
 
         contentPane.getChildren().clear();
         contentPane.getChildren().add(statisticsView);
@@ -127,9 +122,9 @@ public class NavigationController implements Initializable {
 
     @FXML
     public void goToProfile(ActionEvent e) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/profile-view.fxml"));
         Parent profileView = loader.load();
-
         contentPane.getChildren().clear();
         contentPane.getChildren().add(profileView);
         welcomeText.setVisible(false);

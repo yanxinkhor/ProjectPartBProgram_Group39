@@ -1,7 +1,9 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
 import com.example.projectpartbprogram_group39.DAO.goalDao.goalDaoImp;
+import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Models.fitnessGoal;
+import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -69,11 +71,18 @@ public class progressControllerForm implements Initializable {
     private Random random = new Random();
     private int currentHearRate;
     private goalDaoImp goalDao = new goalDaoImp();
+    Trainee trainee;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         progressCombo.getItems().addAll(progressGoal);
         progressCombo.setValue("Calories Burned");
+        trainee = TraineeSession.getInstance().getCurrentTrainee();
+        if (trainee != null) {
+            traineeInfo(trainee.getHeight(), trainee.getWeight(), trainee.getAge());
+        }
+
+
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 

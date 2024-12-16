@@ -119,7 +119,6 @@ public class DaoImplement<T> implements DaoInterface<T>{
             }
         }
 
-
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (String updatedLine : updatedLines) {
                 writer.write(updatedLine);
