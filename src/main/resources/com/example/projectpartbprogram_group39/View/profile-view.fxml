@@ -13,30 +13,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="908.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.profileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="908.0" stylesheets="@../CSS/profile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.profileController">
    <children>
-      <TextField fx:id="profileUsernameMain" layoutX="27.0" layoutY="7.0" prefHeight="29.0" prefWidth="138.0" style="-fx-background-color: transparent;" text="Username's">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-         <padding>
-            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-         </padding>
-      </TextField>
-      <Label layoutX="168.0" layoutY="8.0" prefHeight="38.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="Profile">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-         <padding>
-            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-         </padding>
-      </Label>
-      <HBox layoutX="10.0" layoutY="59.0" prefHeight="155.0" prefWidth="873.0" style="-fx-background-color: f5f5f5; -fx-background-radius: 25;">
+      <HBox layoutX="10.0" layoutY="59.0" prefHeight="155.0" prefWidth="873.0" styleClass="bg-container">
          <children>
             <ImageView fx:id="genderImg" fitHeight="128.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/girl_profile.png" />
-               </image>
                <HBox.margin>
                   <Insets left="25.0" top="15.0" />
                </HBox.margin>
@@ -46,27 +27,33 @@
                   <Insets />
                </HBox.margin>
                <children>
-                  <TextField fx:id="displayUsername" editable="false" prefHeight="29.0" prefWidth="300.0" style="-fx-background-color: transparent;">
+                  <TextField fx:id="displayUsername" editable="false" prefHeight="29.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Xin">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                      <padding>
                         <Insets left="22.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
                   </TextField>
-                  <TextField fx:id="displayEmail" editable="false" prefHeight="27.0" prefWidth="692.0" style="-fx-background-color: transparent;">
+                  <TextField fx:id="displayEmail" editable="false" prefHeight="27.0" prefWidth="692.0" style="-fx-background-color: transparent;" text="123">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                      <padding>
                         <Insets left="22.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </TextField>
                </children>
             </VBox>
          </children>
       </HBox>
-      <VBox layoutX="8.0" layoutY="229.0" prefHeight="222.0" prefWidth="873.0" style="-fx-background-color: f5f5f5; -fx-background-radius: 25;" translateX="5.0">
+      <VBox layoutX="8.0" layoutY="229.0" prefHeight="222.0" prefWidth="873.0" styleClass="bg-container" translateX="5.0">
          <children>
             <HBox layoutX="172.0" prefHeight="45.0" prefWidth="873.0">
                <children>
@@ -78,7 +65,7 @@
                         <Insets left="20.0" top="14.0" />
                      </HBox.margin>
                   </Label>
-                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#handleEditButtonClick" style="-fx-background-color: transparent;">
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#handleEditButtonClick" styleClass="editButton">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -99,43 +86,43 @@
             </Line>
             <HBox prefHeight="39.0" prefWidth="873.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="61.0" text="Username" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="39.0" prefWidth="180.0" text="Username" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="42.0" prefWidth="25.0" text="Age" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="39.0" prefWidth="180.0" text="Age" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="70.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="41.0" prefWidth="45.0" text="Gender" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="39.0" prefWidth="180.0" text="Gender" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="130.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="41.0" prefWidth="33.0" text="Email" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="39.0" prefWidth="180.0" text="Email" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="110.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="23.0" prefWidth="873.0">
+            <HBox prefHeight="23.0" prefWidth="873.0" spacing="5.0">
                <children>
-                  <TextField fx:id="profileUsername" editable="false" prefHeight="17.0" prefWidth="144.0" style="-fx-background-color: f5f5f5;" text="Username">
+                  <TextField fx:id="profileUsername" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
                      <padding>
                         <Insets left="21.0" />
                      </padding>
@@ -143,23 +130,20 @@
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="profileAge" editable="false" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: F5F5F5;" text="23">
+                  <TextField fx:id="profileAge" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="180.0" styleClass="textField-bg">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <ComboBox fx:id="profileGender" prefHeight="25.0" prefWidth="118.0" promptText="Gender">
+                  <ComboBox fx:id="profileGender" prefHeight="25.0" prefWidth="180.0" promptText="Gender" styleClass="textField-bg">
                      <HBox.margin>
-                        <Insets right="15.0" />
+                        <Insets />
                      </HBox.margin>
                      <padding>
-                        <Insets left="15.0" />
+                        <Insets left="50.0" />
                      </padding>
                   </ComboBox>
-                  <TextField fx:id="profileEmail" editable="false" prefHeight="25.0" prefWidth="336.0" style="-fx-background-color: f5f5f5;" text="email@gmail.com">
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
+                  <TextField fx:id="profileEmail" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -171,57 +155,57 @@
             </HBox>
             <HBox prefHeight="38.0" prefWidth="873.0">
                <children>
-                  <Label prefHeight="21.0" prefWidth="45.0" text="Phone" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="180.0" text="Phone" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="20.0" top="13.0" />
+                        <Insets top="13.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="16.0" prefWidth="45.0" text="Weight" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="180.0" text="Weight" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="90.0" top="13.0" />
+                        <Insets top="13.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="12.0" prefWidth="42.0" text="Height" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="180.0" text="Height" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="109.0" top="13.0" />
+                        <Insets top="13.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="19.0" prefWidth="59.0" text="Password" textFill="#aca5a5">
+                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="180.0" text="Password" textFill="#aca5a5">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="102.0" top="13.0" />
+                        <Insets top="13.0" />
                      </HBox.margin>
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="27.0" prefWidth="829.0">
+            <HBox prefHeight="27.0" prefWidth="829.0" spacing="5.0">
                <children>
-                  <TextField fx:id="profilePhoneNo" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="119.0" style="-fx-background-color: f5f5f5;" text="0140394928">
+                  <TextField fx:id="profilePhoneNo" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="180.0" styleClass="textField-bg">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="profileWeight" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="121.0" style="-fx-background-color: f5f5f5;" text="66kg">
+                  <TextField fx:id="profileWeight" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="180.0" styleClass="textField-bg">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="profileHeight" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: f5f5f5;" text="160cm">
+                  <TextField fx:id="profileHeight" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
                      <padding>
                         <Insets left="11.0" />
                      </padding></TextField>
-                  <TextField fx:id="profilePassword" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="147.0" style="-fx-background-color: f5f5f5;" text="K0305238y%">
+                  <TextField fx:id="profilePassword" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
                      <padding>
                         <Insets left="11.0" />
                      </padding>
@@ -238,7 +222,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox layoutX="5.0" layoutY="466.0" prefHeight="155.0" prefWidth="873.0" style="-fx-background-color: f5f5f5; -fx-background-radius: 25;" translateX="5.0">
+      <VBox layoutX="5.0" layoutY="466.0" prefHeight="155.0" prefWidth="873.0" styleClass="bg-container" translateX="5.0">
          <children>
             <Label text="Joined Classes">
                <font>
@@ -253,19 +237,13 @@
                   <Insets left="20.0" top="3.0" />
                </VBox.margin>
             </Line>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="87.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets left="25.0" top="6.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@../Images/guy_profile.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+            <HBox fx:id="joinedClassCtn" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" />
          </children>
       </VBox>
+      <Label fx:id="profileUsernameMain" layoutX="40.0" layoutY="14.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

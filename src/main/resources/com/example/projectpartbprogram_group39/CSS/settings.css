@@ -13,3 +13,18 @@
     -fx-border-color: none;
     -fx-background-color: none;
 }
+
+.delete-ctn{
+    -fx-background-color:white;
+    -fx-background-radius:35px;
+}
+
+.confirm-btn{
+    -fx-background-color:#990006;
+    -fx-background-radius:20px;
+}
+
+.cancel-btn{
+    -fx-background-color:#231f20;
+    -fx-background-radius:20px;
+}

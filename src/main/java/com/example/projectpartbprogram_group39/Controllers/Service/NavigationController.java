@@ -4,6 +4,7 @@ import com.example.projectpartbprogram_group39.Controllers.Form.profileControlle
 import com.example.projectpartbprogram_group39.Controllers.Form.progressControllerForm;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.AESEncryption;
+import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,101 +44,70 @@ public class NavigationController implements Initializable {
     private Pane contentPane;
 
     private Trainee trainee;
-    private String gender;
-
-
     private final Image femaleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/girl_profile.png"));
     private final Image maleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/guy_profile.png"));
 
-    public void displayUserDetails(Trainee trainee) {
-        this.trainee = trainee;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/dashboard-view.fxml"));
+        Parent dashboardView = null;
+        try {
+            dashboardView = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        contentPane.getChildren().clear();
+        contentPane.getChildren().add(dashboardView);
+
+        trainee = TraineeSession.getInstance().getCurrentTrainee();
         if (trainee != null) {
             displayUsername.setText(trainee.getUsername());
             displayEmail.setText(trainee.getEmail());
-            gender = trainee.getGender();
-        }
-        displayWelcomeMessage();
-        checkGender();
-    }
+            welcomeText.setText("Welcome " + trainee.getUsername() + "!");
 
-    public void checkGender() {
-        if (gender.equals("Male")) {
-            profile_img.setImage(maleProfile);
-        }else if (gender.equals("Female")) {
-            profile_img.setImage(femaleProfile);
-        }
-
-    }
-    public void displayWelcomeMessage(){
-        if(welcomeText != null){
-            welcomeText.setText("Welcome " + trainee.getUsername() +"!");
+            if(trainee.getGender().equals("Female")){
+                profile_img.setImage(femaleProfile);
+            }else if(trainee.getGender().equals("Male")){
+                profile_img.setImage(maleProfile);
+            }
         }
     }
 
-    @FXML
-    public void goToDashboard(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/dashboard-view.fxml"));
-        Parent dashboardView = loader.load();
-        contentPane.getChildren().clear();
-        contentPane.getChildren().add(dashboardView);
-        welcomeText.setVisible(true);
+    public void SwitchAction(ActionEvent e) throws IOException {
+        String sourceBtn = ((Button)e.getSource()).getText();
+
+        switch(sourceBtn){
+            case "Dashboard":
+                switchPage("dashboard-view.fxml");
+                welcomeText.setVisible(true);
+                break;
+            case "Exercises":
+                switchPage("exercises-view.fxml");
+                welcomeText.setVisible(false);
+                break;
+            case "Statistics":
+                switchPage("progress-view.fxml");
+                welcomeText.setVisible(false);
+                break;
+            case "Nutrition":
+                switchPage("nutrition-view.fxml");
+                welcomeText.setVisible(false);
+                break;
+            case "Coach":
+                switchPage("coach-view.fxml");
+                welcomeText.setVisible(false);
+                break;
+            case "Profile":
+                switchPage("profile-view.fxml");
+                welcomeText.setVisible(false);
+                break;
+            case "Settings":
+                switchPage("settings-view.fxml");
+                welcomeText.setVisible(false);
+                break;
+        }
     }
 
-    @FXML
-    public void goToExercises(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/exercises-view.fxml"));
-        Parent exercisesView = loader.load();
-        contentPane.getChildren().clear();
-        contentPane.getChildren().add(exercisesView);
-        welcomeText.setVisible(false);
-    }
-
-    @FXML
-    public void goToStatistics(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/progress-view.fxml"));
-        Parent statisticsView = loader.load();
-
-        contentPane.getChildren().clear();
-        contentPane.getChildren().add(statisticsView);
-        welcomeText.setVisible(false);
-    }
-
-    @FXML
-    public void goToNutrition(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/nutrition-view.fxml"));
-        Parent nutritionView = loader.load();
-        contentPane.getChildren().clear();
-        contentPane.getChildren().add(nutritionView);
-        welcomeText.setVisible(false);
-    }
-
-    @FXML
-    public void goToCoach(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/coach-view.fxml"));
-        Parent coachView = loader.load();
-        contentPane.getChildren().clear();
-        contentPane.getChildren().add(coachView);
-        welcomeText.setVisible(false);
-    }
-
-    @FXML
-    public void goToProfile(ActionEvent e) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/profile-view.fxml"));
-        Parent profileView = loader.load();
-        contentPane.getChildren().clear();
-        contentPane.getChildren().add(profileView);
-        welcomeText.setVisible(false);
-    }
-
-    @FXML
-    public void goToSettings(ActionEvent e) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/settings-view.fxml"));
-        Parent settingsView = loader.load();
-        contentPane.getChildren().clear();
-        contentPane.getChildren().add(settingsView);
-        welcomeText.setVisible(false);
-    }
 
     @FXML
     public void logOut(ActionEvent e) throws IOException {
@@ -150,16 +120,13 @@ public class NavigationController implements Initializable {
             stage.show();
         }
     }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/dashboard-view.fxml"));
-        Parent dashboardView = null;
-        try {
-            dashboardView = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+    public void switchPage(String fileName) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/" + fileName));
+        Parent View = loader.load();
         contentPane.getChildren().clear();
-        contentPane.getChildren().add(dashboardView);
+        contentPane.getChildren().add(View);
+        welcomeText.setVisible(true);
     }
+
 }

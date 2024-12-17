@@ -144,6 +144,13 @@ public class viewAllGoalsController {
                 };
             }
         });
+        searchBtn.setOnAction(e -> {
+            try {
+                handleSearch();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
     }
 
@@ -190,6 +197,32 @@ public class viewAllGoalsController {
             });
         }
 
+    }
+
+    public void handleSearch() throws IOException {
+        String searchText = searchField.getText().toLowerCase();
+
+
+        if (searchText.isEmpty()) {
+            loadGoals();
+        }else{
+            ObservableList<fitnessGoal> filteredGoals = FXCollections.observableArrayList();
+            for (fitnessGoal goal : goalsList){
+                if (goal.getGoalType().toLowerCase().contains(searchText)) {
+                    filteredGoals.add(goal);
+                }
+                goalTable.setItems(filteredGoals);
+            }
+
+            if (filteredGoals.isEmpty()) {
+                showAlert.alert(Alert.AlertType.ERROR, "No matching goals found.");
+                loadGoals();
+            } else {
+                goalTable.setItems(filteredGoals);
+            }
+
+            searchField.clear();
+        }
     }
 
 

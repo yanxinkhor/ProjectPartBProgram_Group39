@@ -53,7 +53,7 @@
                   </ImageView>
                   <VBox id="navbtns" layoutX="1.0" layoutY="118.0" prefHeight="284.0" prefWidth="172.0" stylesheets="@../CSS/navigator.css">
                      <children>
-                        <Button id="dashbtn" fx:id="dashbtn" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Dashboard" textFill="WHITE">
+                        <Button id="dashbtn" fx:id="dashbtn" mnemonicParsing="false" onAction="#SwitchAction" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Dashboard" textFill="WHITE">
                            <graphic>
                               <ImageView id="dashImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -62,7 +62,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="exbtn" fx:id="exbtn" mnemonicParsing="false" onAction="#goToExercises" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Exercises" textFill="WHITE">
+                        <Button id="exbtn" fx:id="exbtn" mnemonicParsing="false" onAction="#SwitchAction" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Exercises" textFill="WHITE">
                            <graphic>
                               <ImageView id="exImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -71,7 +71,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="statbtn" fx:id="statbtn" mnemonicParsing="false" onAction="#goToStatistics" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Statistics" textFill="WHITE">
+                        <Button id="statbtn" fx:id="statbtn" mnemonicParsing="false" onAction="#SwitchAction" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Statistics" textFill="WHITE">
                            <graphic>
                               <ImageView id="statImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -80,7 +80,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="nubtn" fx:id="nubtn" mnemonicParsing="false" onAction="#goToNutrition" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Nutrition" textFill="WHITE">
+                        <Button id="nubtn" fx:id="nubtn" mnemonicParsing="false" onAction="#SwitchAction" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Nutrition" textFill="WHITE">
                            <graphic>
                               <ImageView id="nuImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -89,7 +89,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="cobtn" fx:id="cobtn" mnemonicParsing="false" onAction="#goToCoach" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Coach" textFill="WHITE">
+                        <Button id="cobtn" fx:id="cobtn" mnemonicParsing="false" onAction="#SwitchAction" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Coach" textFill="WHITE">
                            <graphic>
                               <ImageView id="dashImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -98,7 +98,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="probtn" fx:id="probtn" mnemonicParsing="false" onAction="#goToProfile" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Profile" textFill="WHITE">
+                        <Button id="probtn" fx:id="probtn" mnemonicParsing="false" onAction="#SwitchAction" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Profile" textFill="WHITE">
                            <graphic>
                               <ImageView id="proImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -107,7 +107,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button id="setbtn" fx:id="setbtn" mnemonicParsing="false" onAction="#goToSettings" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Settings" textFill="WHITE">
+                        <Button id="setbtn" fx:id="setbtn" mnemonicParsing="false" onAction="#SwitchAction" prefHeight="58.0" prefWidth="100.0" stylesheets="@../CSS/navigator.css" text="Settings" textFill="WHITE">
                            <graphic>
                               <ImageView id="setImg" fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

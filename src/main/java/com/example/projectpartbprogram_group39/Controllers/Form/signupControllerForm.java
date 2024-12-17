@@ -23,9 +23,6 @@ public class signupControllerForm {
     private RadioButton femaleRadioBtn, maleRadioBtn;
 
     @FXML
-    private ToggleGroup Gender;
-
-    @FXML
     private PasswordField txtPassword, txtPasswordConfirmed;
 
     @FXML
@@ -58,9 +55,7 @@ public class signupControllerForm {
             showAlert.alert(Alert.AlertType.INFORMATION, "Signup successful!");
             back(e);
         }
-
     }
-
 
     public void displayPassword(ActionEvent e){
 

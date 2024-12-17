@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="641.0" prefWidth="908.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30px;" stylesheets="@../CSS/nutrients.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.nutritionControllerForm">
+<AnchorPane prefHeight="641.0" prefWidth="908.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30px;" stylesheets="@../CSS/nutrition.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.nutritionControllerForm">
    <children>
       <!-- Header -->
       <Label layoutX="13.0" layoutY="14.0" text="Nutrition Plan">
@@ -22,29 +24,24 @@
       <!-- Daily Nutrition Goals -->
       <AnchorPane fx:id="dailyGoal" layoutX="9.0" layoutY="48.0" prefHeight="189.0" prefWidth="439.0" style="-fx-background-color: #ffe5ec; -fx-background-radius: 30px;">
          <children>
-            <Label layoutX="18.0" layoutY="6.0" text="Daily Nutrition Goals">
+            <Label layoutX="18.0" layoutY="6.0" text="Daily Meals">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="AddDailyGoalsBtn" layoutX="340.0" layoutY="7.0" mnemonicParsing="false" onAction="#showGoalsForm" prefHeight="26.0" prefWidth="77.0" style="-fx-background-radius: 15; -fx-background-color: #c77398;" text="+ Add" textFill="#f8f8f8">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
             <VBox fx:id="workoutCtn11" layoutX="8.0" layoutY="41.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="dailynutType11" text="Calories" textFill="WHITE">
+                  <Label fx:id="foodName1" text="Food1" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dailycalories1" text="0" textFill="WHITE">
+                  <Label fx:id="foodCal1" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
                   </Label>
-                  <Label fx:id="unit221" text="kcal" textFill="WHITE">
+                  <Label text="kcal" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -53,17 +50,17 @@
             </VBox>
             <VBox fx:id="distRunCtn11" layoutX="293.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="dailynutType31" text="Fat" textFill="WHITE">
+                  <Label fx:id="foodName3" text="Food3" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dailyfat1" text="0" textFill="WHITE">
+                  <Label fx:id="foodCal3" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
                   </Label>
-                  <Label fx:id="unit241" text="grams" textFill="WHITE">
+                  <Label text="kcal" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -72,17 +69,17 @@
             </VBox>
             <VBox fx:id="calBurnedCtn11" layoutX="151.0" layoutY="41.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="dailynutType21" text="Protein" textFill="WHITE">
+                  <Label fx:id="foodName2" text="Food2" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dailyprotein1" text="0" textFill="WHITE">
+                  <Label fx:id="foodCal2" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
                   </Label>
-                  <Label fx:id="unit231" text="grams" textFill="WHITE">
+                  <Label text="kcal" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -95,19 +92,14 @@
       <!-- Daily Nutrition -->
       <AnchorPane fx:id="dailyGoal1" layoutX="459.0" layoutY="48.0" prefHeight="189.0" prefWidth="439.0" style="-fx-background-color: #ffe5ec; -fx-background-radius: 30px;">
          <children>
-            <Label layoutX="18.0" layoutY="6.0" text="Daily Nutrition">
+            <Label layoutX="18.0" layoutY="6.0" text="Total Nutrition">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="AddDailyNutBtn" layoutX="340.0" layoutY="7.0" mnemonicParsing="false" onAction="#showDailyNutForm" prefHeight="26.0" prefWidth="77.0" style="-fx-background-radius: 15; -fx-background-color: #c77398;" text="+ Add" textFill="#f8f8f8">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
-            <VBox fx:id="workoutCtn1" layoutX="12.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
+            <VBox fx:id="calVal" layoutX="12.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="dailynutType1" text="Calories" textFill="WHITE">
+                  <Label fx:id="totCal" text="Calories" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -126,12 +118,12 @@
             </VBox>
             <VBox fx:id="calBurnedCtn1" layoutX="152.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="dailynutType2" text="Protein" textFill="WHITE">
+                  <Label fx:id="totPro" text="Protein" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dailyprotein" text="0" textFill="WHITE">
+                  <Label fx:id="proVal" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
@@ -145,7 +137,7 @@
             </VBox>
             <VBox fx:id="distRunCtn1" layoutX="292.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="dailynutType3" text="Fat" textFill="WHITE">
+                  <Label fx:id="totFat" text="Fat" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -168,8 +160,8 @@
       <!-- Meal Plan -->
       <AnchorPane layoutX="13.0" layoutY="244.0" prefHeight="379.0" prefWidth="478.0" style="-fx-background-color: #ebffe5; -fx-background-radius: 30px;">
          <children>
-            <Label fx:id="mealPlanName" layoutX="322.0" layoutY="51.0" text="Grilled chicken salad" />
-            <Label fx:id="mealPlanCalories" layoutX="323.0" layoutY="79.0" text="320 kcal" />
+            <Label fx:id="mealPlanName" layoutX="333.0" layoutY="51.0" text="Grilled chicken salad" />
+            <Label fx:id="mealPlanCalories" layoutX="333.0" layoutY="79.0" text="320 kcal" />
             <Label fx:id="mealPlanIngridients" layoutX="14.0" layoutY="260.0" prefHeight="42.0" prefWidth="366.0" text="Chicken breast, mixed greens, cherry tomatoes, &#10;cucumber, red onions, dressings." />
 
             <Label layoutX="18.0" layoutY="8.0" text="Meal Plan">
@@ -177,239 +169,235 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="AddMealPlanBtn" layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#showAddMealForm" prefHeight="36.0" prefWidth="135.0" style="-fx-background-radius: 20px; -fx-background-color: #8dbdad;" text="+ Add Meal Plan" textFill="#f8f8f8">
+            <Button fx:id="AddMealPlanBtn" layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#addMealPlan" prefHeight="36.0" prefWidth="135.0" style="-fx-background-radius: 20px; -fx-background-color: #8dbdad;" text="+ Add Meal Plan" textFill="#f8f8f8">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Label fx:id="mealnamelabel" layoutX="231.0" layoutY="51.0" text="Meal name         :">
+            <Label fx:id="mealnamelabel" layoutX="220.0" layoutY="49.0" text="Meal name       :">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="calorieslabel" layoutX="231.0" layoutY="79.0" text="Calories count  :">
+            <Label fx:id="calorieslabel" layoutX="220.0" layoutY="78.0" text="Calories count  :">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label fx:id="ingridientslabel" layoutX="14.0" layoutY="243.0" text="Ingridients List:">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="proteinlabel" layoutX="231.0" layoutY="106.0" text="Protein                 :  ">
+            <Label fx:id="proteinlabel" layoutX="220.0" layoutY="106.0" text="Protein             :  ">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="mealPlanProtein" layoutX="322.0" layoutY="106.0" text="15 grams" />
-            <Label fx:id="fatlabel" layoutX="232.0" layoutY="133.0" text="Fat                         :">
+            <Label fx:id="mealPlanProtein" layoutX="333.0" layoutY="106.0" text="15 grams" />
+            <Label fx:id="fatlabel" layoutX="222.0" layoutY="132.0" text="Fat                    :">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="mealPlanFat" layoutX="323.0" layoutY="133.0" text="17 grams" />
+            <Label fx:id="mealPlanFat" layoutX="333.0" layoutY="133.0" text="17 grams" />
             <ImageView fx:id="mealPlanImage" fitHeight="189.0" fitWidth="204.0" layoutX="16.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/salad.png" />
+                  <Image url="@../Images/salad1.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
 
-      <!-- Meal Suggestion -->
-      <AnchorPane layoutX="536.0" layoutY="244.0" prefHeight="379.0" prefWidth="358.0" style="-fx-background-color: #dbeef7; -fx-background-radius: 30px;" stylesheets="@../CSS/nutrients.css">
+                  <!-- Meal Suggestion -->
+      <AnchorPane layoutX="522.0" layoutY="244.0" prefHeight="379.0" prefWidth="358.0" style="-fx-background-color: #dbeef7; -fx-background-radius: 30px;">
          <children>
-            <Label fx:id="mealSuggestionName" layoutX="191.0" layoutY="233.0" text="Avocado wrap" />
-            <Label fx:id="mealSuggestionCalories" layoutX="191.0" layoutY="256.0" text="350 kcal" />
-            <Label fx:id="mealSuggestionProtein" layoutX="192.0" layoutY="283.0" text="18 grams" />
-            <Label fx:id="mealSuggestionFat" layoutX="192.0" layoutY="308.0" text="16 grams" />
-            <Button fx:id="AddtoMealPlanBtn1" layoutX="98.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleAddToMealPlan" prefHeight="36.0" prefWidth="162.0" style="-fx-background-radius: 20px;" text="+ Add to Meal Plan" textAlignment="CENTER" textFill="#f8f8f8">
+            <Label fx:id="mealPlanName13" alignment="CENTER_RIGHT" layoutX="-12.0" layoutY="200.0" prefHeight="21.0" prefWidth="150.0" text="Meal name :">
                <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
-            <Label fx:id="mealPlanName13" layoutX="98.0" layoutY="233.0" text="Meal name        :">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="mealPlanName111" layoutX="98.0" layoutY="257.0" text="Calories count :">
+            <Label fx:id="mealPlanName111" alignment="CENTER_RIGHT" layoutX="-12.0" layoutY="235.0" prefHeight="21.0" prefWidth="150.0" text="Calories count :">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="108.0" layoutY="4.0" text="Meal Suggestion">
+            <Label layoutX="96.0" layoutY="-2.0" text="Meal Suggestion">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="mealPlanName1121" layoutX="99.0" layoutY="282.0" text="Protein                :  ">
+            <Label fx:id="mealPlanName1121" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="270.0" prefHeight="21.0" prefWidth="136.0" text="Protein :  ">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
 
-            <Label fx:id="mealPlanName11221" layoutX="100.0" layoutY="307.0" text="Fat                        :">
+                        <Label fx:id="mealPlanName11221" alignment="CENTER_RIGHT" layoutY="305.0" prefHeight="21.0" prefWidth="135.0" text="Fat :">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView fx:id="mealSuggestionImage" fitHeight="166.0" fitWidth="178.0" layoutX="97.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mealSuggestionImage" fitHeight="152.0" fitWidth="161.0" layoutX="98.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/avocadowrap.png" />
+                  <Image url="@../Images/fruitBowl.png" />
                </image>
             </ImageView>
+            <TextField fx:id="suggestMealName" editable="false" layoutX="141.0" layoutY="200.0" prefHeight="25.0" prefWidth="212.0" />
+            <TextField fx:id="calCountField" editable="false" layoutX="142.0" layoutY="235.0" prefHeight="25.0" prefWidth="161.0" />
+            <TextField editable="false" layoutX="301.0" layoutY="235.0" prefHeight="25.0" prefWidth="49.0" text="kcal" />
+            <TextField fx:id="proteinField" editable="false" layoutX="141.0" layoutY="270.0" prefHeight="25.0" prefWidth="161.0" />
+            <TextField fx:id="fatField" editable="false" layoutX="140.0" layoutY="305.0" prefHeight="25.0" prefWidth="161.0" />
+            <Button fx:id="adminEdit" layoutX="63.0" layoutY="341.0" mnemonicParsing="false" onAction="#editMealSuggest" prefHeight="32.0" prefWidth="103.0" styleClass="bg-button" text="EDIT" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="adminSave" layoutX="183.0" layoutY="341.0" mnemonicParsing="false" onAction="#saveMealSuggest" prefHeight="32.0" prefWidth="103.0" styleClass="bg-button" text="SAVE" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <TextField editable="false" layoutX="301.0" layoutY="270.0" prefHeight="25.0" prefWidth="49.0" text="grams" />
+            <TextField editable="false" layoutX="301.0" layoutY="305.0" prefHeight="25.0" prefWidth="49.0" text="grams" />
 
-         </children>
-      </AnchorPane>
-
-      <!--vbox-->
-      <VBox fx:id="addmealVBOX" layoutX="313.0" layoutY="132.0" prefHeight="457.0" prefWidth="339.0" style="-fx-background-color: #e7ddff; -fx-background-radius: 25px;" stylesheets="@../CSS/nutrients.css" visible="false">
-         <children>
-            <VBox prefHeight="43.0" prefWidth="339.0">
-               <children>
-                  <HBox prefHeight="38.0" prefWidth="339.0" style="-fx-spacing: 100px;">
-                     <children>
-                        <Label style="-fx-padding: 5px;" text="Add  New Meal Plan">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="closebtn1" mnemonicParsing="false" onAction="#closevbox" prefHeight="38.0" prefWidth="37.0" style="-fx-background-color: transparent;" text="X" />
                      </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <Label fx:id="mealPlanName14" style="-fx-label-padding: 5px;" text="Meal name         :">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="entermealname" prefHeight="26.0" prefWidth="231.0" promptText="Enter Meal Name" style="-fx-background-color: transparent;" />
-            <Label fx:id="mealPlanName113" style="-fx-label-padding: 5px;" text="Calories count  :">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="entercalories" prefHeight="26.0" prefWidth="231.0" promptText="Enter Calories (kcal)" style="-fx-background-color: transparent;" />
-            <Label fx:id="mealPlanName1123" style="-fx-label-padding: 5px;" text="Protein                 :  ">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterprotein" prefHeight="26.0" prefWidth="231.0" promptText="Enter Protein (grams)" style="-fx-background-color: transparent;" />
-            <Label fx:id="mealPlanName11222" style="-fx-label-padding: 5px;" text="Fat                         :">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterfat" prefHeight="26.0" prefWidth="231.0" promptText="Enter Fat (grams)" style="-fx-background-color: transparent;" />
-            <Label fx:id="mealPlanName112221" style="-fx-label-padding: 5px;" text="Ingridients List   :">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enteringridients" prefHeight="26.0" prefWidth="231.0" promptText="Enter Ingridients List " style="-fx-background-color: transparent;" />
-            <ImageView fx:id="displayimage" fitHeight="120.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" />
-            <HBox prefHeight="38.0" prefWidth="339.0" style="-fx-spacing: 50px; -fx-padding: 10px;">
-               <children>
-                  <Button fx:id="addtomealplanbtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#AddMealPlan" prefHeight="36.0" prefWidth="135.0" style="-fx-background-radius: 20px; -fx-background-color: #ffffff; -fx-text-fill: #000000;" text="+ Add to Meal Plan" textFill="#f8f8f8">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="addimagebtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#AddImagetoMealPlan" prefHeight="36.0" prefWidth="135.0" style="-fx-background-radius: 20px; -fx-background-color: #ffffff; -fx-text-fill: #000000;" text="+ Add Image" textFill="#f8f8f8">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox fx:id="dailygoalsVBOX" layoutX="353.0" layoutY="183.0" prefHeight="258.0" prefWidth="287.0" style="-fx-background-color: #e7ddff; -fx-background-radius: 25px;" visible="false">
+      </AnchorPane>
+      <Button fx:id="AddBtn" alignment="CENTER" layoutX="785.0" layoutY="16.0" mnemonicParsing="false" onAction="#addMeal" prefHeight="29.0" prefWidth="95.0" styleClass="bg-button" text="+ Add" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="deletePlan" layoutX="473.0" layoutY="336.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" styleClass="action-bg">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/deleteIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="473.0" layoutY="375.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" styleClass="action-bg">
+         <graphic>
+            <ImageView fx:id="editPlan" fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/feedbackIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <VBox fx:id="addMealPlanCtn" layoutX="240.0" layoutY="51.0" prefHeight="540.0" prefWidth="449.0" styleClass="addMealPlanCtn" visible="false">
          <children>
-            <HBox prefHeight="41.0" prefWidth="287.0" style="-fx-spacing: 70px;">
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="449.0" text="Meal Plan">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="136.0" fitWidth="356.0" pickOnBounds="true" preserveRatio="true" translateX="130.0">
+               <image>
+                  <Image url="@../Images/salad1.png" />
+               </image>
+            </ImageView>
+            <HBox prefHeight="42.0" prefWidth="416.0">
                <children>
-                  <Label style="-fx-padding: 10px;" text="Daily Nutrition Goals">
+                  <Label prefHeight="27.0" prefWidth="130.0" text="Meal Name :">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font size="18.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
                   </Label>
-                  <Button fx:id="closebtn2" mnemonicParsing="false" onAction="#closevbox" prefHeight="38.0" prefWidth="37.0" style="-fx-background-color: transparent;" text="X" />
+                  <TextField fx:id="MealNameCtnField" prefHeight="34.0" prefWidth="285.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
                </children>
             </HBox>
-            <Label style="-fx-padding: 5px;" text="Enter calories goal:">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterCaloriesGoal" promptText="Enter calories (kcal)" style="-fx-background-color: transparent;" />
-            <Label style="-fx-padding: 5px;" text="Enter protein goal:">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterProteinGoal" promptText="Enter protein (grams)" style="-fx-background-color: transparent;" />
-            <Label style="-fx-padding: 5px;" text="Enter fat goal:">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterFatGoal" promptText="Enter fat (grams)" style="-fx-background-color: transparent;" />
-            <HBox prefHeight="59.0" prefWidth="287.0" style="-fx-padding: 10px;">
+            <HBox prefHeight="42.0" prefWidth="416.0">
                <children>
-                  <Button fx:id="AddDailyGoalsBtn" mnemonicParsing="false" onAction="#savedailygoals" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 20px; -fx-background-color: #8dbdad; -fx-background-color: #ffffff; -fx-text-fill: #000000;" text="+ Add Daily Nutrition Goals" textFill="#f8f8f8">
+                  <Label prefHeight="27.0" prefWidth="129.0" text="Calories Count :">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="calCountCtnField" prefHeight="34.0" prefWidth="285.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="417.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="128.0" text="Protein :">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="proCtnField" prefHeight="34.0" prefWidth="285.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="416.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="128.0" text="Fat :">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="fatCtnField" prefHeight="34.0" prefWidth="285.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="29.0" prefWidth="449.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="128.0" text="Ingridients List :">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <TextArea fx:id="listArea" prefHeight="83.0" prefWidth="449.0" wrapText="true" />
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="449.0" spacing="15.0">
+               <children>
+                  <Button fx:id="addBtn" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" styleClass="ctn-btn" text="Add">
+                     <font>
+                        <Font name="Arial Black" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ClearBtn" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" styleClass="ctn-btn" text="Clear">
+                     <font>
+                        <Font name="Arial Black" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="BackBtn" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="125.0" styleClass="ctn-btn" text="Back">
+                     <font>
+                        <Font name="Arial Black" size="20.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-         </children>
-      </VBox>
-      <Button fx:id="closebtn" layoutX="431.0" layoutY="13.0" mnemonicParsing="false" onAction="#closevbox" prefHeight="38.0" prefWidth="37.0" style="-fx-background-color: transparent;" text="X" />
-      <VBox fx:id="dailynutritionVBOX" layoutX="355.0" layoutY="193.0" prefHeight="258.0" prefWidth="287.0" style="-fx-background-color: #e7ddff; -fx-background-radius: 25px;" visible="false">
-         <children>
-            <HBox prefHeight="41.0" prefWidth="287.0" style="-fx-spacing: 110px;">
-               <children>
-                  <Label style="-fx-padding: 10px;" text="Daily Nutrition">
-                     <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="closebtn21" mnemonicParsing="false" onAction="#closevbox" prefHeight="38.0" prefWidth="37.0" style="-fx-background-color: transparent;" text="X" />
-               </children>
-            </HBox>
-            <Label style="-fx-padding: 5px;" text="Enter calories:">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterDailyCalories" promptText="Enter calories (kcal)" style="-fx-background-color: transparent;" />
-            <Label style="-fx-padding: 5px;" text="Enter protein:">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterDailyProtein" promptText="Enter protein (grams)" style="-fx-background-color: transparent;" />
-            <Label style="-fx-padding: 5px;" text="Enter fat:">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="enterDailyFat" promptText="Enter fat (grams)" style="-fx-background-color: transparent;" />
-            <HBox prefHeight="59.0" prefWidth="287.0" style="-fx-padding: 10px;">
-               <children>
-                  <Button fx:id="AddDailyNutBtnVBOX" mnemonicParsing="false" onAction="#savedailynutrition" prefHeight="36.0" prefWidth="188.0" style="-fx-background-radius: 20px; -fx-background-color: #8dbdad; -fx-background-color: #ffffff; -fx-text-fill: #000000;" text="+ Add Daily Nutrition" textFill="#f8f8f8">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+         </children></VBox>
    </children>
 </AnchorPane>

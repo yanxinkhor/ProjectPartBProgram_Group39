@@ -1,0 +1,91 @@
+.bg-button{
+    -fx-background-radius:15px;
+    -fx-background-color: #c77398;
+    -fx-cursor:hand;
+}
+
+.bg-button:hover{
+    -fx-opacity:0.7;
+}
+
+.bg-button:pressed{
+    -fx-opacity:0.3;
+}
+
+.view-all{
+    -fx-background-color:transparent;
+    -fx-text-fill: #000080;
+    -fx-cursor:hand;
+
+}
+
+.view-all:hover{
+    -fx-text-fill: #dbeef7;
+}
+
+.view-all:presses{
+    -fx-opacity:0.5;
+}
+
+.action-bg{
+    -fx-background-radius:30px;
+    -fx-background-color:#8ebfff;
+}
+
+.conatiner-bg{
+     -fx-background-color:white;
+     -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
+}
+
+.table-view{
+    -fx-background-radius:15px;
+    -fx-border-radius:15px;
+    -fx-border-color:black;
+ }
+
+.table-view .column-header{
+    -fx-background-color:#231f20;
+    -fx-background-insets: 0 0 0 0;
+}
+
+.table-view .column-header, .table-view .filler{
+    -fx-size:25px;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill:white;
+}
+
+#foodCol{
+    -fx-background-radius:15 0 0 15;
+}
+
+#fatCol{
+    -fx-background-radius:0 15 15 0;
+}
+
+.meal-btn{
+    -fx-background-color:black;
+    -fx-background-radius:20px;
+    -fx-cursor:hand;
+}
+
+.meal-btn:hover{
+    -fx-opacity:0.7;
+}
+
+.meal-btn:pressed{
+    -fx-opacity:0.3;
+}
+
+.addMealPlanCtn{
+    -fx-background-color:white;
+    -fx-background-radius:20px;
+}
+
+.ctn-btn{
+    -fx-background-color:black;
+    -fx-text-fill:white;
+    -fx-background-radius:35px;
+
+}

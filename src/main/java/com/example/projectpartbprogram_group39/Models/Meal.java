@@ -45,4 +45,23 @@ public class Meal {
     public void setFat(double fat) {
         this.fat = fat;
     }
+
+    @Override
+    public String toString() {
+        return foodName + '/' + calories + "/" + protein + "/" + fat;
+    }
+
+    public static Meal splitString(String line) {
+        String[] parts = line.split("/");
+
+        if (parts.length == 4) {
+            String foodName = parts[0];
+            double calories = Double.parseDouble(parts[1]);
+            double protein = Double.parseDouble(parts[2]);
+            double fat = Double.parseDouble(parts[3]);
+            return new Meal(foodName, calories, fat, protein);
+        } else {
+            throw new IllegalArgumentException("Invalid input format. Expected 4 parts but got: " + parts.length);
+        }
+    }
 }

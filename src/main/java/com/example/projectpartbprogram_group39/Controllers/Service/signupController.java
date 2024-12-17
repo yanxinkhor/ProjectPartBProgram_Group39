@@ -29,6 +29,11 @@ public class signupController {
             return false;
         }
 
+        if(username.equals("Admin") && password.equals("admin1234")){
+            showAlert.alert(Alert.AlertType.ERROR,"You cannot use a Admin account to sign up");
+            return false;
+        }
+
         try {
             int age = Integer.parseInt(ageString);
             double height = Double.parseDouble(heightString);

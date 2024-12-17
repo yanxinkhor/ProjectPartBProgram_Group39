@@ -4,6 +4,7 @@ import com.example.projectpartbprogram_group39.DAO.ClassMapper.WorkoutMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.Workouts;
+import com.example.projectpartbprogram_group39.Models.fitnessGoal;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +29,12 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class displayLogControllerForm implements Initializable {
+
+    @FXML
+    private Button searchBtn;
+
+    @FXML TextField searchBar;
+
     @FXML
     private TableView<Workouts> workoutsTable;
 
@@ -238,5 +245,22 @@ public class displayLogControllerForm implements Initializable {
         updatedTime.setEditable(bool);
         updatedFreq.setEditable(bool);
         updatedDate.setEditable(bool);
+    }
+
+    public void handleSearch() throws IOException {
+        String searchText = searchBar.getText().toLowerCase();
+        if (searchText.isEmpty()) {
+            loadLogs();
+        }else{
+            ObservableList<Workouts> filteredWorkouts = FXCollections.observableArrayList();
+            for (Workouts workout : workoutList){
+                if (workout.getType().toLowerCase().contains(searchText)) {
+                    filteredWorkouts.add(workout);
+                }
+                workoutsTable.setItems(filteredWorkouts);
+            }
+            searchBar.clear();
+
+        }
     }
 }

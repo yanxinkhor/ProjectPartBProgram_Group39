@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="733.0" stylesheets="@../CSS/nutrition.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.viewMealControllerForm">
+   <children>
+      <TableView fx:id="foodTable" layoutX="14.0" layoutY="20.0" prefHeight="460.0" prefWidth="429.0">
+        <columns>
+          <TableColumn fx:id="foodCol" prefWidth="175.5135679244995" text="Food" />
+          <TableColumn fx:id="calCol" prefWidth="85.15309143066406" text="Calories（kcal)" />
+            <TableColumn fx:id="ProteinCol" prefWidth="87.22700500488281" text="Protein(g)" />
+            <TableColumn fx:id="fatCol" prefWidth="80.2322998046875" text="Fat(g)" />
+        </columns>
+      </TableView>
+      <VBox layoutX="466.0" layoutY="77.0" prefHeight="345.0" prefWidth="246.0" styleClass="conatiner-bg">
+         <children>
+            <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="191.0" text="Food Name :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="foodField" prefHeight="25.0" prefWidth="0.0" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="29.0" prefWidth="191.0" text="Calories :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="25.0" prefWidth="191.0">
+               <children>
+                  <TextField fx:id="calField" prefHeight="25.0" prefWidth="205.0" />
+                  <TextField editable="false" prefHeight="25.0" prefWidth="40.0" text="kcal" />
+               </children>
+            </HBox>
+            <Label alignment="BOTTOM_LEFT" prefHeight="29.0" prefWidth="191.0" text="Protein :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="25.0" prefWidth="191.0">
+               <children>
+                  <TextField fx:id="proteinField" prefHeight="25.0" prefWidth="205.0" />
+                  <TextField editable="false" prefHeight="25.0" prefWidth="43.0" text="gram" />
+               </children>
+            </HBox>
+            <Label alignment="BOTTOM_LEFT" prefHeight="29.0" prefWidth="191.0" text="Fat :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="25.0" prefWidth="191.0">
+               <children>
+                  <TextField fx:id="fatField" prefHeight="25.0" prefWidth="205.0" />
+                  <TextField prefHeight="25.0" prefWidth="46.0" text="gram" />
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="57.0" prefWidth="246.0" spacing="10.0">
+               <children>
+                  <Button fx:id="addFood" alignment="CENTER" mnemonicParsing="false" onAction="#addFood" prefHeight="25.0" prefWidth="70.0" styleClass="meal-btn" text="ADD" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="DeleteFood" alignment="CENTER" mnemonicParsing="false" onAction="#deleteFood" prefHeight="25.0" prefWidth="70.0" styleClass="meal-btn" text="DELETE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="saveFood" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateFood" prefHeight="25.0" prefWidth="60.0" styleClass="meal-btn" text="SAVE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Button fx:id="clearFood" alignment="CENTER" mnemonicParsing="false" onAction="#clear" prefHeight="29.0" prefWidth="229.0" styleClass="meal-btn" text="CLEAR" textFill="WHITE" translateX="8.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

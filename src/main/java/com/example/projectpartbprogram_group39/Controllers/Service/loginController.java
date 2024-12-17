@@ -48,7 +48,7 @@ public class loginController {
         List<Trainee> trainees = traineeDao.getAll();
 
         if(username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)){
-            return new Trainee(ADMIN_USERNAME,25,"male","012345678","admin@gmail.com",175.5,50.5,ADMIN_PASSWORD);
+            return new Trainee(ADMIN_USERNAME,25,"Male","012345678","admin@gmail.com",175.5,50.5,ADMIN_PASSWORD);
         }
 
         for (Trainee trainee : trainees) {

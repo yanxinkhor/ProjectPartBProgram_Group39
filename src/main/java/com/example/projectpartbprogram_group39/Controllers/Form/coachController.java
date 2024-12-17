@@ -43,10 +43,7 @@ public class coachController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Initialize the coach data
         initializeCoaches();
-
-        // Update button states based on the 'isJoined' field
         updateButtonStates();
     }
 
@@ -106,13 +103,11 @@ public class coachController implements Initializable {
 
     private void updateButtons(Coach coach, Button joinButton, Button leaveButton) {
         if (coach.getIsJoined()) {
-            System.out.println(coach.getName() + " has joined.");
             joinButton.setText("JOINED");
             joinButton.setStyle("-fx-background-color:#777777;" + "-fx-cursor: default;");
             leaveButton.setVisible(true);
             joinButton.setTranslateX(0);
         } else {
-            System.out.println(coach.getName() + " has not joined.");
             joinButton.setText("JOIN CLASS");
             joinButton.setStyle("-fx-background-color:#4a642f;" + "-fx-cursor:hand;");
             leaveButton.setVisible(false);
@@ -188,13 +183,12 @@ public class coachController implements Initializable {
         }
 
         if (updateStatus != null) {
-            // Show confirmation dialog
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Join Class Confirmation");
             alert.setHeaderText("Are you sure you want to join " + coachName + "'s class?");
             alert.setContentText("This action will mark you as joined to the class.");
 
-            // Wait for the user to respond
             if (alert.showAndWait().get() == ButtonType.OK) {
                 try {
                     List<Coach> coaches = coachDao.getAll();
@@ -240,13 +234,11 @@ public class coachController implements Initializable {
         }
 
         if (updateStatus != null) {
-            // Show confirmation dialog
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Leave Class Confirmation");
             alert.setHeaderText("Are you sure you want to leave " + coachName + "'s class?");
-            alert.setContentText("This action will mark you as not joined to the class.");
 
-            // Wait for the user to respond
             if (alert.showAndWait().get() == ButtonType.OK) {
                 try {
                     List<Coach> coaches = coachDao.getAll();

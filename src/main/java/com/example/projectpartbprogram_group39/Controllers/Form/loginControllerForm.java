@@ -69,7 +69,7 @@ public class loginControllerForm {
 
 
     public void displayPassword(){
-        String fieldkey = "asswordTxtField";
+        String fieldkey = "passwordTxtField";
         boolean isVisible = visibleMapping.getOrDefault(fieldkey,false);
 
         if(isVisible){
@@ -98,11 +98,6 @@ public class loginControllerForm {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/navigation-view.fxml"));
             BorderPane root = loader.load();
-
-            NavigationController navigationController = loader.getController();
-
-            navigationController.displayUserDetails(TraineeSession.getInstance().getCurrentTrainee());
-
             Scene mainScene = new Scene(root);
             Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
             stage.setScene(mainScene);

@@ -1,4 +1,17 @@
-#editBtn1:hover {
-    -fx-background-color: #005fa3; /* Background color on hover */
-    -fx-text-fill: white;          /* Text color on hover */
-}
+ .editButton{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+ }
+
+ .trans-bg{
+    -fx-background-color:transparent;
+ }
+
+ .bg-container{
+    -fx-background-color:#efefef;
+    -fx-background-radius:25px;
+ }
+
+ .textField-bg{
+    -fx-background-color:#efefef;
+ }
