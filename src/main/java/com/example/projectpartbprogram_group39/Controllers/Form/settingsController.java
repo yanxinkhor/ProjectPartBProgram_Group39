@@ -44,7 +44,6 @@ public class settingsController implements Initializable {
 
     public void sendFeedbackPU(ActionEvent e) {
         opacityPane.setVisible(true);
-        deleteCtn.setVisible(true);
     }
 
     private void openPopup(String fxmlFileName) {
