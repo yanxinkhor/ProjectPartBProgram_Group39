@@ -65,18 +65,18 @@ public class NavigationController implements Initializable {
             displayEmail.setText(trainee.getEmail());
             welcomeText.setText("Welcome " + trainee.getUsername() + "!");
 
-            if(trainee.getGender().equals("Female")){
+            if (trainee.getGender().equals("Female")) {
                 profile_img.setImage(femaleProfile);
-            }else if(trainee.getGender().equals("Male")){
+            } else if (trainee.getGender().equals("Male")) {
                 profile_img.setImage(maleProfile);
             }
         }
     }
 
     public void SwitchAction(ActionEvent e) throws IOException {
-        String sourceBtn = ((Button)e.getSource()).getText();
+        String sourceBtn = ((Button) e.getSource()).getText();
 
-        switch(sourceBtn){
+        switch (sourceBtn) {
             case "Dashboard":
                 switchPage("dashboard-view.fxml");
                 welcomeText.setVisible(true);
@@ -128,5 +128,6 @@ public class NavigationController implements Initializable {
         contentPane.getChildren().add(View);
         welcomeText.setVisible(true);
     }
+
 
 }

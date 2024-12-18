@@ -1,5 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
+import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.CoachMapper;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.TraineeMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
@@ -10,14 +11,19 @@ import com.example.projectpartbprogram_group39.Utils.AESEncryption;
 import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -152,8 +158,12 @@ public class profileController implements Initializable {
                     profileDao.update(trainee, updatedTrainee);
                     showAlert.alert(AlertType.INFORMATION, "Profile updated successfully!");
                     trainee = updatedTrainee;
-
                     TraineeSession.getInstance().setCurrentTrainee(updatedTrainee);
+
+                    profileUsernameMain.setText(updatedTrainee.getUsername());
+                    displayUsername.setText(updatedTrainee.getUsername());
+                    displayEmail.setText(updatedTrainee.getEmail());
+
                 } else {
                     showAlert.alert(AlertType.ERROR, "No trainee found for update.");
                 };

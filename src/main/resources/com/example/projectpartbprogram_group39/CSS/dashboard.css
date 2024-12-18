@@ -37,3 +37,18 @@
     -fx-background-color: #ebe7e7;
     -fx-background-radius: 20px 20px 20px 20px;
 }
+
+.chart{
+    -fx-background-color: transparent;
+    -fx-font-size: 10;
+    -fx-text-fill: white;
+    -fx-legend-visible: false;
+}
+
+.chart-plot-background{
+    -fx-background-color: transparent;
+}
+
+.chart-series-line{
+    -fx-stroke: white
+}

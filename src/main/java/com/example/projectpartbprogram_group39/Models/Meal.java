@@ -59,7 +59,7 @@ public class Meal {
             double calories = Double.parseDouble(parts[1]);
             double protein = Double.parseDouble(parts[2]);
             double fat = Double.parseDouble(parts[3]);
-            return new Meal(foodName, calories, fat, protein);
+            return new Meal(foodName, calories, protein,fat);
         } else {
             throw new IllegalArgumentException("Invalid input format. Expected 4 parts but got: " + parts.length);
         }

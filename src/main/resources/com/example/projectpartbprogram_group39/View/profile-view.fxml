@@ -27,7 +27,7 @@
                   <Insets />
                </HBox.margin>
                <children>
-                  <TextField fx:id="displayUsername" editable="false" prefHeight="29.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Xin">
+                  <TextField fx:id="displayUsername" editable="false" prefHeight="29.0" prefWidth="300.0" style="-fx-background-color: transparent;">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -38,7 +38,7 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="displayEmail" editable="false" prefHeight="27.0" prefWidth="692.0" style="-fx-background-color: transparent;" text="123">
+                  <TextField fx:id="displayEmail" editable="false" prefHeight="27.0" prefWidth="692.0" style="-fx-background-color: transparent;">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

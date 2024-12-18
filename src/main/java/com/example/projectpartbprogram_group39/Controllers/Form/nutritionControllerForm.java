@@ -3,6 +3,7 @@ package com.example.projectpartbprogram_group39.Controllers.Form;
 
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealMapper;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealSuggestMapper;
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.mealPlanMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.*;
@@ -37,7 +38,7 @@ public class nutritionControllerForm implements Initializable {
     private TextField suggestMealName,calCountField,proteinField,fatField;
 
     @FXML
-    private Label mealPlanName,mealPlanCalories,mealPlanProtein,mealPlanFat;
+    private Label mealPlanName,mealPlanCalories,mealPlanProtein,mealPlanFat,mealPlanIngridients;
 
     @FXML
      private VBox addMealPlanCtn;
@@ -54,6 +55,7 @@ public class nutritionControllerForm implements Initializable {
     mealSuggestion suggest;
     MealPlan mealPlan;
 
+    private static DaoInterface<MealPlan> mealPlanDao = new DaoImplement<>("mealPlan.txt",new mealPlanMapper());
     private static DaoInterface<mealSuggestion> mealSuggestDao = new DaoImplement<>("mealSuggest.txt",new MealSuggestMapper());
     private static DaoInterface<Meal> mealDao = new DaoImplement<>("meal.txt",new MealMapper());
 
@@ -67,6 +69,7 @@ public class nutritionControllerForm implements Initializable {
         }
         try {
             displayFoodUI();
+            displayPlanUI();
             displayTotNutrition();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -77,7 +80,6 @@ public class nutritionControllerForm implements Initializable {
 
         try {
             List<mealSuggestion> mealSuggest = mealSuggestDao.getAll();
-            System.out.println(mealSuggest);
             if (mealSuggest.isEmpty()) {
                mealSuggestDao.add(suggest);
             }
@@ -86,6 +88,7 @@ public class nutritionControllerForm implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
     }
 
@@ -170,12 +173,117 @@ public class nutritionControllerForm implements Initializable {
         }
     }
 
-    public void addMealPlan(ActionEvent e){
+    public void addMealPlanCtn(ActionEvent e) throws IOException {
+        List<MealPlan> existingMealPlans = mealPlanDao.getAll();
+        if (!existingMealPlans.isEmpty()) {
+            showAlert.alert(Alert.AlertType.ERROR, "Only one meal plan is allowed. Please delete the existing plan before adding a new one.");
+            return;
+        }
+
         addMealPlanCtn.setVisible(true);
+
     }
 
     public void back(ActionEvent e){
         addMealPlanCtn.setVisible(false);
+    }
+
+    public void addMealPLan(ActionEvent e){
+        String mealName = MealNameCtnField.getText();
+        String calCountStr = calCountCtnField.getText();
+        String proteinStr = proCtnField.getText();
+        String fatStr = fatCtnField.getText();
+        String ingredientList = listArea.getText();
+
+        if(mealName.isEmpty() || calCountStr.isEmpty() || proteinStr.isEmpty() || fatStr.isEmpty() || ingredientList.isEmpty()){
+            showAlert.alert(Alert.AlertType.ERROR,"Plase enter all the fields");
+            return;
+        }
+
+        try{
+
+            double calCount = Double.parseDouble(calCountStr);
+            double protein = Double.parseDouble(proteinStr);
+            double fat = Double.parseDouble(fatStr);
+
+            mealPlan = new MealPlan(mealName,calCount,protein,fat,ingredientList);
+            mealPlanDao.add(mealPlan);
+            showAlert.alert(Alert.AlertType.INFORMATION,"Meal PLan added successful");
+            clear(e);
+            addMealPlanCtn.setVisible(false);
+            displayPlanUI();
+
+        }catch(NumberFormatException ex){
+            showAlert.alert(Alert.AlertType.ERROR,"Please enter a valid number");
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void displayPlanUI() throws IOException {
+        List<MealPlan> planList = mealPlanDao.getAll();
+        if (planList != null && !planList.isEmpty()) {
+
+            MealPlan mealPlan = planList.get(0);
+
+            mealPlanName.setText(mealPlan.getFoodName());
+            mealPlanCalories.setText(String.valueOf(mealPlan.getCalories()));
+            mealPlanProtein.setText(String.valueOf(mealPlan.getProtein()));
+            mealPlanFat.setText(String.valueOf(mealPlan.getFat()));
+            mealPlanIngridients.setText(mealPlan.getIngredient());
+        } else {
+
+            mealPlanName.setText("");
+            mealPlanCalories.setText("");
+            mealPlanProtein.setText("");
+            mealPlanFat.setText("");
+            mealPlanIngridients.setText("");
+        }
+    }
+
+    public void clear(ActionEvent e){
+        MealNameCtnField.clear();
+        calCountCtnField.clear();
+        proCtnField.clear();
+        fatCtnField.clear();
+    }
+
+    public void deletePlan(ActionEvent e) {
+        try {
+            List<MealPlan> existingMealPlans = mealPlanDao.getAll();
+
+
+            if (existingMealPlans.isEmpty()) {
+                showAlert.alert(Alert.AlertType.ERROR, "No meal plan exists to delete.");
+                return;
+            }
+
+
+            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this goal?", ButtonType.YES, ButtonType.NO);
+            confirmAlert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.YES) {
+                    try {
+                        MealPlan mealDelete = existingMealPlans.get(0);
+                        mealPlanDao.delete(mealDelete);
+                        displayPlanUI();
+                        displayTotNutrition();
+
+                        showAlert.alert(Alert.AlertType.INFORMATION, "Meal plan deleted successfully.");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                } else {
+                    showAlert.alert(Alert.AlertType.INFORMATION, "Cancel deletion");
+                }
+            });
+
+        } catch (IOException ex) {
+
+            showAlert.alert(Alert.AlertType.ERROR, "An error occurred while deleting the meal plan.");
+            ex.printStackTrace();
+        }
+
     }
 
 }

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,7 +24,7 @@
                   <Image url="@../Images/stepsIcon.png" />
                </image>
             </ImageView>
-            <Text layoutX="54.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
+            <Text fx:id="steps" layoutX="54.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
                <font>
                   <Font name="Arial Bold" size="25.0" />
                </font>
@@ -59,7 +62,7 @@
                   <Image url="@../Images/heartRate.png" />
                </image>
             </ImageView>
-            <Text layoutX="60.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="90">
+            <Text fx:id="heartRate" layoutX="60.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="90">
                <font>
                   <Font name="Arial Bold" size="40.0" />
                </font>
@@ -78,7 +81,7 @@
                   <Image url="@../Images/girl_profile.png" />
                </image>
             </ImageView>
-            <Text fx:id="username" layoutX="105.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME">
+            <Text fx:id="usernameT" layoutX="105.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -86,17 +89,17 @@
             <Text fill="#525252" layoutX="54.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight" />
             <Text fill="#525252" layoutX="117.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height" />
             <Text fill="#525252" layoutX="182.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age" />
-            <Text fx:id="weight" layoutX="60.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="66kg">
+            <Text fx:id="weightT" layoutX="60.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="66kg">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fx:id="height" layoutX="116.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="160cm">
+            <Text fx:id="heightT" layoutX="116.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="160cm">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fx:id="age" layoutX="187.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21">
+            <Text fx:id="ageT" layoutX="187.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -109,7 +112,7 @@
             </Text>
          </children>
       </Pane>
-      <Pane id="goalPer" layoutX="429.0" layoutY="221.0" prefHeight="184.0" prefWidth="185.0" stylesheets="@../CSS/dashboard.css">
+      <Pane id="goalPer" layoutX="436.0" layoutY="221.0" prefHeight="184.0" prefWidth="185.0" stylesheets="@../CSS/dashboard.css">
          <children>
             <Text fill="#525252" layoutX="16.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have reached 75% of your goal">
                <font>
@@ -118,13 +121,23 @@
             </Text>
          </children>
       </Pane>
-      <Text layoutX="27.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics">
+      <Text layoutX="27.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistics">
          <font>
             <Font name="Arial Bold" size="21.0" />
          </font>
       </Text>
-      <Pane id="statBar" layoutX="27.0" layoutY="245.0" prefHeight="184.0" prefWidth="381.0" stylesheets="@../CSS/dashboard.css" />
+      <Pane id="statBar" layoutX="27.0" layoutY="239.0" prefHeight="237.0" prefWidth="398.0" stylesheets="@../CSS/dashboard.css">
+         <children>
+            <LineChart id="linechart" fx:id="dashLineChart" layoutX="-12.0" layoutY="9.0" prefHeight="237.0" prefWidth="407.0" stylesheets="@../CSS/dashboard.css">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children></Pane>
       <Pane id="coachBar" layoutX="511.0" layoutY="419.0" prefHeight="199.0" prefWidth="375.0" stylesheets="@../CSS/dashboard.css" />
-      <Pane id="nutBar" layoutX="27.0" layoutY="448.0" prefHeight="170.0" prefWidth="458.0" stylesheets="@../CSS/dashboard.css" />
+      <Pane id="nutBar" layoutX="27.0" layoutY="487.0" prefHeight="131.0" prefWidth="458.0" stylesheets="@../CSS/dashboard.css" />
    </children>
 </AnchorPane>

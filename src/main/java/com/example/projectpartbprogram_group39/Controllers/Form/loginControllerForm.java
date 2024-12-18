@@ -1,6 +1,5 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
-import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
 import com.example.projectpartbprogram_group39.Controllers.Service.loginController;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.TraineeSession;
