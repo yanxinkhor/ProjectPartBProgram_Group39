@@ -44,6 +44,7 @@ public class settingsController implements Initializable {
 
     public void sendFeedbackPU(ActionEvent e) {
         opacityPane.setVisible(true);
+        openPopup("/com/example/projectpartbprogram_group39/View/feedback-view.fxml");
     }
 
     private void openPopup(String fxmlFileName) {
