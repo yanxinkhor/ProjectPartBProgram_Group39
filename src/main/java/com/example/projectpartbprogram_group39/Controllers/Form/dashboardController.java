@@ -1,5 +1,7 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
+import com.example.projectpartbprogram_group39.Models.Trainee;
+import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -46,24 +48,6 @@ public class dashboardController implements Initializable {
     private Random random = new Random();
 
 
-    public void displayUserInfo(String username, String gender, double weight, double height, int age) {
-        System.out.println(gender);
-        if(gender != null) {
-            if (gender.equals("Male")) {
-                profile_img.setImage(maleProfile);
-            } else {
-                profile_img.setImage(femaleProfile);
-            }
-        }else{
-            System.out.println("gender is null");
-        }
-        System.out.println("Trainee Username: " + username);
-        usernameT.setText(username);
-        weightT.setText(String.valueOf(weight + "kg"));
-        heightT.setText(String.valueOf(height+ "cm"));
-        ageT.setText(String.valueOf(age));
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -97,5 +81,19 @@ public class dashboardController implements Initializable {
 
         int average = (int) ((12643 + 11234 + 12432 + 11934 + 15000 + 14345 + 13903) / 7.0);
         steps.setText(String.valueOf(average));
+        Trainee trainee = TraineeSession.getInstance().getCurrentTrainee();
+        if (trainee != null) {
+            usernameT.setText(trainee.getUsername());
+            weightT.setText(trainee.getWeight() + "kg");
+            heightT.setText(trainee.getHeight() + "cm");
+            ageT.setText(String.valueOf(trainee.getAge()));
+
+            if (trainee.getGender().equals("Male")) {
+                profile_img.setImage(maleProfile);
+            } else {
+                profile_img.setImage(femaleProfile);
+            }
+
+        }
     }
 }
