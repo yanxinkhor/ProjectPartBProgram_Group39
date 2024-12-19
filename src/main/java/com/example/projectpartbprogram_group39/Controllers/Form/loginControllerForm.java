@@ -20,8 +20,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
 public class loginControllerForm {
 
     @FXML
@@ -63,9 +61,7 @@ public class loginControllerForm {
                 directToMainPage(e, username, password);
             }
         }
-
     }
-
 
     public void displayPassword(){
         String fieldkey = "passwordTxtField";
@@ -82,12 +78,10 @@ public class loginControllerForm {
             passwordTxtField.setVisible(true);
             passwordField.setVisible(false);
             invisibleImg .setImage(passVisible);
-
         }
 
         visibleMapping.put(fieldkey, !isVisible);
     }
-
 
     public void directToMainPage(ActionEvent e, String username, String password) throws Exception {
         Trainee loggedInTrainee = loginController.getLoggedInTrainee(username, password);

@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DaoImplement<T> implements DaoInterface<T>{
+public class DaoImplement<T> implements DaoInterface<T> {
 
     private final String filePath;
     private final EntityMapper<T> entityMapper;
@@ -86,6 +86,10 @@ public class DaoImplement<T> implements DaoInterface<T>{
         List<String> lines = Files.readAllLines(Paths.get(filePath));
         for (String line : lines) {
             T existingObject = entityMapper.fromString(line);
+
+            if (entityMapper.equals(object, existingObject)) {
+                return true;
+            }
 
             if (object instanceof Workouts) {
                 Workouts temp = (Workouts) object;

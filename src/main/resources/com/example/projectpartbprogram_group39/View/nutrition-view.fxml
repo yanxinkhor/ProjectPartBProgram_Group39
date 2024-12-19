@@ -31,12 +31,12 @@
             </Label>
             <VBox fx:id="workoutCtn11" layoutX="8.0" layoutY="41.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="foodName1" text="Food1" textFill="WHITE" wrapText="true">
+                  <Label fx:id="foodName1" alignment="CENTER" prefHeight="27.0" prefWidth="136.0" text="No Food" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="foodCal1" text="0" textFill="WHITE">
+                  <Label fx:id="foodCal1" alignment="CENTER" prefHeight="50.0" prefWidth="134.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
@@ -50,12 +50,12 @@
             </VBox>
             <VBox fx:id="distRunCtn11" layoutX="293.0" layoutY="40.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="foodName3" text="Food3" textFill="WHITE" wrapText="true">
+                  <Label fx:id="foodName3" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="135.0" text="No Food" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="foodCal3" text="0" textFill="WHITE">
+                  <Label fx:id="foodCal3" alignment="CENTER" prefHeight="50.0" prefWidth="133.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
@@ -69,12 +69,12 @@
             </VBox>
             <VBox fx:id="calBurnedCtn11" layoutX="151.0" layoutY="41.0" prefHeight="138.0" prefWidth="136.0" style="-fx-alignment: CENTER; -fx-background-color: #000080; -fx-background-radius: 20px;">
                <children>
-                  <Label fx:id="foodName2" text="Food2" textFill="WHITE" wrapText="true">
+                  <Label fx:id="foodName2" alignment="CENTER" prefHeight="27.0" prefWidth="135.0" text="No Food" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="foodCal2" text="0" textFill="WHITE">
+                  <Label fx:id="foodCal2" alignment="CENTER" prefHeight="50.0" prefWidth="136.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
@@ -104,7 +104,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dailycalories" text="0" textFill="WHITE">
+                  <Label fx:id="dailycalories" alignment="CENTER" prefHeight="50.0" prefWidth="135.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
@@ -123,7 +123,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="proVal" text="0" textFill="WHITE">
+                  <Label fx:id="proVal" alignment="CENTER" prefHeight="50.0" prefWidth="136.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>
@@ -142,7 +142,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dailyfat" text="0" textFill="WHITE">
+                  <Label fx:id="dailyfat" alignment="CENTER" prefHeight="50.0" prefWidth="133.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="34.0" />
                      </font>

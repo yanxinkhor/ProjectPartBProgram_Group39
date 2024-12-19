@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,6 +10,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="790.0" stylesheets="@../CSS/allGoals.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.viewAllGoalsController">
@@ -37,5 +40,67 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
+      <AnchorPane fx:id="editGoalCtn" layoutX="170.0" layoutY="30.0" prefHeight="530.0" prefWidth="419.0" visible="false">
+         <children>
+            <HBox layoutX="8.0" layoutY="7.0" prefHeight="185.0" prefWidth="404.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="185.0" prefWidth="213.0" text="MY GOAL">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="150.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true" translateX="15.0" translateY="20.0">
+                     <image>
+                        <Image url="@../Images/editGoalIcon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <AnchorPane layoutX="8.0" layoutY="192.0" prefHeight="331.0" prefWidth="404.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutY="20.0" prefHeight="32.0" prefWidth="121.0" text="Type :">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="updatedType" layoutX="127.0" layoutY="20.0" prefHeight="32.0" prefWidth="268.0" styleClass="bg-combo" />
+                  <Label alignment="CENTER_RIGHT" layoutY="80.0" prefHeight="32.0" prefWidth="121.0" text="Target :">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutY="140.0" prefHeight="32.0" prefWidth="121.0" text="Start Date :">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutY="200.0" prefHeight="32.0" prefWidth="121.0" text="Priority :">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="updatedTarget" layoutX="127.0" layoutY="80.0" prefHeight="32.0" prefWidth="195.0" styleClass="bg-combo" />
+                  <ComboBox fx:id="updatedUnit" layoutX="322.0" layoutY="80.0" prefHeight="32.0" prefWidth="72.0" styleClass="bg-combo" />
+                  <DatePicker fx:id="updatedDate" layoutX="127.0" layoutY="140.0" prefHeight="32.0" prefWidth="268.0" styleClass="bg-combo" />
+                  <ComboBox fx:id="updatedPriority" layoutX="127.0" layoutY="200.0" prefHeight="32.0" prefWidth="268.0" styleClass="bg-combo" />
+                  <Button layoutX="30.0" layoutY="267.0" mnemonicParsing="false" onAction="#reservedChanged" prefHeight="30.0" prefWidth="110.0" styleClass="bg-btn" text="UPDATE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="155.0" layoutY="267.0" mnemonicParsing="false" onAction="#clearAll" prefHeight="30.0" prefWidth="110.0" styleClass="bg-btn" text="CLEAR">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="280.0" layoutY="267.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="110.0" styleClass="bg-btn" text="BACK">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

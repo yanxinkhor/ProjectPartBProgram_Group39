@@ -37,3 +37,34 @@
 .table-view .column-header .label{
     -fx-text-fill:white;
 }
+
+#editGoalCtn{
+    -fx-background-color:white;
+    -fx-background-radius:20px;
+    -fx-border-color:black;
+    -fx-border-radius:20px;
+}
+
+.bg-btn {
+    -fx-background-color:#231f20;
+    -fx-text-fill:white;
+    -fx-background-radius:50px;
+    -fx-cursor:hand;
+}
+
+.bg-btn:hover{
+    -fx-opacity:0.7;
+}
+
+.bg-btn:pressed{
+    -fx-background-color:white;
+    -fx-text-fill:#231f20;
+    -fx-opacity:0.4;
+
+}
+
+.bg-combo{
+    -fx-background-color:white;
+    -fx-border-color:black;
+
+}

@@ -7,10 +7,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="908.0" stylesheets="@../CSS/coaches.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.coachController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="908.0" stylesheets="@../CSS/coaches.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.coachControllerForm">
    <children>
       <VBox alignment="CENTER" layoutX="60.0" layoutY="60.0" prefHeight="274.0" prefWidth="223.0" styleClass="coaches-ctn">
          <children>
@@ -195,6 +196,170 @@
                      <font>
                         <Font name="Arial Black" size="12.0" />
                      </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Pane fx:id="opacityPane" layoutX="-22.0" layoutY="-115.0" prefHeight="838.0" prefWidth="1015.0" style="-fx-background-color: black; -fx-opacity: 0.4;" visible="false" />
+      <AnchorPane fx:id="detailContainer" layoutX="150.0" layoutY="90.0" prefHeight="447.0" prefWidth="611.0" styleClass="detail-ctn" visible="false">
+         <children>
+            <VBox alignment="CENTER" layoutX="6.0" layoutY="6.0" prefHeight="431.0" prefWidth="258.0">
+               <children>
+                  <ImageView fx:id="coachImg" fitHeight="238.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/guyCoach_2.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="coachesName">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="coachExpert">
+                     <font>
+                        <Font name="Arial Black" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="availableTime">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Label layoutX="269.0" layoutY="62.0" text="Available every :">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <VBox layoutX="310.0" layoutY="105.0" prefHeight="180.0" prefWidth="270.0">
+               <children>
+                  <HBox prefHeight="54.0" prefWidth="243.0" spacing="6.0">
+                     <children>
+                        <Label fx:id="day1" text="- Monday">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="time1" prefHeight="30.0" prefWidth="170.0" text="8:00am - 8:45am" translateY="-1.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="243.0" spacing="6.0">
+                     <children>
+                        <Label fx:id="day2" text="- Mon">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="time2" prefHeight="30.0" prefWidth="170.0" text="8:00am - 8:45am" translateY="-1.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="54.0" prefWidth="243.0" spacing="6.0">
+                     <children>
+                        <Label fx:id="day3" text="- Mon">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="time3" prefHeight="30.0" prefWidth="170.0" text="8:00am - 8:45am" translateY="-1.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="seeDetailBtn" layoutX="355.0" layoutY="283.0" mnemonicParsing="false" onAction="#seeDetail" styleClass="views" text="See Detail &gt;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Label layoutX="300.0" layoutY="342.0" text="*users will be notified an hour before class begins ">
+               <font>
+                  <Font name="System Italic" size="11.0" />
+               </font>
+            </Label>
+            <Button fx:id="closeBtn" layoutX="550.0" layoutY="15.0" mnemonicParsing="false" onAction="#backBtn" styleClass="views">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/cross.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <VBox fx:id="socialDetailCtn" alignment="CENTER" layoutX="270.0" layoutY="90.0" prefHeight="420.0" prefWidth="350.0" styleClass="detail-ctn" visible="false">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="350.0">
+               <children>
+                  <Button fx:id="closeDetailBtn" mnemonicParsing="false" onAction="#closeSocialDetail" prefHeight="30.0" prefWidth="11.0" styleClass="views">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/cross.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <ImageView fx:id="detailImg" fitHeight="179.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="detailName" alignment="CENTER" prefHeight="30.0" prefWidth="367.0" text="Ethan Carter" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="detailExpert" alignment="CENTER" prefHeight="36.0" prefWidth="357.0" text="Weight Lifting Expert">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="experienceYear" alignment="CENTER" prefHeight="17.0" prefWidth="362.0" text="3 years of experience" />
+            <Label fx:id="coachPhoneNo" alignment="CENTER" prefHeight="30.0" prefWidth="370.0" text="012-3892712">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="68.0" prefWidth="350.0" spacing="30.0">
+               <children>
+                  <Button fx:id="insBtn" mnemonicParsing="false" onAction="#socialMediaLink" prefWidth="39.0" styleClass="views">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/igLogo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="mailBtn" mnemonicParsing="false" onAction="#socialMediaLink" prefWidth="39.0" styleClass="views">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/gmailLogo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="twiBtn" mnemonicParsing="false" onAction="#socialMediaLink" prefWidth="39.0" styleClass="views">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/xLogo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </HBox>

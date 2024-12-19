@@ -1,6 +1,7 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
 
+import com.example.projectpartbprogram_group39.Controllers.Service.nutritionController;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealMapper;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealSuggestMapper;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.mealPlanMapper;
@@ -23,76 +24,43 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class nutritionControllerForm implements Initializable {
+public class nutritionControllerForm {
 
     @FXML
-    private Button adminEdit,adminSave,AddMealPlanBtn;
+    private Button adminEdit, adminSave;
 
     @FXML
-    private Label foodName1,foodName2,foodName3,foodCal1,foodCal2,foodCal3;
+    private Label foodName1, foodName2, foodName3, foodCal1, foodCal2, foodCal3;
 
     @FXML
-    private Label dailycalories,proVal,dailyfat;
+    private Label dailycalories, proVal, dailyfat;
 
     @FXML
-    private TextField suggestMealName,calCountField,proteinField,fatField;
+    private TextField suggestMealName, calCountField, proteinField, fatField;
 
     @FXML
-    private Label mealPlanName,mealPlanCalories,mealPlanProtein,mealPlanFat,mealPlanIngridients;
+    private Label mealPlanName, mealPlanCalories, mealPlanProtein, mealPlanFat, mealPlanIngridients;
 
     @FXML
-     private VBox addMealPlanCtn;
+    private VBox addMealPlanCtn;
 
     @FXML
-    private TextField MealNameCtnField,calCountCtnField,proCtnField,fatCtnField;
+    private TextField MealNameCtnField, calCountCtnField, proCtnField, fatCtnField;
 
     @FXML
     private TextArea listArea;
 
+    private nutritionController nutritionControllerLogic = new nutritionController();
+
     @FXML
-    private Button addBtn,ClearBtn,BackBtn;
-
-    mealSuggestion suggest;
-    MealPlan mealPlan;
-
-    private static DaoInterface<MealPlan> mealPlanDao = new DaoImplement<>("mealPlan.txt",new mealPlanMapper());
-    private static DaoInterface<mealSuggestion> mealSuggestDao = new DaoImplement<>("mealSuggest.txt",new MealSuggestMapper());
-    private static DaoInterface<Meal> mealDao = new DaoImplement<>("meal.txt",new MealMapper());
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Trainee trainee = TraineeSession.getInstance().getCurrentTrainee();
-
-        if(trainee.getUsername().equals("Admin") && trainee.getPassword().equals("admin1234")){
-            adminEdit.setVisible(true);
-            adminSave.setVisible(true);
-        }
-        try {
-            displayFoodUI();
-            displayPlanUI();
-            displayTotNutrition();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        suggest = new mealSuggestion("Avocado wrap",350,16,18);
-
-
-        try {
-            List<mealSuggestion> mealSuggest = mealSuggestDao.getAll();
-            if (mealSuggest.isEmpty()) {
-               mealSuggestDao.add(suggest);
-            }
-
-            setMealSuggestionFields(suggest);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
+    public void initialize() throws IOException {
+        nutritionControllerLogic.initSuggestMeal(this);
+        displayFoodUI();
+        displayPlanUI();
+        displayTotNutrition();
     }
 
-    private void setMealSuggestionFields(mealSuggestion suggest) {
+    public void setMealSuggestionFields(mealSuggestion suggest) {
         suggestMealName.setText(suggest.getFoodName());
         calCountField.setText(String.valueOf(suggest.getCalories()));
         proteinField.setText(String.valueOf(suggest.getProtein()));
@@ -111,180 +79,75 @@ public class nutritionControllerForm implements Initializable {
 
     @FXML
     private void displayFoodUI() throws IOException {
-        List<Meal> mealList = mealDao.getAll();
-
-        Label[] foods = {foodName1,foodName2,foodName3};
-        Label[] calories = {foodCal1,foodCal2,foodCal3};
-
-        for (int i = 0; i < Math.min(mealList.size(), 3); i++){
-            Meal meal = mealList.get(i);
-            foodUI(foods[i],calories[i],meal);
-        }
-
-
-    }
-
-    private void foodUI(Label food, Label Cal, Meal meal){
-        food.setText(meal.getFoodName());
-        Cal.setText(String.valueOf(meal.getCalories()));
+        nutritionControllerLogic.displayFoodUI(foodName1, foodName2, foodName3, foodCal1, foodCal2, foodCal3);
     }
 
     @FXML
     private void displayTotNutrition() throws IOException {
-        List<Meal> mealList = mealDao.getAll();
-
-        double totalCalories = 0;
-        double totalProtein = 0;
-        double totalFat = 0;
-
-        for (Meal meal : mealList) {
-            totalCalories += meal.getCalories();
-            totalProtein += meal.getProtein();
-            totalFat += meal.getFat();
-        }
-
-        dailycalories.setText(String.valueOf(totalCalories));
-        proVal.setText(String.valueOf(totalProtein));
-        dailyfat.setText(String.valueOf(totalFat));
-
+        nutritionControllerLogic.displayTotNutrition(dailycalories, proVal, dailyfat);
     }
 
-    public void editMealSuggest(ActionEvent e){
+    @FXML
+    public void editMealSuggest(ActionEvent e) {
         suggestMealName.setEditable(true);
         calCountField.setEditable(true);
         proteinField.setEditable(true);
         fatField.setEditable(true);
     }
 
+    @FXML
     public void saveMealSuggest(ActionEvent e) {
         try {
-            String updatedMealName = suggestMealName.getText();
-            double updatedCalories = Double.parseDouble(calCountField.getText());
-            double updatedProtein = Double.parseDouble(proteinField.getText());
-            double updatedFat = Double.parseDouble(fatField.getText());
-
-            mealSuggestion updatedSuggestion = new mealSuggestion(updatedMealName, updatedCalories, updatedProtein, updatedFat);
-            showAlert.alert(Alert.AlertType.INFORMATION,"updated suggestion successfully");
-            mealSuggestDao.update(suggest, updatedSuggestion);
-        }catch(NumberFormatException ex){
-            showAlert.alert(Alert.AlertType.ERROR,"Please enter a valid number");
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            nutritionControllerLogic.saveMealSuggest(suggestMealName.getText(), calCountField.getText(), proteinField.getText(), fatField.getText());
+            showAlert.alert(Alert.AlertType.INFORMATION, "Updated suggestion successfully");
+        } catch (Exception ex) {
+            showAlert.alert(Alert.AlertType.ERROR, "Error: " + ex.getMessage());
         }
     }
 
+    @FXML
     public void addMealPlanCtn(ActionEvent e) throws IOException {
-        List<MealPlan> existingMealPlans = mealPlanDao.getAll();
-        if (!existingMealPlans.isEmpty()) {
-            showAlert.alert(Alert.AlertType.ERROR, "Only one meal plan is allowed. Please delete the existing plan before adding a new one.");
-            return;
-        }
-
-        addMealPlanCtn.setVisible(true);
-
+        nutritionControllerLogic.addMealPlanCtn(addMealPlanCtn);
     }
 
-    public void back(ActionEvent e){
+    @FXML
+    public void back(ActionEvent e) {
         addMealPlanCtn.setVisible(false);
     }
 
-    public void addMealPLan(ActionEvent e){
-        String mealName = MealNameCtnField.getText();
-        String calCountStr = calCountCtnField.getText();
-        String proteinStr = proCtnField.getText();
-        String fatStr = fatCtnField.getText();
-        String ingredientList = listArea.getText();
-
-        if(mealName.isEmpty() || calCountStr.isEmpty() || proteinStr.isEmpty() || fatStr.isEmpty() || ingredientList.isEmpty()){
-            showAlert.alert(Alert.AlertType.ERROR,"Plase enter all the fields");
-            return;
-        }
-
-        try{
-
-            double calCount = Double.parseDouble(calCountStr);
-            double protein = Double.parseDouble(proteinStr);
-            double fat = Double.parseDouble(fatStr);
-
-            mealPlan = new MealPlan(mealName,calCount,protein,fat,ingredientList);
-            mealPlanDao.add(mealPlan);
-            showAlert.alert(Alert.AlertType.INFORMATION,"Meal PLan added successful");
+    @FXML
+    public void addMealPLan(ActionEvent e) {
+        try {
+            nutritionControllerLogic.addMealPlan(MealNameCtnField.getText(), calCountCtnField.getText(), proCtnField.getText(), fatCtnField.getText(), listArea.getText());
             clear(e);
             addMealPlanCtn.setVisible(false);
             displayPlanUI();
-
-        }catch(NumberFormatException ex){
-            showAlert.alert(Alert.AlertType.ERROR,"Please enter a valid number");
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
+        } catch (Exception ex) {
+            showAlert.alert(Alert.AlertType.ERROR, "Error: " + ex.getMessage());
         }
     }
 
-    public void displayPlanUI() throws IOException {
-        List<MealPlan> planList = mealPlanDao.getAll();
-        if (planList != null && !planList.isEmpty()) {
-
-            MealPlan mealPlan = planList.get(0);
-
-            mealPlanName.setText(mealPlan.getFoodName());
-            mealPlanCalories.setText(String.valueOf(mealPlan.getCalories()));
-            mealPlanProtein.setText(String.valueOf(mealPlan.getProtein()));
-            mealPlanFat.setText(String.valueOf(mealPlan.getFat()));
-            mealPlanIngridients.setText(mealPlan.getIngredient());
-        } else {
-
-            mealPlanName.setText("");
-            mealPlanCalories.setText("");
-            mealPlanProtein.setText("");
-            mealPlanFat.setText("");
-            mealPlanIngridients.setText("");
-        }
+    @FXML
+    private void displayPlanUI() throws IOException {
+        nutritionControllerLogic.displayPlanUI(mealPlanName, mealPlanCalories, mealPlanProtein, mealPlanFat, mealPlanIngridients);
     }
 
-    public void clear(ActionEvent e){
+    @FXML
+    public void clear(ActionEvent e) {
         MealNameCtnField.clear();
         calCountCtnField.clear();
         proCtnField.clear();
         fatCtnField.clear();
     }
 
+    @FXML
     public void deletePlan(ActionEvent e) {
         try {
-            List<MealPlan> existingMealPlans = mealPlanDao.getAll();
-
-
-            if (existingMealPlans.isEmpty()) {
-                showAlert.alert(Alert.AlertType.ERROR, "No meal plan exists to delete.");
-                return;
-            }
-
-
-            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this goal?", ButtonType.YES, ButtonType.NO);
-            confirmAlert.showAndWait().ifPresent(response -> {
-                if (response == ButtonType.YES) {
-                    try {
-                        MealPlan mealDelete = existingMealPlans.get(0);
-                        mealPlanDao.delete(mealDelete);
-                        displayPlanUI();
-                        displayTotNutrition();
-
-                        showAlert.alert(Alert.AlertType.INFORMATION, "Meal plan deleted successfully.");
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-
-                } else {
-                    showAlert.alert(Alert.AlertType.INFORMATION, "Cancel deletion");
-                }
-            });
-
-        } catch (IOException ex) {
-
-            showAlert.alert(Alert.AlertType.ERROR, "An error occurred while deleting the meal plan.");
-            ex.printStackTrace();
+            nutritionControllerLogic.deletePlan();
+            displayPlanUI();
+            displayTotNutrition();
+        } catch (Exception ex) {
+            showAlert.alert(Alert.AlertType.ERROR, "Error: " + ex.getMessage());
         }
-
     }
-
 }
-

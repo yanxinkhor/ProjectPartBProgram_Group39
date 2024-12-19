@@ -15,9 +15,7 @@ public class FitnessGoalMapper implements EntityMapper<fitnessGoal>{
 
     @Override
     public boolean equals(fitnessGoal obj1, fitnessGoal obj2) {
-        return obj1.getGoalType().equalsIgnoreCase(obj2.getGoalType()) &&
-                obj1.getStartDate().equals(obj2.getStartDate()) &&
-                obj1.getTimeFrame().equalsIgnoreCase(obj2.getTimeFrame());
+        return obj1.getGoalType().equalsIgnoreCase(obj2.getGoalType());
     }
 
 }

@@ -28,15 +28,15 @@ public class feedbackController implements Initializable {
     @FXML
     private ComboBox<String> comb;
     @FXML
-    ImageView rateBtn1;
+    private ImageView rateBtn1;
     @FXML
-    ImageView rateBtn2;
+    private ImageView rateBtn2;
     @FXML
-    ImageView rateBtn3;
+    private ImageView rateBtn3;
     @FXML
-    ImageView rateBtn4;
+    private ImageView rateBtn4;
     @FXML
-    ImageView rateBtn5;
+    private ImageView rateBtn5;
 
     public String[] issues = {"Chat", "Statistics", "Tasks & Reminders", "My Activities", "Coaches"};
 

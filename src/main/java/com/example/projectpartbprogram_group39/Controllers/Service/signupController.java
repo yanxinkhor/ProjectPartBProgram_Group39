@@ -8,6 +8,7 @@ import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.scene.control.Alert;
 
 import java.io.IOException;
+import java.util.List;
 
 public class signupController {
 
@@ -41,15 +42,17 @@ public class signupController {
 
             String encryptedPassword = aesEncryption.encrypt(password);
 
-            Trainee trainee = new Trainee(username, age, gender, phoneNo, email, height, weight, encryptedPassword);
-
-            if (traineeDao.exists(trainee)) {
-                showAlert.alert(Alert.AlertType.ERROR, "User already exists!");
-                return false;
-            } else {
-                traineeDao.add(trainee);
-                return true;
+            List<Trainee> existingTrainees = traineeDao.getAll();
+            for (Trainee existingTrainee : existingTrainees) {
+                if (existingTrainee.getUsername().equalsIgnoreCase(username)) {
+                    showAlert.alert(Alert.AlertType.ERROR, "User already exists. Please choose another username.");
+                    return false;
+                }
             }
+
+            Trainee trainee = new Trainee(username, age, gender, phoneNo, email, height, weight, encryptedPassword);
+            traineeDao.add(trainee);
+            return true;
 
         } catch (NumberFormatException event) {
             showAlert.alert(Alert.AlertType.ERROR, "Please enter valid credentials");

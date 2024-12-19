@@ -47,8 +47,6 @@ public class dashboardController implements Initializable {
 
     private Random random = new Random();
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Timeline timeline = new Timeline(

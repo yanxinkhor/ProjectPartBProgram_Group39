@@ -7,8 +7,6 @@ import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.AESEncryption;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.scene.control.Alert;
-
-import java.io.IOException;
 import java.util.List;
 
 public class loginController {

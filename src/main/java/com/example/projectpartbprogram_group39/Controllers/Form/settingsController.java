@@ -37,6 +37,13 @@ public class settingsController implements Initializable {
     }
 
     public void deleteAccountPU(ActionEvent e) {
+        Trainee currentTrainee = TraineeSession.getInstance().getCurrentTrainee();
+        if (currentTrainee != null) {
+            if ("Admin".equals(currentTrainee.getUsername()) && "admin1234".equals(currentTrainee.getPassword())) {
+                showAlert.alert(Alert.AlertType.ERROR, "You cannot delete the Admin account.");
+                return;
+            }
+        }
         opacityPane.setVisible(true);
         deleteCtn.setVisible(true);
 
@@ -64,20 +71,20 @@ public class settingsController implements Initializable {
         }
     }
 
-    public void cancelDelete(ActionEvent e){
+    public void cancelDelete(ActionEvent e) {
         deleteCtn.setVisible(false);
         opacityPane.setVisible(false);
-        showAlert.alert(Alert.AlertType.ERROR,"You have cancelled the action");
+        showAlert.alert(Alert.AlertType.ERROR, "You have cancelled the action");
     }
 
-    public void confirmDelete(ActionEvent e){
+    public void confirmDelete(ActionEvent e) {
         try {
 
             Trainee currentTrainee = TraineeSession.getInstance().getCurrentTrainee();
             if (currentTrainee != null) {
                 traineeDao.delete(currentTrainee);
 
-                showAlert.alert(Alert.AlertType.INFORMATION,  "Your account has been successfully deleted!");
+                showAlert.alert(Alert.AlertType.INFORMATION, "Your account has been successfully deleted!");
 
                 deleteCtn.setVisible(false);
                 opacityPane.setVisible(false);
@@ -99,7 +106,6 @@ public class settingsController implements Initializable {
         stage.setScene(scene);
         stage.showAndWait();
     }
-
 
 
     @Override

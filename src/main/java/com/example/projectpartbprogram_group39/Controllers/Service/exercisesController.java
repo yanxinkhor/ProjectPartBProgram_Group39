@@ -1,9 +1,9 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.FitnessGoalMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.WorkoutMapper;
-import com.example.projectpartbprogram_group39.DAO.goalDao.goalDaoImp;
 import com.example.projectpartbprogram_group39.Models.Workouts;
 import com.example.projectpartbprogram_group39.Models.fitnessGoal;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
@@ -13,11 +13,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class exercisesController {
-    private goalDaoImp goalDao = new goalDaoImp();
+    DaoInterface<fitnessGoal> dailyGoal = new DaoImplement<>("dailyGoal.txt",new FitnessGoalMapper());
+    DaoInterface<fitnessGoal> weeklyGoal = new DaoImplement<>("weeklyGoal.txt",new FitnessGoalMapper());
     DaoInterface<Workouts> workoutDao = new DaoImplement<>("workoutLog.txt", new WorkoutMapper());
 
-    public List<fitnessGoal> getGoalsByPeriod(String period) throws IOException {
-        return goalDao.getGoalList(period);
+    public List<fitnessGoal> getDailyGoalList() throws IOException {
+        return dailyGoal.getAll();
+    }
+
+    public List<fitnessGoal> getWeeklyGoalList() throws IOException{
+        return weeklyGoal.getAll();
     }
 
     public void addWorkoutLog(String workoutType, String caloriesLogStr, String durationStr, String timeStr,

@@ -1,10 +1,10 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
+import com.example.projectpartbprogram_group39.Controllers.Service.viewAllMealsController;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.Meal;
-import com.example.projectpartbprogram_group39.Models.fitnessGoal;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,8 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import javax.swing.*;
 import java.io.IOException;
 
 import java.util.List;
@@ -39,7 +37,7 @@ public class viewMealControllerForm {
     private TextField foodField,calField,proteinField,fatField;
 
     private final ObservableList<Meal> mealList = FXCollections.observableArrayList();
-    private static DaoInterface<Meal> mealDao = new DaoImplement<>("meal.txt",new MealMapper());
+    private viewAllMealsController mealController = new viewAllMealsController();
 
 
     public void initialize() throws IOException {
@@ -56,11 +54,10 @@ public class viewMealControllerForm {
     }
 
     public void loadFood() throws IOException{
-        List<Meal> meals = mealDao.getAll();
+        List<Meal> meals = mealController.loadAllMeals();
         mealList.clear();
         mealList.addAll(meals);
         foodTable.setItems(mealList);
-
     }
 
     @FXML
@@ -84,17 +81,24 @@ public class viewMealControllerForm {
 
 
     @FXML
-    private void addFood(ActionEvent e){
+    private void addFood(ActionEvent e) throws IOException {
         String food = foodField.getText();
         String caloryStr = calField.getText();
         String proteinStr = proteinField.getText();
         String fatStr = fatField.getText();
 
+        List<Meal> existingMealPlans = mealController.loadAllMeals();
+        for (Meal existingPlan : existingMealPlans) {
+            if (existingPlan.getFoodName().equalsIgnoreCase(food)) {
+                showAlert.alert(Alert.AlertType.ERROR, "Meal already exists");
+                return;
+            }
+        }
+
         if(food.isEmpty() || caloryStr.isEmpty() || proteinStr.isEmpty() || fatStr.isEmpty()){
             showAlert.alert(Alert.AlertType.ERROR, "Please enter all the field");
             return;
         }
-
 
         try{
             double calory = Double.parseDouble(caloryStr);
@@ -106,7 +110,7 @@ public class viewMealControllerForm {
             }
 
             Meal meal = new Meal(food,calory,protein,fat);
-            mealDao.add(meal);
+            mealController.addMeal(meal);
             showAlert.alert(Alert.AlertType.INFORMATION,"Food added successful");
             loadFood();
             clear(e);
@@ -123,7 +127,7 @@ public class viewMealControllerForm {
     }
 
     @FXML
-    private void updateFood(ActionEvent e){
+    private void updateFood(ActionEvent e) throws IOException {
         Meal selectedMeal = foodTable.getSelectionModel().getSelectedItem();
 
         if(selectedMeal == null){
@@ -139,6 +143,15 @@ public class viewMealControllerForm {
         if(updateFood.isEmpty() || updateCalStr.isEmpty() || updateProStr.isEmpty() || updateFatStr.isEmpty()){
             showAlert.alert(Alert.AlertType.ERROR,"The field cannot be empty");
         }
+
+        List<Meal> existingMealPlans = mealController.loadAllMeals();
+        for (Meal existingPlan : existingMealPlans) {
+            if (existingPlan.getFoodName().equalsIgnoreCase(updateFood)) {
+                showAlert.alert(Alert.AlertType.ERROR, "Meal already exists");
+                return;
+            }
+        }
+
         try{
             double updateCal = Double.parseDouble(updateCalStr);
             double updatePro = Double.parseDouble(updateProStr);
@@ -148,12 +161,11 @@ public class viewMealControllerForm {
                 throw new IllegalArgumentException("The nutrition cannot less than zero");
             }
 
-
             Meal newMeal = new Meal(updateFood,updateCal,updatePro,updateFat);
-            mealDao.update(selectedMeal,newMeal);
+            mealController.updateMeal(selectedMeal,newMeal);
             showAlert.alert(Alert.AlertType.INFORMATION,"Food updated successful");
+            clear(e);
             loadFood();
-
 
         }catch(NumberFormatException ex){
             showAlert.alert(Alert.AlertType.ERROR,"Please enter a valid number");
@@ -174,7 +186,7 @@ public class viewMealControllerForm {
             confirmationAlert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.YES) {
                     try {
-                        mealDao.delete(selectedMeal);
+                        mealController.deleteMeal(selectedMeal);
                         mealList.remove(selectedMeal);
                         showAlert.alert(Alert.AlertType.INFORMATION, "Food deleted successfully.");
                         clear(e);

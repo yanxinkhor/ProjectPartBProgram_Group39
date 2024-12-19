@@ -18,7 +18,6 @@ public class signupControllerForm {
     @FXML
     private TextField txtUsername, txtAge, txtPhoneNo, txtEmail, txtHeight, txtWeight;
 
-
     @FXML
     private RadioButton femaleRadioBtn, maleRadioBtn;
 

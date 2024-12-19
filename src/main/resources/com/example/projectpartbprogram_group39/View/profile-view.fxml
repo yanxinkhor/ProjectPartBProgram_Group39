@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="908.0" stylesheets="@../CSS/profile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.profileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="908.0" stylesheets="@../CSS/profile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.ProfileControllerForm">
    <children>
       <HBox layoutX="10.0" layoutY="59.0" prefHeight="155.0" prefWidth="873.0" styleClass="bg-container">
          <children>
@@ -122,28 +122,25 @@
             </HBox>
             <HBox prefHeight="23.0" prefWidth="873.0" spacing="5.0">
                <children>
-                  <TextField fx:id="profileUsername" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
-                     <padding>
-                        <Insets left="21.0" />
-                     </padding>
+                  <TextField fx:id="profileUsername" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="175.0" styleClass="textField-bg" text="123">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="profileAge" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="180.0" styleClass="textField-bg">
+                  <TextField fx:id="profileAge" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="175.0" styleClass="textField-bg" text="123">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <ComboBox fx:id="profileGender" prefHeight="25.0" prefWidth="180.0" promptText="Gender" styleClass="textField-bg">
+                  <ComboBox fx:id="profileGender" disable="true" prefHeight="25.0" prefWidth="175.0" promptText="Gender" styleClass="textField-bg">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                      <padding>
-                        <Insets left="50.0" />
+                        <Insets left="60.0" />
                      </padding>
                   </ComboBox>
-                  <TextField fx:id="profileEmail" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
+                  <TextField fx:id="profileEmail" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="175.0" styleClass="textField-bg" text="123">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -191,33 +188,36 @@
             </HBox>
             <HBox prefHeight="27.0" prefWidth="829.0" spacing="5.0">
                <children>
-                  <TextField fx:id="profilePhoneNo" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="180.0" styleClass="textField-bg">
+                  <TextField fx:id="profilePhoneNo" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="175.0" styleClass="textField-bg" text="123">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="profileWeight" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="180.0" styleClass="textField-bg">
+                  <TextField fx:id="profileWeight" alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="175.0" styleClass="textField-bg" text="123">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="profileHeight" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
-                     <padding>
-                        <Insets left="11.0" />
-                     </padding></TextField>
-                  <TextField fx:id="profilePassword" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="180.0" styleClass="textField-bg">
-                     <padding>
-                        <Insets left="11.0" />
-                     </padding>
-                  </TextField>
+                  <TextField fx:id="profileHeight" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="175.0" styleClass="textField-bg" text="123" />
+                  <TextField fx:id="profilePassword" alignment="CENTER" editable="false" prefHeight="27.0" prefWidth="175.0" styleClass="textField-bg" text="123" />
                </children>
             </HBox>
+            <Label text="kg" textFill="#aca5a5">
+               <VBox.margin>
+                  <Insets left="262.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="cm" textFill="#aca5a5" translateY="-16.0">
+               <VBox.margin>
+                  <Insets left="442.0" />
+               </VBox.margin>
+            </Label>
             <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#handleSaveButtonClick" style="-fx-background-color: black; -fx-background-radius: 25;" text="SAVE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets left="810.0" />
+                  <Insets left="810.0" top="-30.0" />
                </VBox.margin>
             </Button>
          </children>
