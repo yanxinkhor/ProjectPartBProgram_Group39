@@ -153,14 +153,14 @@
               </yAxis>
             </LineChart>
          </children></Pane>
-      <Pane id="coachBar" layoutX="441.0" layoutY="419.0" prefHeight="199.0" prefWidth="445.0" stylesheets="@../CSS/dashboard.css">
+      <Pane id="coachBar" layoutX="441.0" layoutY="419.0" prefHeight="199.0" prefWidth="391.0" stylesheets="@../CSS/dashboard.css">
          <children>
-            <Label fx:id="noClassText" layoutX="140.0" layoutY="86.0" text="no classes joined" textFill="WHITE">
+            <Label fx:id="noClassText" layoutX="120.0" layoutY="86.0" text="no classes joined" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
-            <HBox fx:id="noClassBox" layoutX="35.0" layoutY="28.0" prefHeight="144.0" prefWidth="381.0">
+            <HBox fx:id="noClassBox" layoutX="34.0" layoutY="28.0" prefHeight="144.0" prefWidth="337.0">
                <children>
                   <ImageView fx:id="coach1IMG" fitHeight="144.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="coach2IMG" fitHeight="144.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" />

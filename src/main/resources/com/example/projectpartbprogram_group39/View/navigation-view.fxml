@@ -158,6 +158,11 @@
                         <Font name="Arial Bold" size="26.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="33.0" fitWidth="200.0" layoutX="541.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/searchbar.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             <Pane fx:id="contentPane" layoutX="173.0" layoutY="59.0" prefHeight="641.0" prefWidth="908.0" />
