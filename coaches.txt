@@ -1,6 +1,0 @@
-Ethan Carter,true
-Lucas Bennett,false
-Max Donovan,false
-Nathan Pierce,false
-Olivia Harper,false
-Mia Collins,false

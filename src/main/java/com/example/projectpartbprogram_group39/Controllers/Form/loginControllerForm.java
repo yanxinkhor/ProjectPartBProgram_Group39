@@ -44,6 +44,7 @@ public class loginControllerForm {
         Scene signupScene = new Scene(loader.load());
         Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.setScene(signupScene);
+        stage.setResizable(false);
         stage.show();
 
     }
@@ -94,6 +95,7 @@ public class loginControllerForm {
             Scene mainScene = new Scene(root);
             Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
             stage.setScene(mainScene);
+            stage.setResizable(false);
             stage.show();
         }
     }
