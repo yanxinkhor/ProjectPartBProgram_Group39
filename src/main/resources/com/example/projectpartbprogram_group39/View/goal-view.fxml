@@ -46,12 +46,12 @@
                   <Font name="Roboto" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="addButton" layoutX="38.0" layoutY="349.0" mnemonicParsing="false" onAction="#addGoal" prefHeight="42.0" prefWidth="135.0" text="ADD">
+            <Button fx:id="addButton" layoutX="106.0" layoutY="349.0" mnemonicParsing="false" onAction="#addGoal" prefHeight="42.0" prefWidth="135.0" text="ADD">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="clearButton" layoutX="191.0" layoutY="349.0" mnemonicParsing="false" onAction="#clear" prefHeight="42.0" prefWidth="135.0" text="CLEAR">
+            <Button fx:id="clearButton" layoutX="288.0" layoutY="349.0" mnemonicParsing="false" onAction="#clear" prefHeight="42.0" prefWidth="135.0" text="CLEAR">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -65,11 +65,6 @@
             </Label>
             <ComboBox fx:id="targetUnit" layoutX="383.0" layoutY="161.0" prefHeight="28.0" prefWidth="97.0" promptText="unit" style="-fx-background-color: white;" />
             <DatePicker fx:id="goalStartDateField" layoutX="47.0" layoutY="229.0" prefHeight="25.0" prefWidth="210.0" promptText="yyyy-mm-dd" />
-            <Button fx:id="backButton" layoutX="340.0" layoutY="349.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="135.0" text="BACK">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
             <CheckBox fx:id="customGoal" layoutX="401.0" layoutY="100.0" mnemonicParsing="false" onAction="#checkBoxCondition" prefHeight="17.0" prefWidth="89.0" text="CUSTOM">
                <font>
                   <Font name="System Bold" size="12.0" />

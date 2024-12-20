@@ -1,7 +1,12 @@
 package com.example.projectpartbprogram_group39.Controllers.Service;
 
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.DevicesMapper;
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
+import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
+import com.example.projectpartbprogram_group39.Models.Devices;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.TraineeSession;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,11 +21,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class NavigationController {
+
+
     private Trainee trainee;
     private final Image femaleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/girl_profile.png"));
     private final Image maleProfile = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/guy_profile.png"));
+    private DaoInterface<Devices> devicesDao = new DaoImplement<>("devices.txt",new DevicesMapper());
 
     public void initializeUI(Pane contentPane, Label welcomeText, ImageView profile_img, Text displayUsername, Text displayEmail)  {
         trainee = TraineeSession.getInstance().getCurrentTrainee();
@@ -86,5 +95,9 @@ public class NavigationController {
         Parent View = loader.load();
         contentPane.getChildren().clear();
         contentPane.getChildren().add(View);
+    }
+
+    public List<Devices> getAllDeviceList()throws IOException{
+        return devicesDao.getAll();
     }
 }

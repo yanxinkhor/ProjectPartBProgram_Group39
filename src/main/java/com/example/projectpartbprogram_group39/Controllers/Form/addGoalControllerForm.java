@@ -29,7 +29,7 @@ public class addGoalControllerForm implements Initializable {
     private final String[] priority = {"High", "Medium", "Low"};
     private final String[] frames = {"daily", "weekly"};
     private final String[] unit = {"km", "m", "kcal", "steps", "g","kg", "l", "hour", "minute", "seconds"};
-    private final String[] goals = {"Running", "Walking", "Cycling", "Swimming","Loss Weight", "Calories Burned"};
+    private final String[] goals = {"Running", "Walking", "Cycling", "Swimming","Loss Weight", "Calories Burned","Steps"};
 
     private addGoalController addGoalControllers;
 

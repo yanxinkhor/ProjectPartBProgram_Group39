@@ -19,6 +19,16 @@
     -fx-background-radius:35px;
 }
 
+.deviceBox-ctn{
+    -fx-background-color:#f6f6f6;
+    -fx-background-radius:35px;
+}
+
+.device-ctn{
+    -fx-background-color:white;
+    -fx-background-radius:40px;
+}
+
 .confirm-btn{
     -fx-background-color:#990006;
     -fx-background-radius:20px;
@@ -27,4 +37,20 @@
 .cancel-btn{
     -fx-background-color:#231f20;
     -fx-background-radius:20px;
+}
+
+.synDevice-btn{
+    -fx-background-color:#525252;
+    -fx-background-radius:50px;
+    -fx-cursor:hand;
+}
+
+.connected-state{
+    -fx-background-color:transparent;
+    -fx-text-fill:#96a29f;
+    -fx-cursor:hand;
+}
+
+.connected-state:hover{
+    -fx-text-fill:#85b652;
 }

@@ -2,27 +2,17 @@ package com.example.projectpartbprogram_group39.Controllers.Form;
 
 
 import com.example.projectpartbprogram_group39.Controllers.Service.nutritionController;
-import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealMapper;
-import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealSuggestMapper;
-import com.example.projectpartbprogram_group39.DAO.ClassMapper.mealPlanMapper;
-import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
-import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.*;
-import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 
 public class nutritionControllerForm {
 

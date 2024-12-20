@@ -29,7 +29,7 @@ public class ProgressController {
     }
 
     public double calculateBMI(double height, double weight) {
-        double heightInM = height / 100; // Convert height to meters
+        double heightInM = height / 100;
         return weight / (heightInM * heightInM);
     }
 

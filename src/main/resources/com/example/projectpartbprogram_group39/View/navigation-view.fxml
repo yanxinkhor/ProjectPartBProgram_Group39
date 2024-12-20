@@ -31,22 +31,12 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <ImageView id="bluetooth_img" fx:id="device_img" fitHeight="150.0" fitWidth="127.0" layoutX="46.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="bluetooth_img" fx:id="deviceImg1" fitHeight="150.0" fitWidth="127.0" layoutX="24.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
-                        <Image url="@../Images/appleWatch.png" />
+                        <Image url="@../Images/appleWatch1.png" />
                      </image>
                   </ImageView>
-                  <Text id="device_name" fx:id="device_name" fill="#fcfcfc" layoutX="41.0" layoutY="594.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apple Watch SE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <Text id="bluetooth_status" fx:id="bluetooth_status" fill="#a2cf73" layoutX="64.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="connected">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                  </Text>
-                  <ImageView id="bluetooth_logo" fx:id="status_img" fitHeight="16.0" fitWidth="13.0" layoutX="46.0" layoutY="609.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="bluetooth_logo" fx:id="status_img" fitHeight="16.0" fitWidth="13.0" layoutX="35.0" layoutY="609.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/bluetoothLogo.png" />
                      </image>
@@ -118,6 +108,26 @@
                         </Button>
                      </children>
                   </VBox>
+                  <Label fx:id="deviceLbl" alignment="CENTER" layoutY="585.0" prefHeight="17.0" prefWidth="171.0" text="No devices connected" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView id="bluetooth_img" fx:id="deviceImg2" fitHeight="150.0" fitWidth="127.0" layoutX="29.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/appleWatch2.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="connectedState" alignment="CENTER" layoutX="1.0" layoutY="609.0" prefHeight="17.0" prefWidth="170.0" text="disconnected" textFill="#e4e4e4">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView id="bluetooth_img" fx:id="deviceImg3" fitHeight="150.0" fitWidth="127.0" layoutX="32.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../Images/AppleWatch3.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
             <Pane id="topBar" fx:id="topBar" layoutX="172.0" prefHeight="59.0" prefWidth="909.0" stylesheets="@../CSS/navigator.css">

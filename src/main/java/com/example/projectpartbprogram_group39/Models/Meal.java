@@ -18,10 +18,6 @@ public class Meal {
         return foodName;
     }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
-    }
-
     public double getCalories() {
         return calories;
     }
@@ -34,16 +30,9 @@ public class Meal {
         return protein;
     }
 
-    public void setProtein(double protein) {
-        this.protein = protein;
-    }
 
     public double getFat() {
         return fat;
-    }
-
-    public void setFat(double fat) {
-        this.fat = fat;
     }
 
     @Override

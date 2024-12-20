@@ -16,16 +16,16 @@ public class signupController {
     private static final String ENCRYPTION_KEY = "1234567890123456";
     private static final AESEncryption aesEncryption = new AESEncryption(ENCRYPTION_KEY);
 
-    public boolean validateSignupInfo(String username, String ageString, String phoneNo, String email, String gender,
-                                      String heightString, String weightString, String password, String passwordConfirmed) throws IOException {
+    public boolean validateSignupInfo(String username, String ageStr, String phoneNo, String email, String gender,
+                                      String heightStr, String weightStr, String password, String passConfirmed) throws IOException {
 
-        if (username.isEmpty() || ageString.isEmpty() || phoneNo.isEmpty() || email.isEmpty() || gender.isEmpty() ||
-                heightString.isEmpty() || weightString.isEmpty() || password.isEmpty() || passwordConfirmed.isEmpty()) {
+        if (username.isEmpty() || ageStr.isEmpty() || phoneNo.isEmpty() || email.isEmpty() || gender.isEmpty() ||
+                heightStr.isEmpty() || weightStr.isEmpty() || password.isEmpty() || passConfirmed.isEmpty()) {
             showAlert.alert(Alert.AlertType.ERROR, "Please fill in all the credentials");
             return false;
         }
 
-        if (!password.equals(passwordConfirmed)) {
+        if (!password.equals(passConfirmed)) {
             showAlert.alert(Alert.AlertType.ERROR, "The passwords do not match!");
             return false;
         }
@@ -36,9 +36,9 @@ public class signupController {
         }
 
         try {
-            int age = Integer.parseInt(ageString);
-            double height = Double.parseDouble(heightString);
-            double weight = Double.parseDouble(weightString);
+            int age = Integer.parseInt(ageStr);
+            double height = Double.parseDouble(heightStr);
+            double weight = Double.parseDouble(weightStr);
 
             String encryptedPassword = aesEncryption.encrypt(password);
 

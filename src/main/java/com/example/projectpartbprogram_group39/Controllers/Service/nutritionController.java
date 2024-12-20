@@ -3,7 +3,7 @@ package com.example.projectpartbprogram_group39.Controllers.Service;
 import com.example.projectpartbprogram_group39.Controllers.Form.nutritionControllerForm;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealMapper;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealSuggestMapper;
-import com.example.projectpartbprogram_group39.DAO.ClassMapper.mealPlanMapper;
+import com.example.projectpartbprogram_group39.DAO.ClassMapper.MealPlanMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.*;
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class nutritionController {
 
-    private static DaoInterface<MealPlan> mealPlanDao = new DaoImplement<>("mealPlan.txt", new mealPlanMapper());
+    private static DaoInterface<MealPlan> mealPlanDao = new DaoImplement<>("mealPlan.txt", new MealPlanMapper());
     private static DaoInterface<mealSuggestion> mealSuggestDao = new DaoImplement<>("mealSuggest.txt", new MealSuggestMapper());
     private static DaoInterface<Meal> mealDao = new DaoImplement<>("meal.txt", new MealMapper());
 

@@ -2,7 +2,7 @@ package com.example.projectpartbprogram_group39.DAO.ClassMapper;
 
 import com.example.projectpartbprogram_group39.Models.MealPlan;
 
-public class mealPlanMapper implements EntityMapper<MealPlan>{
+public class MealPlanMapper implements EntityMapper<MealPlan>{
     @Override
     public MealPlan fromString(String string) {
         return MealPlan.splitString(string);
