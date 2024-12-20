@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 public class feedbackController implements Initializable {
@@ -123,18 +124,14 @@ public class feedbackController implements Initializable {
 
             if (feedbackTA != null) {
                 feedbackTA.setText(feedbackContent.toString());
-            } else {
-                System.err.println("feedbackTA is null!");
             }
 
             if (reportTA != null) {
                 reportTA.setText(reportContent.toString());
-            } else {
-                System.err.println("reportTA is null!");
             }
 
         } catch (IOException e) {
-            System.err.println("Error loading feedbacks or reports: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -158,7 +155,7 @@ public class feedbackController implements Initializable {
                 alert.showAndWait();
                 feedbackText.clear();
             } catch (IOException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR,"Error saving feedback");
+               throw new RuntimeException(e);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING,"Feedback cannot be empty");
@@ -178,7 +175,7 @@ public class feedbackController implements Initializable {
                 alert.showAndWait();
                 reportTextArea.clear();
             } catch (IOException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR,"Error saving report");
+                throw new RuntimeException(e);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Report cannot be empty", ButtonType.OK);
@@ -266,8 +263,6 @@ public class feedbackController implements Initializable {
         if (comb != null) {
             comb.getItems().addAll(issues);
             comb.setOnAction(event -> selectedIssue = comb.getValue());
-        } else {
-            System.err.println("ComboBox 'comb' is not initialized. Check your FXML bindings.");
         }
 
     }
