@@ -1,6 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
-import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
+import com.example.projectpartbprogram_group39.Controllers.Service.settingController;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.DevicesMapper;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.TraineeMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class settingsController implements Initializable {
+public class settingsControllerForm implements Initializable {
     @FXML
     private Pane opacityPane;
 
@@ -56,24 +56,15 @@ public class settingsController implements Initializable {
     private ImageView watch1,watch2,watch3;
 
     private Timer timer;
-    private static DaoInterface<Trainee> traineeDao = new DaoImplement<>("userInfo.txt", new TraineeMapper());
-    private static DaoInterface<Devices> deviceDao = new DaoImplement<>("devices.txt",new DevicesMapper());
-
+    settingController controller = new settingController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         opacityPane.setVisible(false);
 
-        Devices initDevice1 = new Devices("Apple Watch Series 9",false,true);
-        Devices initDevice2 = new Devices("Apple Watch Ultra 2",false,true);
-        Devices initDevice3 = new Devices("Apple Watch Series 10",false,false);
         try {
-            List<Devices> devicesList = deviceDao.getAll();
-            if(devicesList.isEmpty()){
-                deviceDao.add(initDevice1);
-                deviceDao.add(initDevice2);
-                deviceDao.add(initDevice3);
-            }
+            List<Devices> devicesList = controller.getAllDevices();
+            controller.initializeDevices(devicesList);
             updateButtonStates(devicesList);
             updateAddBtnState(devicesList);
 
@@ -98,34 +89,24 @@ public class settingsController implements Initializable {
     public void connectDevice(ActionEvent e) {
         Button srcBtn = (Button) e.getSource();
         try {
-            List<Devices> list = deviceDao.getAll();
+            List<Devices> devicesList = controller.getAllDevices();
             Devices selectedDevice = null;
 
-            for (Devices device : list) {
+            for (Devices device : devicesList) {
                 if (srcBtn == connectBtn1 && device.getDevicesName().equals("Apple Watch Series 9")) {
                     selectedDevice = device;
                 } else if (srcBtn == connectBtn2 && device.getDevicesName().equals("Apple Watch Ultra 2")) {
                     selectedDevice = device;
-                } else if(srcBtn == connectBtn3 && device.getDevicesName().equals("Apple Watch Series 10")){
+                } else if (srcBtn == connectBtn3 && device.getDevicesName().equals("Apple Watch Series 10")) {
                     selectedDevice = device;
                 }
             }
 
             if (selectedDevice != null) {
-                boolean newStatus = !selectedDevice.getIsConnected();
-                selectedDevice.setIsConnected(newStatus);
-
-                for (Devices device : list) {
-                    if (!device.equals(selectedDevice)) {
-                        device.setIsConnected(false);
-                    }
-                    deviceDao.update(device, device);
-                }
-
-                deviceDao.update(selectedDevice, selectedDevice);
+                controller.updateDeviceConnectionStatus(selectedDevice, devicesList);
             }
 
-            updateButtonStates(list);
+            updateButtonStates(devicesList);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -186,8 +167,8 @@ public class settingsController implements Initializable {
         }, 3000);
     }
 
-    public void addDevice(ActionEvent e) throws IOException{
-        List<Devices> devicesList = deviceDao.getAll();
+    public void addDevice(ActionEvent e) throws IOException {
+        List<Devices> devicesList = controller.getAllDevices();
         Devices thirdDevice = null;
 
         for (Devices device : devicesList) {
@@ -198,21 +179,16 @@ public class settingsController implements Initializable {
         }
 
         if (thirdDevice != null) {
-            boolean newStatus = !thirdDevice.isAdded();
-            thirdDevice.setAdded(newStatus);
-
-            if (!newStatus) {
-                thirdDevice.setIsConnected(false);
-            }
-
-            deviceDao.update(thirdDevice, thirdDevice);
-
+            controller.updateDeviceAddedStatus(thirdDevice);
             updateAddBtnState(devicesList);
+            thirdDeviceCtn.setVisible(thirdDevice.isAdded());
 
-            thirdDeviceCtn.setVisible(newStatus);
-            if (newStatus) {
+            if (thirdDevice.isAdded()) {
+                thirdDeviceCtn.setVisible(true);
                 otherDevicePage.setVisible(false);
                 myDevicePage.setVisible(true);
+            } else {
+                thirdDeviceCtn.setVisible(false);
             }
         }
     }
@@ -278,16 +254,12 @@ public class settingsController implements Initializable {
 
     public void confirmDelete(ActionEvent e) {
         try {
-
             Trainee currentTrainee = TraineeSession.getInstance().getCurrentTrainee();
             if (currentTrainee != null) {
-                traineeDao.delete(currentTrainee);
-
+                controller.deleteCurrentTrainee(currentTrainee);
                 showAlert.alert(Alert.AlertType.INFORMATION, "Your account has been successfully deleted!");
-
                 deleteCtn.setVisible(false);
                 opacityPane.setVisible(false);
-
                 redirectToLoginPage();
             } else {
                 showAlert.alert(Alert.AlertType.ERROR, "No account is selected to delete.");
