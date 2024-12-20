@@ -1,5 +1,6 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
+import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.DevicesMapper;
 import com.example.projectpartbprogram_group39.DAO.ClassMapper.TraineeMapper;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
@@ -57,6 +58,8 @@ public class settingsController implements Initializable {
     private Timer timer;
     private static DaoInterface<Trainee> traineeDao = new DaoImplement<>("userInfo.txt", new TraineeMapper());
     private static DaoInterface<Devices> deviceDao = new DaoImplement<>("devices.txt",new DevicesMapper());
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         opacityPane.setVisible(false);

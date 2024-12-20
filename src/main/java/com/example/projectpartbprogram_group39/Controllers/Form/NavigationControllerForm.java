@@ -2,27 +2,18 @@ package com.example.projectpartbprogram_group39.Controllers.Form;
 
 import com.example.projectpartbprogram_group39.Controllers.Service.NavigationController;
 import com.example.projectpartbprogram_group39.Models.Devices;
-import com.example.projectpartbprogram_group39.Models.Trainee;
-import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 

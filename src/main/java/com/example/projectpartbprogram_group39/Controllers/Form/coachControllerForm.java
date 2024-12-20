@@ -61,7 +61,6 @@ public class coachControllerForm implements Initializable {
     private Pane opacityPane;
 
     coachController coachService = new coachController();
-    private static final DaoInterface<Coach> coachDao = new DaoImplement<>("coaches.txt", new CoachMapper());
 
     Image coach1 = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/guyCoach_4.png"));
     Image coach2 = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/guyCoach_2.png"));

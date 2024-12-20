@@ -1,5 +1,7 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
+import com.example.projectpartbprogram_group39.Models.Trainee;
+import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.io.IOException;
+
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,6 +40,16 @@ public class feedbackController implements Initializable {
     private ImageView rateBtn4;
     @FXML
     private ImageView rateBtn5;
+    @FXML
+    private Button SF;
+    @FXML
+    private Button SR;
+    @FXML
+    private TextArea feedbackTA;
+    @FXML
+    private TextArea reportTA;
+
+    private String selectedIssue = "";
 
     public String[] issues = {"Chat", "Statistics", "Tasks & Reminders", "My Activities", "Coaches"};
 
@@ -49,6 +62,82 @@ public class feedbackController implements Initializable {
         this.opacityPane = opacityPane;
     }
 
+    Trainee trainee = TraineeSession.getInstance().getCurrentTrainee();
+
+    public void setTrainee(Trainee trainee) {
+        if (trainee.getUsername().equals("Admin") && trainee.getPassword().equals("admin1234")) {
+            if (SF != null) {
+                SF.setVisible(true);
+            }
+            if (SR != null) {
+                SR.setVisible(true);
+            }
+            loadFeedbacksAndReports();
+        } else {
+            if (SF != null) {
+                SF.setVisible(false);
+            }
+            if (SR != null) {
+                SR.setVisible(false);
+            }
+        }
+    }
+
+    public void seeFeedbacks(ActionEvent actionEvent) {
+        openPopup("/com/example/projectpartbprogram_group39/View/getFeedbacks-view.fxml", "See Feedbacks");
+    }
+
+    public void seeReports(ActionEvent actionEvent) {
+        openPopup("/com/example/projectpartbprogram_group39/View/getReports-view.fxml", "See Reports");
+    }
+
+    public void loadFeedbacksAndReports() {
+        try {
+            File feedbackFile = new File("feedback.txt");
+            File reportFile = new File("report.txt");
+
+            if (!feedbackFile.exists() || !reportFile.exists()) {
+                System.out.println("file doesn't exist");
+            }
+
+            StringBuilder feedbackContent = new StringBuilder();
+            StringBuilder reportContent = new StringBuilder();
+
+            try (BufferedReader feedbackReader = new BufferedReader(new FileReader(feedbackFile));
+                 BufferedReader reportReader = new BufferedReader(new FileReader(reportFile))) {
+
+                String line;
+
+                int feedbackCounter = 1;
+                while ((line = feedbackReader.readLine()) != null) {
+                    feedbackContent.append(feedbackCounter).append(". ").append(line).append(System.lineSeparator());
+                    feedbackCounter++;
+                }
+
+                int reportCounter = 1;
+                while ((line = reportReader.readLine()) != null) {
+                    reportContent.append(reportCounter).append(". ").append(line).append(System.lineSeparator());
+                    reportCounter++;
+                }
+            }
+
+            if (feedbackTA != null) {
+                feedbackTA.setText(feedbackContent.toString());
+            } else {
+                System.err.println("feedbackTA is null!");
+            }
+
+            if (reportTA != null) {
+                reportTA.setText(reportContent.toString());
+            } else {
+                System.err.println("reportTA is null!");
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error loading feedbacks or reports: " + e.getMessage());
+        }
+    }
+
     public void goToFeedback(ActionEvent event) {
         openPopup("/com/example/projectpartbprogram_group39/View/generalFeedback-view.fxml", "General Feedback");
     }
@@ -58,28 +147,40 @@ public class feedbackController implements Initializable {
     }
 
     public void thankyouMsg(ActionEvent event) {
-        if(!feedbackText.getText().trim().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Thank You for Your Feedback!", ButtonType.OK);
-            alert.setTitle("Thank You");
-            alert.showAndWait();
-            feedbackText.clear();
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            stage.close();
-        }else{
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Feedback cannot be empty", ButtonType.OK);
+        if (!feedbackText.getText().trim().isEmpty()) {
+            try (BufferedWriter output = new BufferedWriter(new FileWriter("feedback.txt", true))) {
+                String feedback = "User: " + trainee.getUsername()+ " || " + feedbackText.getText();
+                output.write(feedback + System.lineSeparator());
+                loadFeedbacksAndReports();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION,"Thank You for Your Feedback!");
+                alert.setTitle("General Feedback");
+                alert.showAndWait();
+                feedbackText.clear();
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR,"Error saving feedback");
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING,"Feedback cannot be empty");
             alert.showAndWait();
         }
     }
 
-    public void reportMsg(ActionEvent event) {
-        if(!reportTextArea.getText().trim().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Thank You for Your Report!", ButtonType.OK);
-            alert.setTitle("Thank You");
-            alert.showAndWait();
-            reportTextArea.clear();
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            stage.close();
-        }else{
+    public void reportMsg(ActionEvent event) throws IOException {
+        if (!reportTextArea.getText().trim().isEmpty()) {
+            try (BufferedWriter output = new BufferedWriter(new FileWriter("report.txt", true))) {
+                String report = "User: " + trainee.getUsername()+ " || "+ selectedIssue + ", " + reportTextArea.getText();
+                output.write(report + System.lineSeparator());
+                loadFeedbacksAndReports();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION,"Thank You for Your Report!");
+                alert.setTitle("Report");
+                alert.showAndWait();
+                reportTextArea.clear();
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR,"Error saving report");
+            }
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Report cannot be empty", ButtonType.OK);
             alert.showAndWait();
         }
@@ -137,6 +238,9 @@ public class feedbackController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFileName));
             loader.load();
 
+            feedbackController controller = loader.getController();
+            controller.setTrainee(trainee);
+
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.setTitle(title);
@@ -158,8 +262,10 @@ public class feedbackController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setTrainee(trainee);
         if (comb != null) {
             comb.getItems().addAll(issues);
+            comb.setOnAction(event -> selectedIssue = comb.getValue());
         } else {
             System.err.println("ComboBox 'comb' is not initialized. Check your FXML bindings.");
         }

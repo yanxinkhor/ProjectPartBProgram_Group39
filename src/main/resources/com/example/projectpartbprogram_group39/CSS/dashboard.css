@@ -52,3 +52,13 @@
 .chart-series-line{
     -fx-stroke: white
 }
+
+.progress-indicator{
+    -fx-progress-color: #37363b;
+}
+
+
+#foodPane{
+    -fx-background-color: white;
+    -fx-background-radius: 20px 20px 20px 20px;
+}

@@ -6,7 +6,6 @@ import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.Devices;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.TraineeSession;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

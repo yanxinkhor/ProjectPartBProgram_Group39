@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="feedbackPU" prefHeight="408.2" prefWidth="742.7" stylesheets="@../CSS/feedback.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.feedbackController">
+<AnchorPane id="feedbackPU" prefHeight="417.0" prefWidth="756.0" stylesheets="@../CSS/feedback.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectpartbprogram_group39.Controllers.Form.feedbackController">
    <children>
-      <Button id="feedback" layoutX="25.0" layoutY="109.0" mnemonicParsing="false" onAction="#goToFeedback">
+      <Button id="feedback" layoutX="26.0" layoutY="85.0" mnemonicParsing="false" onAction="#goToFeedback">
          <graphic>
             <Pane id="feedbackPane" prefHeight="258.7" prefWidth="311.7">
                <children>
@@ -33,7 +33,7 @@
             </Pane>
          </graphic>
       </Button>
-      <Button id="report" layoutX="394.0" layoutY="109.0" mnemonicParsing="false" onAction="#goToReport">
+      <Button id="report" layoutX="404.0" layoutY="85.0" mnemonicParsing="false" onAction="#goToReport">
          <graphic>
             <Pane id="reporIssuePane" prefHeight="258.7" prefWidth="311.7">
                <children>
@@ -61,5 +61,15 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Text>
+      <Button id="adminBtns" fx:id="SF" layoutX="136.0" layoutY="374.0" mnemonicParsing="false" onAction="#seeFeedbacks" prefHeight="25.0" prefWidth="101.0" stylesheets="@../CSS/feedback.css" text="See feedbacks">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button id="adminBtns" fx:id="SR" layoutX="523.0" layoutY="374.0" mnemonicParsing="false" onAction="#seeReports" prefHeight="25.0" prefWidth="84.0" stylesheets="@../CSS/feedback.css" text="See reports">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
