@@ -51,7 +51,14 @@ public class loginControllerForm {
 
     public void login(ActionEvent e) throws Exception {
         String username = usernameField.getText();
-        String password = passwordField.getText();
+        String password;
+
+        if (passwordField.isVisible()) {
+            password = passwordField.getText();
+        } else {
+            password = passwordTxtField.getText();
+        }
+
 
         if (loginService.validateUser(username, password)) {
             if(username.equals("Admin")){
