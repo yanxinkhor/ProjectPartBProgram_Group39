@@ -62,8 +62,6 @@ public class dashboardController {
 
             for (fitnessGoal goal : goals) {
                 if (goal.getGoalType().equals("Loss Weight")) {
-                    continue;
-                } else if (goal.getGoalType().equals("Loss Weight")) {
                     noGoal.setVisible(false);
                     target = goal.getGoalValue();
                     currentCompletion = target * 0.75;
