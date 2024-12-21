@@ -27,7 +27,7 @@ public class settingController {
         }
     }
 
-    public void updateDeviceConnectionStatus(Devices selectedDevice, List<Devices> devicesList) throws IOException {
+    public void updateDeviceStatus(Devices selectedDevice, List<Devices> devicesList) throws IOException {
         boolean newStatus = !selectedDevice.getIsConnected();
         selectedDevice.setIsConnected(newStatus);
 

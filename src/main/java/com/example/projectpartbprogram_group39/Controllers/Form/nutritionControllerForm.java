@@ -3,6 +3,7 @@ package com.example.projectpartbprogram_group39.Controllers.Form;
 
 import com.example.projectpartbprogram_group39.Controllers.Service.nutritionController;
 import com.example.projectpartbprogram_group39.Models.*;
+import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,9 +46,24 @@ public class nutritionControllerForm {
     @FXML
     public void initialize() throws IOException {
         nutritionControllerLogic.initSuggestMeal(this);
+        checkAdminCredentials();
         displayFoodUI();
         displayPlanUI();
         displayTotNutrition();
+    }
+
+    private void checkAdminCredentials() {
+
+        Trainee trainee = TraineeSession.getInstance().getCurrentTrainee();
+
+        if ("Admin".equals(trainee.getUsername()) && "admin1234".equals(trainee.getPassword())) {
+            adminSave.setVisible(true);
+            adminEdit.setVisible(true);
+        } else {
+
+            adminEdit.setVisible(false);
+            adminSave.setVisible(false);
+        }
     }
 
     public void setMealSuggestionFields(mealSuggestion suggest) {

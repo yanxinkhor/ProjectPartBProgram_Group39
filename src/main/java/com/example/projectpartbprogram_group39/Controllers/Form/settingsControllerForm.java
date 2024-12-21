@@ -103,7 +103,7 @@ public class settingsControllerForm implements Initializable {
             }
 
             if (selectedDevice != null) {
-                controller.updateDeviceConnectionStatus(selectedDevice, devicesList);
+                controller.updateDeviceStatus(selectedDevice, devicesList);
             }
 
             updateButtonStates(devicesList);
