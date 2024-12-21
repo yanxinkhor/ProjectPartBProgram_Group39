@@ -15,6 +15,7 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -63,6 +64,18 @@ public class dashboardControllerForm implements Initializable {
     public Label progressLabel;
     @FXML
     public ProgressIndicator progressIndicator;
+    @FXML
+    public Label mealSuggest;
+    @FXML
+    public Label mealPlan;
+    @FXML
+    public Label noplanLabel;
+    @FXML
+    public Label nosuggestLabel;
+    @FXML
+    public ImageView meal1img;
+    @FXML
+    public ImageView meal2img;
 
     private com.example.projectpartbprogram_group39.Controllers.Service.dashboardController progressDashboard;
 
@@ -85,6 +98,7 @@ public class dashboardControllerForm implements Initializable {
 
         progressDashboard = new com.example.projectpartbprogram_group39.Controllers.Service.dashboardController();
          progressDashboard.displayProgress(steps, calories, goalWeight, progressLabel, progressIndicator, noGoal);
+         progressDashboard.displayMeal(mealSuggest, mealPlan, nosuggestLabel, noplanLabel, meal1img, meal2img);
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> {

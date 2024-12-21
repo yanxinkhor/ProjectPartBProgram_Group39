@@ -279,9 +279,9 @@
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="seeDetailBtn" layoutX="355.0" layoutY="283.0" mnemonicParsing="false" onAction="#seeDetail" styleClass="views" text="See Detail &gt;">
+            <Button id="SDbtn" fx:id="seeDetailBtn" layoutX="346.0" layoutY="283.0" mnemonicParsing="false" onAction="#seeDetail" prefHeight="44.0" prefWidth="143.0" styleClass="views" stylesheets="@../CSS/coaches.css" text="See Detail " textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Button>
             <Label layoutX="300.0" layoutY="342.0" text="*users will be notified an hour before class begins ">
