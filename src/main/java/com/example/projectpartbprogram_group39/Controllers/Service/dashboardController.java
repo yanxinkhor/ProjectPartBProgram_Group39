@@ -61,14 +61,16 @@ public class dashboardController {
             List<fitnessGoal> goals = weeklyGoalDao.getAll();
 
             for (fitnessGoal goal : goals) {
-                if (goal.getGoalType().equals("Loss Weight")) {
+                if (goal.getGoalType().equals("Loss Weight") && goal.getUnit().equals("kg")) {
                     noGoal.setVisible(false);
                     target = goal.getGoalValue();
                     currentCompletion = target * 0.75;
                     goalWeight.setText((int) target + " kg");
                     goalWeight.setStyle("-fx-font-weight: bold;");
                     goalFound = true;
-                } else {
+                }
+
+                if(!goalFound){
                     noGoal.setVisible(true);
                 }
             }

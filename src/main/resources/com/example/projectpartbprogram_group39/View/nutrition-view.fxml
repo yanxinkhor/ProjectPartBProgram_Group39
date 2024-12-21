@@ -184,7 +184,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="ingridientslabel" layoutX="14.0" layoutY="243.0" text="Ingridients List:">
+            <Label fx:id="ingridientslabel" layoutX="14.0" layoutY="243.0" text="Ingredients List:">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
