@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
-import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 public class feedbackController implements Initializable {
@@ -98,7 +97,9 @@ public class feedbackController implements Initializable {
             File reportFile = new File("report.txt");
 
             if (!feedbackFile.exists() || !reportFile.exists()) {
-                System.out.println("file doesn't exist");
+                System.out.println("file does not exist");
+                feedbackFile.createNewFile();
+                reportFile.createNewFile();
             }
 
             StringBuilder feedbackContent = new StringBuilder();
