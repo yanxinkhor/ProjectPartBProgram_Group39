@@ -6,6 +6,7 @@ import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.Devices;
 import com.example.projectpartbprogram_group39.Models.Trainee;
 import com.example.projectpartbprogram_group39.Utils.TraineeSession;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -78,7 +79,7 @@ public class NavigationController {
         }
     }
 
-    public void logOut(javafx.event.ActionEvent e) throws IOException {
+    public void logOut(ActionEvent e) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to logout?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Logout Confirmation");
 

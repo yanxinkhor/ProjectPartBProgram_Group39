@@ -12,8 +12,8 @@ import java.time.LocalDate;
 
 public class addGoalController {
 
-    DaoInterface<fitnessGoal> dailyGoalDao;
-    DaoInterface<fitnessGoal> weeklyGoalDao;
+    private DaoInterface<fitnessGoal> dailyGoalDao;
+    private DaoInterface<fitnessGoal> weeklyGoalDao;
 
     public addGoalController() {
         this.dailyGoalDao = new DaoImplement<>("dailyGoal.txt",new FitnessGoalMapper());

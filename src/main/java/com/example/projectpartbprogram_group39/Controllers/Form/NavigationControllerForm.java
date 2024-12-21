@@ -21,16 +21,16 @@ import java.util.ResourceBundle;
 public class NavigationControllerForm implements Initializable {
 
     @FXML
-    public ImageView profile_img;
+    private ImageView profile_img;
 
     @FXML
     private Label welcomeText;
 
     @FXML
-    public Text displayUsername;
+    private Text displayUsername;
 
     @FXML
-    public Text displayEmail;
+    private Text displayEmail;
 
     @FXML
     private Pane contentPane;
@@ -41,11 +41,11 @@ public class NavigationControllerForm implements Initializable {
     @FXML
     private Label deviceLbl,connectedState;
 
-    private final NavigationController navigationControllerLogic = new NavigationController();
+    private final NavigationController navigationService = new NavigationController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        navigationControllerLogic.initializeUI(contentPane, welcomeText, profile_img, displayUsername, displayEmail);
+        navigationService.initializeUI(contentPane, welcomeText, profile_img, displayUsername, displayEmail);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectpartbprogram_group39/View/dashboard-view.fxml"));
         Parent dashboardView;
         try {
@@ -64,15 +64,15 @@ public class NavigationControllerForm implements Initializable {
 
     public void SwitchAction(ActionEvent e) throws IOException {
         String sourceBtn = ((Button) e.getSource()).getText();
-        navigationControllerLogic.handleSwitchAction(sourceBtn, contentPane, welcomeText);
+        navigationService.handleSwitchAction(sourceBtn, contentPane, welcomeText);
     }
 
     public void logOut(ActionEvent e) throws IOException {
-        navigationControllerLogic.logOut(e);
+        navigationService.logOut(e);
     }
 
     public void displayDeviceUI() throws IOException {
-        List<Devices> list = navigationControllerLogic.getAllDeviceList();
+        List<Devices> list = navigationService.getAllDeviceList();
         boolean anyDeviceConnected = false;
         for(Devices device:list){
             if (device.getDevicesName().equals("Apple Watch Series 9")) {
