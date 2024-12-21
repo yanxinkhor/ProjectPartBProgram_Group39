@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class nutritionControllerForm {
 
@@ -46,13 +47,13 @@ public class nutritionControllerForm {
     @FXML
     public void initialize() throws IOException {
         nutritionControllerLogic.initSuggestMeal(this);
-        checkAdminCredentials();
+        checkAdmin();
         displayFoodUI();
         displayPlanUI();
         displayTotNutrition();
     }
 
-    private void checkAdminCredentials() {
+    private void checkAdmin() {
 
         Trainee trainee = TraineeSession.getInstance().getCurrentTrainee();
 
@@ -66,11 +67,15 @@ public class nutritionControllerForm {
         }
     }
 
-    public void setMealSuggestionFields(mealSuggestion suggest) {
-        suggestMealName.setText(suggest.getFoodName());
-        calCountField.setText(String.valueOf(suggest.getCalories()));
-        proteinField.setText(String.valueOf(suggest.getProtein()));
-        fatField.setText(String.valueOf(suggest.getFat()));
+    public void setMealSuggestionFields() throws IOException {
+        List<mealSuggestion> mealSuggestions = nutritionControllerLogic.getAllMealSuggest();
+        if (!mealSuggestions.isEmpty()) {
+            mealSuggestion suggestion = mealSuggestions.get(0); // Assuming you only have one suggestion
+            suggestMealName.setText( suggestion.getFoodName());
+            calCountField.setText(String.valueOf( suggestion.getCalories()));
+            proteinField.setText(String.valueOf( suggestion.getProtein()));
+            fatField.setText(String.valueOf( suggestion.getFat()));
+        }
     }
 
     @FXML

@@ -52,8 +52,8 @@ public class settingController {
         deviceDao.update(device, device);
     }
 
-    public void deleteCurrentTrainee(Trainee currentTrainee) throws IOException {
-        traineeDao.delete(currentTrainee);
+    public void deleteCurrentTrainee(Trainee curTrainee) throws IOException {
+        traineeDao.delete(curTrainee);
     }
 
 }

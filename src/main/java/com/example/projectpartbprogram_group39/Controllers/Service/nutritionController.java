@@ -32,7 +32,11 @@ public class nutritionController {
         if (mealSuggest.isEmpty()) {
             mealSuggestDao.add(suggest);
         }
-        formController.setMealSuggestionFields(suggest);
+        formController.setMealSuggestionFields();
+    }
+
+    public List<mealSuggestion> getAllMealSuggest() throws IOException {
+        return mealSuggestDao.getAll();
     }
 
 
