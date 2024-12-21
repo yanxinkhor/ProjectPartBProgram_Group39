@@ -12,8 +12,8 @@ import java.util.List;
 
 public class ProgressController {
     private DaoInterface<fitnessGoal> dailyGoalDao = new DaoImplement<>("dailyGoal.txt", new FitnessGoalMapper());
-    private double CalBurnedTarget = 500;
-    private double lossWeightTarget = 5;
+    private double CalBurnedTarget = 0;
+    private double lossWeightTarget = 0;
 
     public void traineeInfo(double height, double weight, int age, Label weightLbl, Label heightLbl, Label yearLbl,
                             Label bmiValue, Label classLabel) {
@@ -60,6 +60,7 @@ public class ProgressController {
                 if (selectedGoal.equalsIgnoreCase(goal.getGoalType())) {
                     target = goal.getGoalValue();
 
+
                     if (selectedGoal.equals("Calories Burned")) {
                         currentCompletion = target * 0.90;
                     } else if (selectedGoal.equals("Loss Weight")) {
@@ -71,6 +72,7 @@ public class ProgressController {
                 }
             }
 
+
             if (!goalFound) {
                 if (selectedGoal.equals("Calories Burned")) {
                     target = CalBurnedTarget;
@@ -81,6 +83,31 @@ public class ProgressController {
                 }
             }
 
+
+            if (target == 0) {
+                progressIndicator.setProgress(0);
+                valueCompleted.setText("0");
+                completePercentage.setText("0%");
+                targetGoal.setText("Goal: Not Set");
+                unitLabel.setText("");
+                return;
+            }
+
+
+            double progressCompletion = (currentCompletion / target) * 100;
+            progressIndicator.setProgress(progressCompletion / 100);
+
+            valueCompleted.setText(String.valueOf(currentCompletion));
+            completePercentage.setText(progressCompletion + "%");
+
+            if (selectedGoal.equals("Calories Burned")) {
+                targetGoal.setText("Goal: " + target + " kcal");
+                unitLabel.setText("kcal");
+            } else if (selectedGoal.equals("Loss Weight")) {
+                targetGoal.setText("Goal: " + target + " kg");
+                unitLabel.setText("kg");
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +116,7 @@ public class ProgressController {
         progressIndicator.setProgress(progressCompletion / 100);
 
         valueCompleted.setText(String.valueOf(currentCompletion));
-        completePercentage.setText(progressCompletion + "%");
+        completePercentage.setText((int)progressCompletion + "%");
 
         if (selectedGoal.equals("Calories Burned")) {
             targetGoal.setText("Goal: " + target + " kcal");

@@ -260,6 +260,9 @@ public class settingsControllerForm implements Initializable {
                 showAlert.alert(Alert.AlertType.INFORMATION, "Your account has been successfully deleted!");
                 deleteCtn.setVisible(false);
                 opacityPane.setVisible(false);
+                Stage settingsStage = (Stage) deleteCtn.getScene().getWindow();
+                settingsStage.close();
+
                 redirectToLoginPage();
             } else {
                 showAlert.alert(Alert.AlertType.ERROR, "No account is selected to delete.");

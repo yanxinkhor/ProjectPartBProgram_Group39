@@ -53,8 +53,6 @@ public class progressControllerForm{
     private Label averageStepLbl;
 
     private final String[] progressGoal = {"Calories Burned", "Loss Weight"};
-    private double CalBurnedTarget = 500;
-    private double lossWeightTarget = 5;
     private Random random = new Random();
     private int currentHeartRate;
     private ProgressController progressController;
