@@ -23,7 +23,7 @@ public class nutritionController {
     private static DaoInterface<mealSuggestion> mealSuggestDao = new DaoImplement<>("mealSuggest.txt", new MealSuggestMapper());
     private static DaoInterface<Meal> mealDao = new DaoImplement<>("meal.txt", new MealMapper());
 
-    mealSuggestion suggest;
+    private mealSuggestion suggest;
 
     public void initSuggestMeal(nutritionControllerForm formController) throws IOException {
         suggest = new mealSuggestion("Avocado wrap", 350, 16, 18);

@@ -254,7 +254,7 @@
                   </HBox>
                   <HBox fx:id="thirdDeviceCtn" layoutX="24.0" layoutY="235.0" prefHeight="43.0" prefWidth="429.0" styleClass="device-ctn" visible="false">
                      <children>
-                        <Label fx:id="device21" alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="208.0" text="Apple Watch Ultra 2">
+                        <Label fx:id="device21" alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="208.0" text="Apple Watch Series 10">
                            <font>
                               <Font size="18.0" />
                            </font>
