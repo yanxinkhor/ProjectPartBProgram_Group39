@@ -82,7 +82,16 @@ public class nutritionController {
             double fat = Double.parseDouble(updatedFat);
 
             mealSuggestion updatedSuggestion = new mealSuggestion(updatedMealName, calories, protein, fat);
-            mealSuggestDao.update(suggest, updatedSuggestion);
+
+            List<mealSuggestion> mealSuggestions = mealSuggestDao.getAll();
+            if (!mealSuggestions.isEmpty()) {
+                mealSuggestion existingSuggestion = mealSuggestions.get(0);
+                mealSuggestDao.update(existingSuggestion, updatedSuggestion);
+            } else {
+                mealSuggestDao.add(updatedSuggestion);
+            }
+
+
         } catch (NumberFormatException ex) {
             throw new Exception("Please enter valid numbers");
         }
