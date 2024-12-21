@@ -38,6 +38,10 @@ public class signupControllerForm {
     private final signupController signupService = new signupController();
     private final Map<String, Boolean> visibleMapping = new HashMap<>();
 
+    public void initialize(){
+        keyPressedHandler();
+    }
+
     public void signup(ActionEvent e) throws IOException{
         String username = txtUsername.getText();
         String ageString = txtAge.getText();
@@ -46,8 +50,8 @@ public class signupControllerForm {
         String gender = femaleRadioBtn.isSelected() ? "Female" : maleRadioBtn.isSelected() ? "Male" : "";
         String heightString = txtHeight.getText();
         String weightString = txtWeight.getText();
-        String password = txtPassword.getText();
-        String passwordConfirmed = txtPasswordConfirmed.getText();
+        String password = txtPassword.isVisible() ? txtPassword.getText() : txtPasswordVisible.getText();
+        String passwordConfirmed = txtPasswordConfirmed.isVisible() ? txtPasswordConfirmed.getText() : txtVisiblePasswordConfirmed.getText();
 
         if(signupService.validateSignupInfo(username,ageString,phoneNoString,email,gender,heightString,
                 weightString,password,passwordConfirmed)){
@@ -95,6 +99,44 @@ public class signupControllerForm {
         stage.setScene(loginScene);
         stage.show();
 
+    }
+
+    public void keyPressedHandler(){
+        txtUsername.setOnKeyPressed(event->{
+            if("Enter".equals(event.getCode().toString())){
+                txtAge.requestFocus();
+            }
+        });
+
+        txtAge.setOnKeyPressed(event -> {
+            if("Enter".equals(event.getCode().toString())){
+                txtPhoneNo.requestFocus();
+            }
+        });
+
+        txtPhoneNo.setOnKeyPressed(event->{
+            if("Enter".equals(event.getCode().toString())){
+                txtEmail.requestFocus();
+            }
+        });
+
+        txtEmail.setOnKeyPressed(event->{
+            if("Enter".equals(event.getCode().toString())){
+                txtHeight.requestFocus();
+            }
+        });
+
+        txtHeight.setOnKeyPressed(event->{
+            if("Enter".equals(event.getCode().toString())){
+                txtWeight.requestFocus();
+            }
+        });
+
+        txtPassword.setOnKeyPressed(event->{
+            if("Enter".equals(event.getCode().toString())){
+                txtPasswordConfirmed.requestFocus();
+            }
+        });
     }
 
 }
