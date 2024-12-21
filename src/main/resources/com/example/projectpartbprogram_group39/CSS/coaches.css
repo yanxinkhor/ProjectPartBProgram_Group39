@@ -40,4 +40,8 @@
     -fx-text-fill:red;
 }
 
+#SDbtn{
+    -fx-background-color: #4a642f;
+    -fx-background-radius: 20px 20px 20px 20px;
+}
 
