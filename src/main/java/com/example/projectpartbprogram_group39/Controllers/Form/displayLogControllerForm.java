@@ -1,12 +1,7 @@
 package com.example.projectpartbprogram_group39.Controllers.Form;
 
 import com.example.projectpartbprogram_group39.Controllers.Service.displayLogController;
-import com.example.projectpartbprogram_group39.DAO.ClassMapper.WorkoutMapper;
-import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
-import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
-import com.example.projectpartbprogram_group39.Models.Meal;
 import com.example.projectpartbprogram_group39.Models.Workouts;
-import com.example.projectpartbprogram_group39.Models.fitnessGoal;
 import com.example.projectpartbprogram_group39.Utils.showAlert;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,18 +17,11 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class displayLogControllerForm implements Initializable {
 
-    @FXML
-    private Button searchBtn;
 
     @FXML TextField searchBar;
 
