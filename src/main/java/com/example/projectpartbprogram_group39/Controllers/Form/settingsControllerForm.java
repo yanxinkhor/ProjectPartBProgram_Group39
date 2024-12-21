@@ -211,19 +211,6 @@ public class settingsControllerForm implements Initializable {
         opacityPane.setVisible(false);
     }
 
-    public void deleteAccountPU(ActionEvent e) {
-        Trainee currentTrainee = TraineeSession.getInstance().getCurrentTrainee();
-        if (currentTrainee != null) {
-            if ("Admin".equals(currentTrainee.getUsername()) && "admin1234".equals(currentTrainee.getPassword())) {
-                showAlert.alert(Alert.AlertType.ERROR, "You cannot delete the Admin account.");
-                return;
-            }
-        }
-        opacityPane.setVisible(true);
-        deleteCtn.setVisible(true);
-
-    }
-
     public void sendFeedbackPU(ActionEvent e) {
         opacityPane.setVisible(true);
         openPopup("/com/example/projectpartbprogram_group39/View/feedback-view.fxml");
@@ -244,6 +231,20 @@ public class settingsControllerForm implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void deleteAccountPU(ActionEvent e) {
+        Trainee currentTrainee = TraineeSession.getInstance().getCurrentTrainee();
+        if (currentTrainee != null) {
+            if ("Admin".equals(currentTrainee.getUsername()) && "admin1234".equals(currentTrainee.getPassword())) {
+                showAlert.alert(Alert.AlertType.ERROR, "You cannot delete the Admin account.");
+                return;
+            }
+        }
+        opacityPane.setVisible(true);
+        deleteCtn.setVisible(true);
+
     }
 
     public void cancelDelete(ActionEvent e) {

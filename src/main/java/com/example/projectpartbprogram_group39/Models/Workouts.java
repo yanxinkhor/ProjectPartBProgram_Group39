@@ -27,16 +27,8 @@ public class Workouts {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public String getCaloriesBurned() {
+        return caloriesBurned;
     }
 
     public double getValue() {
@@ -47,37 +39,21 @@ public class Workouts {
         this.value = value;
     }
 
-    public int getFrequency() {
-        return frequency;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setFrequency(int frequency) {
-        this.frequency = frequency;
+    public int getFrequency() {
+        return frequency;
     }
 
     public String getBeginDate() {
         return beginDate;
     }
 
-    public void setBeginDate(String beginDate) {
-        this.beginDate = beginDate;
-    }
-
-    public String getCaloriesBurned() {
-        return caloriesBurned;
-    }
-
-    public void setCaloriesBurned(String caloriesBurned) {
-        this.caloriesBurned = caloriesBurned;
-
-    }
 
     public String getImgUrl() {
         return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
     }
 
     @Override

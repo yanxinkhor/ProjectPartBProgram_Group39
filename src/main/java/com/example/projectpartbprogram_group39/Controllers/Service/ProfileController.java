@@ -6,7 +6,6 @@ import com.example.projectpartbprogram_group39.DAO.genericDao.DaoImplement;
 import com.example.projectpartbprogram_group39.DAO.genericDao.DaoInterface;
 import com.example.projectpartbprogram_group39.Models.Coach;
 import com.example.projectpartbprogram_group39.Models.Trainee;
-import com.example.projectpartbprogram_group39.Models.fitnessGoal;
 import com.example.projectpartbprogram_group39.Utils.AESEncryption;
 import com.example.projectpartbprogram_group39.Utils.TraineeSession;
 

@@ -56,12 +56,6 @@ public class feedbackController implements Initializable {
     private final javafx.scene.image.Image filledStar = new javafx.scene.image.Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/lightStar.png"));
     private final javafx.scene.image.Image emptyStar = new Image(getClass().getResourceAsStream("/com/example/projectpartbprogram_group39/Images/noStar.png"));
 
-
-    @FXML
-    public void setOpacityPane(Pane opacityPane) {
-        this.opacityPane = opacityPane;
-    }
-
     Trainee trainee = TraineeSession.getInstance().getCurrentTrainee();
 
     public void setTrainee(Trainee trainee) {

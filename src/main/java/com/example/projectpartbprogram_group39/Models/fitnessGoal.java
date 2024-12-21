@@ -1,8 +1,5 @@
 package com.example.projectpartbprogram_group39.Models;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class fitnessGoal {
     private String goalType;
@@ -47,10 +44,6 @@ public class fitnessGoal {
 
     public String getTimeFrame() {
         return timeFrame;
-    }
-
-    public void setTimeFrame(String timeFrame) {
-        this.timeFrame = timeFrame;
     }
 
     public String getStartDate() {

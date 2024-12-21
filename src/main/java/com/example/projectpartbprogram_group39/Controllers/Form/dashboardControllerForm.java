@@ -26,8 +26,6 @@ import java.util.ResourceBundle;
 
 public class dashboardControllerForm implements Initializable {
 
-
-    private String gender;
     @FXML
     public Text usernameT;
     @FXML

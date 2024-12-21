@@ -42,11 +42,11 @@ public class nutritionControllerForm {
     @FXML
     private TextArea listArea;
 
-    private nutritionController nutritionControllerLogic = new nutritionController();
+    private final nutritionController nutritionService = new nutritionController();
 
     @FXML
     public void initialize() throws IOException {
-        nutritionControllerLogic.initSuggestMeal(this);
+        nutritionService.initSuggestMeal(this);
         checkAdmin();
         displayFoodUI();
         displayPlanUI();
@@ -68,9 +68,9 @@ public class nutritionControllerForm {
     }
 
     public void setMealSuggestionFields() throws IOException {
-        List<mealSuggestion> mealSuggestions = nutritionControllerLogic.getAllMealSuggest();
+        List<mealSuggestion> mealSuggestions = nutritionService.getAllMealSuggest();
         if (!mealSuggestions.isEmpty()) {
-            mealSuggestion suggestion = mealSuggestions.get(0); // Assuming you only have one suggestion
+            mealSuggestion suggestion = mealSuggestions.get(0);
             suggestMealName.setText( suggestion.getFoodName());
             calCountField.setText(String.valueOf( suggestion.getCalories()));
             proteinField.setText(String.valueOf( suggestion.getProtein()));
@@ -90,12 +90,12 @@ public class nutritionControllerForm {
 
     @FXML
     private void displayFoodUI() throws IOException {
-        nutritionControllerLogic.displayFoodUI(foodName1, foodName2, foodName3, foodCal1, foodCal2, foodCal3);
+        nutritionService.displayFoodUI(foodName1, foodName2, foodName3, foodCal1, foodCal2, foodCal3);
     }
 
     @FXML
     private void displayTotNutrition() throws IOException {
-        nutritionControllerLogic.displayTotNutrition(dailycalories, proVal, dailyfat);
+        nutritionService.displayTotNutrition(dailycalories, proVal, dailyfat);
     }
 
     @FXML
@@ -109,7 +109,7 @@ public class nutritionControllerForm {
     @FXML
     public void saveMealSuggest(ActionEvent e) {
         try {
-            nutritionControllerLogic.saveMealSuggest(suggestMealName.getText(), calCountField.getText(), proteinField.getText(), fatField.getText());
+            nutritionService.saveMealSuggest(suggestMealName.getText(), calCountField.getText(), proteinField.getText(), fatField.getText());
             showAlert.alert(Alert.AlertType.INFORMATION, "Updated suggestion successfully");
         } catch (Exception ex) {
             showAlert.alert(Alert.AlertType.ERROR, "Error: " + ex.getMessage());
@@ -118,7 +118,7 @@ public class nutritionControllerForm {
 
     @FXML
     public void addMealPlanCtn(ActionEvent e) throws IOException {
-        nutritionControllerLogic.addMealPlanCtn(addMealPlanCtn);
+        nutritionService.addMealPlanCtn(addMealPlanCtn);
     }
 
     @FXML
@@ -129,7 +129,7 @@ public class nutritionControllerForm {
     @FXML
     public void addMealPLan(ActionEvent e) {
         try {
-            nutritionControllerLogic.addMealPlan(MealNameCtnField.getText(), calCountCtnField.getText(), proCtnField.getText(), fatCtnField.getText(), listArea.getText());
+            nutritionService.addMealPlan(MealNameCtnField.getText(), calCountCtnField.getText(), proCtnField.getText(), fatCtnField.getText(), listArea.getText());
             clear(e);
             addMealPlanCtn.setVisible(false);
             displayPlanUI();
@@ -140,7 +140,7 @@ public class nutritionControllerForm {
 
     @FXML
     private void displayPlanUI() throws IOException {
-        nutritionControllerLogic.displayPlanUI(mealPlanName, mealPlanCalories, mealPlanProtein, mealPlanFat, mealPlanIngridients);
+        nutritionService.displayPlanUI(mealPlanName, mealPlanCalories, mealPlanProtein, mealPlanFat, mealPlanIngridients);
     }
 
     @FXML
@@ -154,7 +154,7 @@ public class nutritionControllerForm {
     @FXML
     public void deletePlan(ActionEvent e) {
         try {
-            nutritionControllerLogic.deletePlan();
+            nutritionService.deletePlan();
             displayPlanUI();
             displayTotNutrition();
         } catch (Exception ex) {
